@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--beige);
+  overflow-y: scroll
+}
+
+:root {
+  --rouge: #E07A5F;
+  --noir: #3D405B;
+  --beige: #F4F1DE;
+  --vert: #81B29A;
+  --jaune: #F2CC8F;
+
+  --titleFont: "Lobster", 'Arial', sans-serif;
+  --textFont: "Open Sans", sans-serif;
+
+}
+
+.bgRouge {
+  background-color: var(--rouge);
+}
+.bgNoir {
+  background-color: var(--noir);
+}
+.bgBeige {
+  background-color: var(--beige);
+}
+.bgVert {
+  background-color: var(--vert);
+}
+.bgJaune {
+  background-color: var(--jaune);
+}
+
+.rouge {
+  color: var(--rouge);
+}
+.noir {
+ color: var(--noir);
+}
+.beige {
+  color: var(--beige);
+}
+.vert {
+  color: var(--vert);
+}
+.jaune {
+  color: var(--jaune);
+}
+
+.titleFont{
+  font-family: var(--titleFont);
+}
+
+.textFont{
+  font-family: var(--textFont);
+}
+
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navOpen {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.fade:not(.show) {
+  opacity: 1;
+}
+
+.fade {
+  transition: opacity 0.3s ;
+}
+
+.fade.out {
+  opacity: 0;
+}
+.logo{
+  width: 70px;
+}
+
+.heightNav {
+  height: 100px;
+}
+
+
+
+.effectNone:active:focus{
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.effectNone:active{
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.effectNone:focus{
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.effet{
+  width: 20vw;
+  animation: rotation 20s infinite linear;
+}
+
+.marginEffet{
+  margin-top: 4vw;
+  margin-bottom: 3vw;
+
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.video{
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 45vh;
+  display: block;
+  overflow: hidden;
+  object-fit: cover;
+  filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6) hue-rotate(-10deg) grayscale(0.2);
+
+}
+
+.top0{
+  top: 0;
+}
+
+.banner {
+  width: 100%;
+  display: block;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.bandeau {
+  width: 100%;
+  margin-top: -22px;
+  position: relative;
+}
+.bouton{
+  border: none;
+  min-width: 11rem;
+  border-radius: 300px;
+  margin: 0 auto;
+  box-shadow: 6px 6px var(--noir);
+  transition: transform 0.3s, box-shadow 0.3s ;
+}
+.textSize{
+  font-size: 1.5rem;
+}
+.bouton:hover {
+  box-shadow: 3px 3px var(--noir);
+  transform: translateX(3px) translateY(3px);
+}
+
+.pVideo{
+  text-shadow: 3px 3px var(--noir);
+}
+
+.footer{
+  width: 100vw;
+  margin: 0;
+}
+
+.social {
+  height: 5rem;
+  width: 5em;
+  margin: 20px;
+  color: var(--noir);
+
+}
+.artistes{
+  font-size: 1rem;
+  text-shadow: 1px 1px var(--noir);
+
+}
+
+.transitionColor{
+  transition: color 0.4s;
+}
+
+.transitionColor:hover{
+
+  color: var(--jaune);
+}
+.socialContent{
+  height: 10rem;
+}
+
+.titleSize{
+  font-size: 1.9rem;
+}
+
+@media screen and (min-width: 768px) {
+  .effet{
+    width: 16vw;
+  }
+  .artistes{
+    font-size: 1.4rem;
+  }
+  
+  .marginEffet{
+    margin-top: 5vw;
+  }
+  .logo{
+    width: 80px;
+  }
+
+  .bandeau {
+    margin-top: -35px;
+  }
+  .textSize{
+    font-size: 1.8rem;
+  }
+  .video{
+    height: 55vh;
+  }
+
+  .titleSize{
+    font-size: 2.6rem;
+  }
+}
+
+@media screen and (min-width: 992px){
+  .video{
+    height: 72vh;
+  }
+
+  .artistes{
+    font-size: 1.4rem;
+  }
+
+  .titleSize{
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+
+    .effet{
+      width: 13vw;
+  
+    }
+    
+    .marginEffet{
+      margin-top: 6vw;
+    
+    }
+    .logo{
+      width: 90px;
+    }
+
+    .bandeau {
+      margin-top: -70px;
+    }
+    .textSize{
+      font-size: 2.5rem;
+    }
+    .titleSize{
+      font-size: 3.8rem;
+    }
+    .artistes{
+      font-size: 1.6rem;
+    }
+}
+
+

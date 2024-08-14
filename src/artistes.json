@@ -1,0 +1,258 @@
+[
+    {
+      "name": "Eels",
+      "date": "2024-09-04",
+      "time": "18:00",
+      "stage": "Echo Valley",
+      "genre": "Alternative Rock",
+      "image": "",
+      "description": "Eels is an American rock band, known for their eclectic style and deeply personal lyrics.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Red Hot Chili Peppers",
+      "date": "2024-09-04",
+      "time": "20:00",
+      "stage": "Sunset Boulevard",
+      "genre": "Funk Rock",
+      "image": "",
+      "description": "Red Hot Chili Peppers are an American rock band that fuses funk and rock with a distinctive California vibe.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Aupinard",
+      "date": "2024-09-05",
+      "time": "16:00",
+      "stage": "Harmony Haven",
+      "genre": "Indie Rock",
+      "image": "",
+      "description": "Aupinard is an emerging indie rock band, known for their melodic tunes and introspective lyrics.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Luidji",
+      "date": "2024-09-05",
+      "time": "18:00",
+      "stage": "Starlight Stage",
+      "genre": "Hip-Hop",
+      "image": "",
+      "description": "Luidji is a French rapper whose introspective lyrics and unique sound have made him a standout in the French hip-hop scene.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Smash Mouth",
+      "date": "2024-09-06",
+      "time": "19:00",
+      "stage": "Echo Valley",
+      "genre": "Alternative Rock",
+      "image": "",
+      "description": "Smash Mouth is an American rock band best known for their catchy pop-infused alternative rock hits.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Lenny Kravitz",
+      "date": "2024-09-06",
+      "time": "21:00",
+      "stage": "Sunset Boulevard",
+      "genre": "Rock",
+      "image": "",
+      "description": "Lenny Kravitz is an American singer-songwriter who blends rock, soul, and funk into his distinctive sound.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "System Of A Down",
+      "date": "2024-09-07",
+      "time": "20:00",
+      "stage": "Wanderlust Woods",
+      "genre": "Metal",
+      "image": "",
+      "description": "System Of A Down is an Armenian-American metal band known for their politically charged lyrics and unique sound.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Foo Fighters",
+      "date": "2024-09-07",
+      "time": "22:00",
+      "stage": "Sunset Boulevard",
+      "genre": "Rock",
+      "image": "",
+      "description": "Foo Fighters is an American rock band formed by Dave Grohl, known for their powerful performances and anthemic rock songs.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Radiohead",
+      "date": "2024-09-08",
+      "time": "19:00",
+      "stage": "Starlight Stage",
+      "genre": "Alternative Rock",
+      "image": "",
+      "description": "Radiohead is an English rock band that has been pushing the boundaries of rock music with their experimental approach.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Royal Blood",
+      "date": "2024-09-08",
+      "time": "21:00",
+      "stage": "Echo Valley",
+      "genre": "Hard Rock",
+      "image": "",
+      "description": "Royal Blood is a British rock duo known for their powerful, bass-driven sound and energetic live performances.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Imagine Dragons",
+      "date": "2024-09-08",
+      "time": "23:00",
+      "stage": "Sunset Boulevard",
+      "genre": "Pop Rock",
+      "image": "",
+      "description": "Imagine Dragons is an American pop rock band known for their anthemic hits and dynamic live shows.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Skip the Use",
+      "date": "2024-09-06",
+      "time": "17:00",
+      "stage": "Harmony Haven",
+      "genre": "Electro Rock",
+      "image": "",
+      "description": "Skip the Use is a French electro rock band known for their high-energy performances and infectious rhythms.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Green Day",
+      "date": "2024-09-07",
+      "time": "19:00",
+      "stage": "Wanderlust Woods",
+      "genre": "Punk Rock",
+      "image": "",
+      "description": "Green Day is an American punk rock band that has been a major influence on the punk scene since the early '90s.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "The Offspring",
+      "date": "2024-09-07",
+      "time": "17:00",
+      "stage": "Echo Valley",
+      "genre": "Punk Rock",
+      "image": "",
+      "description": "The Offspring is an American punk rock band known for their catchy hooks and rebellious lyrics.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Muse",
+      "date": "2024-09-08",
+      "time": "22:00",
+      "stage": "Sunset Boulevard",
+      "genre": "Alternative Rock",
+      "image": "",
+      "description": "Muse is a British rock band known for their epic soundscapes and theatrical live performances.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Yamé",
+      "date": "2024-09-05",
+      "time": "15:00",
+      "stage": "Harmony Haven",
+      "genre": "Indie Pop",
+      "image": "",
+      "description": "Yamé is an up-and-coming indie pop artist known for her ethereal vocals and catchy melodies.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    },
+    {
+      "name": "Franz Ferdinand",
+      "date": "2024-09-06",
+      "time": "21:00",
+      "stage": "Wanderlust Woods",
+      "genre": "Indie Rock",
+      "image": "",
+      "description": "Franz Ferdinand is a Scottish indie rock band known for their danceable rock music and witty lyrics.",
+      "social_links": {
+        "website": "",
+        "facebook": "",
+        "twitter": "",
+        "instagram": ""
+      }
+    }
+  ]
+  
