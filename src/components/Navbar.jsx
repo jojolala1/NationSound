@@ -5,6 +5,9 @@ import Fade from "./Fade";
 import logo from '../../images/logo.svg'
 import redWave from '../../images/redWave.svg';
 import yellowWave2 from '../../images/yellowWave2.svg';
+import yellowWave3 from '../../images/yellowWave3.svg';
+import { NavLink } from "react-router-dom";
+
 
 
 export default function Navbar() {
@@ -14,12 +17,16 @@ export default function Navbar() {
     const toggle = () => setOpen((o) => !o);
     return (
         <div className="position-relative">
+
             <nav className="navbar navbar-expand-lg bgRouge heightNav">
                 <div className="container-fluid">
                     <a className=" border border-0 effectNone  z-3" onClick={toggle}>
                         <i className="bi bi-list beige display-2 transitionColor"></i>
                     </a>
-                    <a className="navbar-brand position-absolute start-50 translate-middle-x text-center z-2" href="#"><img className="logo " src={logo} alt="" /></a>
+                    <NavLink className="navbar-brand position-absolute start-50 translate-middle-x text-center z-2"  aria-current="page" to="/">
+                        <img className="logo " src={logo} alt="logo" />
+                    </NavLink>
+
                 </div>
             </nav>
             <div className="bandeau">

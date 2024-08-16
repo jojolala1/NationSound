@@ -1,11 +1,11 @@
 [
     {
       "name": "Eels",
-      "date": "2024-09-04",
+      "date": "Mercredi 04 septembre",
       "time": "18:00",
       "stage": "Echo Valley",
       "genre": "Alternative Rock",
-      "image": "",
+      "image": "../../images/Eels.webp",
       "description": "Eels is an American rock band, known for their eclectic style and deeply personal lyrics.",
       "social_links": {
         "website": "",
@@ -16,11 +16,11 @@
     },
     {
       "name": "Red Hot Chili Peppers",
-      "date": "2024-09-04",
+      "date": "Mercredi 04 septembre",
       "time": "20:00",
       "stage": "Sunset Boulevard",
       "genre": "Funk Rock",
-      "image": "",
+      "image": "../../images/redHotChiliPeppers.webp",
       "description": "Red Hot Chili Peppers are an American rock band that fuses funk and rock with a distinctive California vibe.",
       "social_links": {
         "website": "",
@@ -31,11 +31,11 @@
     },
     {
       "name": "Aupinard",
-      "date": "2024-09-05",
+      "date": "Jeudi 05 septembre",
       "time": "16:00",
       "stage": "Harmony Haven",
-      "genre": "Indie Rock",
-      "image": "",
+      "genre": "Bossa Nova",
+      "image": "../../images/aupinard.webp",
       "description": "Aupinard is an emerging indie rock band, known for their melodic tunes and introspective lyrics.",
       "social_links": {
         "website": "",
@@ -46,11 +46,11 @@
     },
     {
       "name": "Luidji",
-      "date": "2024-09-05",
+      "date": "Jeudi 05 septembre",
       "time": "18:00",
       "stage": "Starlight Stage",
       "genre": "Hip-Hop",
-      "image": "",
+      "image": "../../images/luidji.webp",
       "description": "Luidji is a French rapper whose introspective lyrics and unique sound have made him a standout in the French hip-hop scene.",
       "social_links": {
         "website": "",
@@ -61,11 +61,11 @@
     },
     {
       "name": "Smash Mouth",
-      "date": "2024-09-06",
+      "date": "Vendredi 06 septembre",
       "time": "19:00",
       "stage": "Echo Valley",
       "genre": "Alternative Rock",
-      "image": "",
+      "image": "../../images/smashMouth.webp",
       "description": "Smash Mouth is an American rock band best known for their catchy pop-infused alternative rock hits.",
       "social_links": {
         "website": "",
@@ -76,11 +76,11 @@
     },
     {
       "name": "Lenny Kravitz",
-      "date": "2024-09-06",
+      "date": "Vendredi 06 septembre",
       "time": "21:00",
       "stage": "Sunset Boulevard",
       "genre": "Rock",
-      "image": "",
+      "image": "../../images/LennyKravitz.webp",
       "description": "Lenny Kravitz is an American singer-songwriter who blends rock, soul, and funk into his distinctive sound.",
       "social_links": {
         "website": "",
@@ -91,11 +91,11 @@
     },
     {
       "name": "System Of A Down",
-      "date": "2024-09-07",
+      "date": "Samedi 07 septembre",
       "time": "20:00",
       "stage": "Wanderlust Woods",
       "genre": "Metal",
-      "image": "",
+      "image": "../../images/systemOfADown.webp",
       "description": "System Of A Down is an Armenian-American metal band known for their politically charged lyrics and unique sound.",
       "social_links": {
         "website": "",
@@ -106,11 +106,11 @@
     },
     {
       "name": "Foo Fighters",
-      "date": "2024-09-07",
+      "date": "Samedi 07 septembre",
       "time": "22:00",
       "stage": "Sunset Boulevard",
       "genre": "Rock",
-      "image": "",
+      "image": "../../images/fooFighters.webp",
       "description": "Foo Fighters is an American rock band formed by Dave Grohl, known for their powerful performances and anthemic rock songs.",
       "social_links": {
         "website": "",
@@ -121,11 +121,11 @@
     },
     {
       "name": "Radiohead",
-      "date": "2024-09-08",
+      "date": "Dimanche 08 septembre",
       "time": "19:00",
       "stage": "Starlight Stage",
       "genre": "Alternative Rock",
-      "image": "",
+      "image": "../../images/radiohead.webp",
       "description": "Radiohead is an English rock band that has been pushing the boundaries of rock music with their experimental approach.",
       "social_links": {
         "website": "",
@@ -136,11 +136,11 @@
     },
     {
       "name": "Royal Blood",
-      "date": "2024-09-08",
+      "date": "Dimanche 08 septembre",
       "time": "21:00",
       "stage": "Echo Valley",
       "genre": "Hard Rock",
-      "image": "",
+      "image": "../../images/royalBlood.webp",
       "description": "Royal Blood is a British rock duo known for their powerful, bass-driven sound and energetic live performances.",
       "social_links": {
         "website": "",
@@ -151,11 +151,11 @@
     },
     {
       "name": "Imagine Dragons",
-      "date": "2024-09-08",
+      "date": "Dimanche 08 septembre",
       "time": "23:00",
       "stage": "Sunset Boulevard",
       "genre": "Pop Rock",
-      "image": "",
+      "image": "../../images/imaginDragons.webp",
       "description": "Imagine Dragons is an American pop rock band known for their anthemic hits and dynamic live shows.",
       "social_links": {
         "website": "",
@@ -166,11 +166,11 @@
     },
     {
       "name": "Skip the Use",
-      "date": "2024-09-06",
+      "date": "Vendredi 06 septembre",
       "time": "17:00",
       "stage": "Harmony Haven",
       "genre": "Electro Rock",
-      "image": "",
+      "image": "../../images/skipTheUse.webp",
       "description": "Skip the Use is a French electro rock band known for their high-energy performances and infectious rhythms.",
       "social_links": {
         "website": "",
@@ -181,11 +181,11 @@
     },
     {
       "name": "Green Day",
-      "date": "2024-09-07",
+      "date": "Samedi 07 septembre",
       "time": "19:00",
       "stage": "Wanderlust Woods",
       "genre": "Punk Rock",
-      "image": "",
+      "image": "../../images/greenDay.webp",
       "description": "Green Day is an American punk rock band that has been a major influence on the punk scene since the early '90s.",
       "social_links": {
         "website": "",
@@ -196,11 +196,11 @@
     },
     {
       "name": "The Offspring",
-      "date": "2024-09-07",
+      "date": "Samedi 07 septembre",
       "time": "17:00",
       "stage": "Echo Valley",
       "genre": "Punk Rock",
-      "image": "",
+      "image": "../../images/theOffspring.webp",
       "description": "The Offspring is an American punk rock band known for their catchy hooks and rebellious lyrics.",
       "social_links": {
         "website": "",
@@ -211,11 +211,11 @@
     },
     {
       "name": "Muse",
-      "date": "2024-09-08",
+      "date": "Dimanche 08 septembre",
       "time": "22:00",
       "stage": "Sunset Boulevard",
       "genre": "Alternative Rock",
-      "image": "",
+      "image": "../../images/muse.webp",
       "description": "Muse is a British rock band known for their epic soundscapes and theatrical live performances.",
       "social_links": {
         "website": "",
@@ -226,11 +226,11 @@
     },
     {
       "name": "Yamé",
-      "date": "2024-09-05",
+      "date": "Jeudi 05 septembre",
       "time": "15:00",
       "stage": "Harmony Haven",
       "genre": "Indie Pop",
-      "image": "",
+      "image": "../../images/yame.webp",
       "description": "Yamé is an up-and-coming indie pop artist known for her ethereal vocals and catchy melodies.",
       "social_links": {
         "website": "",
@@ -241,11 +241,11 @@
     },
     {
       "name": "Franz Ferdinand",
-      "date": "2024-09-06",
+      "date": "Vendredi 06 septembre",
       "time": "21:00",
       "stage": "Wanderlust Woods",
       "genre": "Indie Rock",
-      "image": "",
+      "image": "../../images/FranzFerdinand.webp",
       "description": "Franz Ferdinand is a Scottish indie rock band known for their danceable rock music and witty lyrics.",
       "social_links": {
         "website": "",

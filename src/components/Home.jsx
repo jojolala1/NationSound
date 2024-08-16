@@ -5,11 +5,13 @@ import artistesJson from '../artistes.json'
 import { useEffect, useState } from 'react';
 import redWave from '../../images/redWave.svg';
 import greenWave from '../../images/greenWave.svg';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 export default function Home() {
+
 
     const [program, setProgram] = useState({
         mercredi: [],
@@ -29,15 +31,15 @@ export default function Home() {
             const dimanche = [" - "]
 
             for (let artiste of artistesJson){
-                if (artiste.date === "2024-09-04") {
+                if (artiste.date === "Mercredi 04 septembre") {
                     mercredi.push(artiste.name + " - ")
-                } else if (artiste.date === "2024-09-05") {
+                } else if (artiste.date === "Jeudi 05 septembre") {
                     jeudi.push(artiste.name + " - ")
-                } else if (artiste.date === "2024-09-06") {
+                } else if (artiste.date === "Vendredi 06 septembre") {
                     vendredi.push(artiste.name + " - ")
-                } else if (artiste.date === "2024-09-07") {
+                } else if (artiste.date === "Samedi 07 septembre") {
                     samedi.push(artiste.name + " - ")
-                } else if (artiste.date === "2024-09-08") {
+                } else if (artiste.date === "Dimanche 08 septembre") {
                     dimanche.push(artiste.name + " - ")
                 }
             }
@@ -53,7 +55,10 @@ export default function Home() {
     },[])
 
 
-   
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate('/programation');  // Fonction pour naviguer vers la page "Programation"
+    };
 
 
 
@@ -61,17 +66,18 @@ export default function Home() {
         <div className="d-flex flex-column align-items-center">
             <div className=" position-relative">
 
-                <video src={videoSrc} type="video/mp4" autoPlay loop muted className="video"  ></video>
+                <video src={videoSrc} type="video/mp4" autoPlay loop muted className="video "  ></video>
 
                 <div className="w-100 position-absolute top0 d-flex flex-column mt-4 mt-lg-5 h-100 justify-content-center px-lg-3 pb-5">
-                    <p className=" jaune text-center titleFont fw-bolder  titleSize  px-4 pVideo z-2">Du 04 au 08 Septembre :</p>
-                    <p className=" beige  text-center textFont artistes fw-bolder  pt-3 px-4 z-2">Eels · Red Hot Chili Peppers · Aupinard · Luidji · Smash mouth · Leny Kravitz · System Of A Down · Foo Fighters . Radiohead · Royal Blood…</p>
+                    <p className=" jaune text-center titleFont fw-bolder  titleSize  px-4 pVideo">Du 04 au 08 Septembre :</p>
+                    <p className=" beige  text-center textFont artistes fw-bolder  pt-3 px-4 ">Eels · Red Hot Chili Peppers · Aupinard · Luidji · Smash mouth · Leny Kravitz · System Of A Down · Foo Fighters . Radiohead · Royal Blood…</p>
                     <button className=" bgRouge beige mt-4 py-2 p-lg-2 p-xl-3 fw-bolder bouton textSize titleFont ">Billetterie</button>
                 </div>
             </div>
             <div className=' bandeau mb-5'>
-            <img src={yellowWave} alt='fond en forme de vague' className='banner position-absolute z-2'/>
             <img src={greenWave} alt='fond en forme de vague' className='banner position-absolute'/>
+            <img src={yellowWave} alt='fond en forme de vague' className='banner position-absolute'/>
+
             </div>
             <div className='marginEffet'>
             <img src={effet} alt="effet" className="effet" />
@@ -104,7 +110,7 @@ export default function Home() {
                     <p className="beige textFont fw-bolder h4">{program.dimanche}
                     </p>
                 </article>
-                <button className='bgRouge beige mb-4 px-3 py-2 px-lg-3 py-lg-2 fw-bolder bouton textSize titleFont'>Voir la programation</button>
+                <button className='bgRouge beige mb-4 px-3 py-2 px-lg-3 py-lg-2 fw-bolder bouton textSize titleFont' onClick={handleNavigate}>Voir la programation</button>
             </div>
             <div>
                 clin d'oeil info

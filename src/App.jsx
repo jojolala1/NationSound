@@ -1,7 +1,10 @@
-import React from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { createBrowserRouter, Outlet, RouterProvider, useLocation } from 'react-router-dom';
 import './App.css'
 import Home from './components/Home';
+import Info from './components/infos';
+import Prog from './components/Prog';
+import Carte from './components/Carte';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ErrorElement from './components/ErrorElement';
@@ -19,6 +22,18 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/informations',
+        element: <Info />,
+      },
+      {
+        path: '/programation',
+        element: <Prog />,
+      },
+      {
+        path: '/carte-interactive',
+        element: <Carte />,
+      },
+      {
         path: '*',
         element: <ErrorElement />
       },
@@ -28,6 +43,11 @@ const router = createBrowserRouter([
 
 function AppLayout () {
 
+  const location = useLocation();
+  useEffect(()=>{
+    
+    window.scrollTo(0, 0)
+},[location.pathname])
   return(
     <>
       <Navbar/>
@@ -37,8 +57,8 @@ function AppLayout () {
   )
 }
 
-
 function App() {
+
 
   return (
     <>
