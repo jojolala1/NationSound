@@ -8,6 +8,7 @@ import Carte from './components/Carte';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ErrorElement from './components/ErrorElement';
+import ArtistPage from "./components/ArtistPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/programation',
         element: <Prog />,
+      },
+      {
+        path: '/programation/:artiste',
+        element: <ArtistPage />,
       },
       {
         path: '/carte-interactive',

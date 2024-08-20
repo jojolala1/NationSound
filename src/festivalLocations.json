@@ -1,0 +1,128 @@
+{
+    "locations": [
+        {
+            "id": 1,
+            "name": "Scène Echo valey",
+            "position": [48.5765, -3.3081],
+            "iconClass": "bi-music-note-beamed",
+            "category": "scene"
+        },
+        {
+            "id": 2,
+            "name": "Scène Sunset Boulevard",
+            "position": [48.5756, -3.3058],
+            "iconClass": "bi-music-note-beamed",
+            "category": "scene"
+        },
+        {
+            "id": 3,
+            "name": "Scène Harmony Haven",
+            "position": [48.5752, -3.3072],
+            "iconClass": "bi-music-note-beamed",
+            "category": "scene"
+        },
+        {
+            "id": 4,
+            "name": "Scène Starlight Stage",
+            "position": [48.577, -3.307],
+            "iconClass": "bi-music-note-beamed",
+            "category": "scene"
+        },
+        {
+            "id": 5,
+            "name": "Scène Wonderlust Woods",
+            "position": [48.5765, -3.3058],
+            "iconClass": "bi-music-note-beamed",
+            "category": "scene"
+        },
+        {
+            "id": 6,
+            "name": "parking",
+            "position": [48.5765, -3.3088],
+            "iconClass": "bi-car-front",
+            "category": "parking"
+        },
+        {
+            "id": 7,
+            "name": "Snack kebab",
+            "position": [48.5763, -3.3068],
+            "iconClass": "bi-cup-hot",
+            "category": "snack"
+        },
+        {
+            "id": 8,
+            "name": "Snack vegan",
+            "position": [48.5764, -3.3072],
+            "iconClass": "bi-cup-hot",
+            "category": "snack"
+        },
+        {
+            "id": 9,
+            "name": "Snack tartiflette",
+            "position": [48.5765, -3.30745],
+            "iconClass": "bi-cup-hot",
+            "category": "snack"
+        },
+        {
+            "id": 10,
+            "name": "boutique",
+            "position": [48.57701, -3.3081],
+            "iconClass": "bi-basket2",
+            "category": "boutique"
+        },
+        {
+            "id": 11,
+            "name": "toilettes",
+            "position": [48.5759, -3.3078],
+            "iconClass": "bi-badge-wc",
+            "category": "toilettes"
+        },
+        {
+            "id": 12,
+            "name": "toilettes",
+            "position": [48.5765, -3.3063],
+            "iconClass": "bi-badge-wc",
+            "category": "toilettes"
+        },
+        {
+            "id": 13,
+            "name": "soins",
+            "position": [48.5756, -3.3078],
+            "iconClass": "bi-hospital",
+            "category": "soins"
+        },
+        {
+            "id": 14,
+            "name": "soins",
+            "position": [48.5769, -3.3063],
+            "iconClass": "bi-hospital",
+            "category": "soins"
+        },
+        {
+            "id": 15,
+            "name": "buvette",
+            "position": [48.5761, -3.30754],
+            "iconClass": "bi-cup-straw",
+            "category": "buvette"
+        },
+        {
+            "id": 16,
+            "name": "buvette",
+            "position": [48.5767, -3.3071],
+            "iconClass": "bi-cup-straw",
+            "category": "buvette"
+        },
+        {
+            "id": 17,
+            "name": "Camping",
+            "position": [48.5757, -3.3089],
+            "iconClass": "bi-houses",
+            "category": "camping"
+        }
+    ],
+    "lieu": {
+        "id": 18,
+        "name": "lieu",
+        "position": [48.57645886670632, -3.307222204170966]
+    }
+}

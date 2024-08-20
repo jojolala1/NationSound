@@ -1,8 +1,12 @@
 import React from "react";
+import redwave2 from '../../images/redwave2.svg';
 
 export default function Footer() {
     return (
-        <footer className="bgRouge d-flex flex-column align-items-center noir">
+        <>
+            <img src={redwave2} alt='fond en forme de vague' className=' banner'/>
+
+        <footer className="bgRouge d-flex flex-column align-items-center pb-5 noir">
             <div className="container p-5">
                 <div className="row ">
                     <div className="col-12 col-lg-6 my-3">
@@ -113,7 +117,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="container h3 ">
+            <div className="container h3 my-5">
                 <div className="row d-flex justify-content-around ">
                     <div className="col-12 col-lg-4 my-3 text-center ">
                         Mentions Légales
@@ -125,5 +129,7 @@ export default function Footer() {
                 </div>
             </div>
         </footer>
+        </>
+        
     );
 }

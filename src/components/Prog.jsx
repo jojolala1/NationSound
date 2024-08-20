@@ -25,7 +25,7 @@ export default function Prog() {
                 Programation :
             </h1>
             <div className="d-flex flex-column align-content-center">
-                <p className="titleFont  fw-bolder noir mb-4 h2 text-center ">Trier par :</p>
+                <p className="titleFont  fw-bolder noir mb-2 h2 text-center ">Trier par :</p>
                 <div className="container row footer px-3">
                 <button className={getButtonClass('lineup')} onClick={()=>{handlePage('lineup')}}>line-up</button>
                 <button  className={getButtonClass('jours')} onClick={()=>{handlePage('jours')}}>Jours</button>

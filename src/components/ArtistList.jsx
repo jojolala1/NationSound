@@ -1,11 +1,18 @@
 import React from "react";
 import artistesJson from "../artistes.json";
+import { useNavigate } from "react-router-dom";
 
 export default function ArtisteList () {
+
+    const navigate = useNavigate();
+    const handleNavigate = (lien, state) => {
+        navigate(lien, state);
+    };
     return artistesJson.map((artiste, index) => (
         <div
             key={index}
-            className="m-5 shadoww roundedArtist position-relative col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column justify-content-end align-items-center imgArtistContent"
+            className="clickable m-5 shadoww roundedArtist position-relative col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column justify-content-end align-items-center imgArtistContent"
+            onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})}
         >
             <img
                 src={artiste.image}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
 
 html {
   width: 100vw;
@@ -31,57 +32,59 @@ body{
 }
 
 .bgRouge {
-  background-color: var(--rouge);
+  background-color: var(--rouge)!important;
 }
 .bgNoir {
-  background-color: var(--noir);
+  background-color: var(--noir)!important;
 }
 .bgBeige {
-  background-color: var(--beige);
+  background-color: var(--beige)!important;
 }
 .bgVert {
-  background-color: var(--vert);
+  background-color: var(--vert)!important;
 }
 .bgJaune {
-  background-color: var(--jaune);
+  background-color: var(--jaune)!important;
 }
 .bgBlanc{
-  background: var(--blanc);
+  background: var(--blanc)!important;
 }
 .bgGris{
-  background: var(--gris);
+  background: var(--gris)!important;
 }
 
 .rouge {
-  color: var(--rouge);
+  color: var(--rouge)!important;
 }
 .noir {
- color: var(--noir);
+ color: var(--noir)!important;
 }
 .beige {
-  color: var(--beige);
+  color: var(--beige)!important;
 }
 .vert {
-  color: var(--vert);
+  color: var(--vert)!important;
 }
 .jaune {
-  color: var(--jaune);
+  color: var(--jaune)!important;
 }
 .blanc{
-  color: var(--blanc);
+  color: var(--blanc)!important;
 }
 .gris{
-  color: var(--gris);
+  color: var(--gris)!important;
 }
 .titleFont{
-  font-family: var(--titleFont);
+  font-family: var(--titleFont)!important;
 }
 
 .textFont{
-  font-family: var(--textFont);
+  font-family: var(--textFont)!important;
 }
 
-
+.moins1px{
+  margin-top: -1px;
+}
 .navbar-toggler:focus {
   outline: none;
   box-shadow: none;
@@ -196,7 +199,8 @@ body{
   width: 100%;
   display: block;
   height: auto;
-  margin: 0;
+  margin-top: -1px;
+  margin-bottom: -1px;
   padding: 0;
 }
 
@@ -275,7 +279,7 @@ body{
 
 .transitionColor:hover{
 
-  color: var(--jaune);
+  color: var(--jaune)!important;
 }
 .socialContent{
   height: 5rem;
@@ -312,6 +316,38 @@ body{
   width: 100%;
 }
 
+.imgSize{
+  width: 80%;
+  height: 50vw;
+}
+
+.styleMap{
+  height: 70vh;
+  width: 80vw;
+  border-radius: 30px;
+  z-index: 0;
+}
+
+.rotated {
+  transform: rotateY(180deg) rotateX(180deg);
+}
+
+.rotated1 {
+  transform: rotateY(0deg) rotateX(180deg);
+}
+.rotated2 {
+  transform: rotateY(180deg) rotateX(0deg);
+}
+.logoBis{
+  width: 160px;
+  transition: width 0.3s
+}
+.logoBis:hover{
+  width: 140px; 
+}
+.heightLog{
+  height: 150px;
+}
 @media screen and (min-width: 768px) {
   .effet{
     width: 16vw;
@@ -326,11 +362,15 @@ body{
   .logo{
     width: 80px;
   }
+
   .logo:hover{
-    width: 70px;
-    
+    width: 70px; 
   }
 
+  .imgSize{
+    width: 60%;
+    height: 30vw;
+  }
   .bandeau {
     margin-top: -35px;
   }
@@ -359,6 +399,13 @@ body{
 
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.logo2{
+  width: 22vw;
+}
 @media screen and (min-width: 992px){
 
   .artistes{
@@ -376,6 +423,10 @@ body{
   }
   .infosBox{
    width: 60vw;
+  }
+  .imgSize{
+    width: 50%;
+    height: 25vw;
   }
 }
 
@@ -398,6 +449,10 @@ body{
     .logo:hover{
       width: 75px;
       
+    }
+    .imgSize{
+      width: 50%;
+      height: 25vw;
     }
 
     .video{
@@ -428,6 +483,10 @@ body{
   .logo:hover{
     width: 85px;
     
+  }
+  .imgSize{
+    width: 35%;
+    height: 20vw;
   }
   .marginUnderNav{
     margin-top: 180px;

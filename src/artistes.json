@@ -1,258 +1,172 @@
 [
     {
-      "name": "Eels",
-      "date": "Mercredi 04 septembre",
-      "time": "18:00",
-      "stage": "Echo Valley",
-      "genre": "Alternative Rock",
-      "image": "../../images/Eels.webp",
-      "description": "Eels is an American rock band, known for their eclectic style and deeply personal lyrics.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Eels",
+        "date": "Mercredi 04 septembre",
+        "time": "18:00",
+        "stage": "Echo Valley",
+        "genre": "Alternative Rock",
+        "image": "../../images/Eels.webp",
+        "description": "Avec leur son distinctif mêlant rock, pop et folk, les Eels captivent les auditeurs depuis les années 90 avec une profondeur émotionnelle et une inventivité inégalée. Mené par le charismatique Mark Oliver Everett, connu sous le nom d'E, le groupe a su se faire une place unique dans le paysage musical grâce à des mélodies poignantes et des paroles introspectives. Leur discographie riche et variée reflète une exploration constante des nuances de la condition humaine. Des hymnes mélancoliques comme « Novocaine for the Soul » aux morceaux plus entraînants comme « Mr. E's Beautiful Blues », chaque album d'Eels est une nouvelle aventure sonore. Le groupe est reconnu pour ses performances live captivantes, où la connexion authentique avec le public et l'énergie brute du groupe se manifestent pleinement.Préparez-vous à une expérience musicale inoubliable avec Eels, un groupe dont la créativité sans limites et l'intensité émotionnelle promettent de marquer les esprits et de toucher les cœurs. Leur passage sur scène est une opportunité rare de découvrir un univers musical aussi riche que fascinant.",
+        "video":"https://www.youtube-nocookie.com/embed/NQwsiIlIfH8?si=TyNJ4LXDvambJ4ze"
     },
     {
-      "name": "Red Hot Chili Peppers",
-      "date": "Mercredi 04 septembre",
-      "time": "20:00",
-      "stage": "Sunset Boulevard",
-      "genre": "Funk Rock",
-      "image": "../../images/redHotChiliPeppers.webp",
-      "description": "Red Hot Chili Peppers are an American rock band that fuses funk and rock with a distinctive California vibe.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Red Hot Chili Peppers",
+        "date": "Mercredi 04 septembre",
+        "time": "20:00",
+        "stage": "Sunset Boulevard",
+        "genre": "Funk Rock",
+        "image": "../../images/redHotChiliPeppers.webp",
+        "description": "Préparez-vous à une explosion de funk, de rock et de groove avec les légendaires Red Hot Chili Peppers ! Depuis leur formation en 1983, ce groupe iconique a redéfini les frontières de la musique avec une énergie contagieuse et une créativité sans pareille.\n\nEmmené par le charismatique Anthony Kiedis, le virtuose de la guitare John Frusciante, le bassiste emblématique Flea et le batteur percutant Chad Smith, les Red Hot Chili Peppers fusionnent des riffs endiablés, des lignes de basse groovy et des paroles percutantes pour créer un son inimitable. Leurs performances live sont renommées pour leur intensité et leur joie communicative, offrant des spectacles dynamiques qui enflamment les foules et créent des moments mémorables.\n\nAvec des hits intemporels comme « Californication », « Under the Bridge » et « Scar Tissue », les Red Hot Chili Peppers continuent d'influencer et d'inspirer des générations entières de musiciens et de fans. Leur capacité à mêler des influences diverses, du funk au rock en passant par le punk et la musique psychédélique, leur permet de transcender les genres et de captiver tout type de public.\n\nNe manquez pas l'opportunité de vivre l'énergie brute et l'authenticité des Red Hot Chili Peppers sur scène. Leur prestation est une véritable fête musicale, une célébration de la vie et de la musique qui vous laissera des souvenirs inoubliables.",
+        "video":"https://www.youtube-nocookie.com/embed/8DyziWtkfBw?si=rju556K_hHnjpmCP"
     },
     {
-      "name": "Aupinard",
-      "date": "Jeudi 05 septembre",
-      "time": "16:00",
-      "stage": "Harmony Haven",
-      "genre": "Bossa Nova",
-      "image": "../../images/aupinard.webp",
-      "description": "Aupinard is an emerging indie rock band, known for their melodic tunes and introspective lyrics.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Aupinard",
+        "date": "Jeudi 05 septembre",
+        "time": "16:00",
+        "stage": "Harmony Haven",
+        "genre": "Bossa Nova",
+        "image": "../../images/aupinard.webp",
+        "description": "À seulement 21 ans, Aupinard émerge comme un véritable phénomène musical, captivant l'attention avec une fraîcheur et une originalité impressionnantes. Son premier album, « Aupitape 1 : Hortensia », est une exploration vibrante des mélodies brésiliennes, principalement influencées par la bossa nova. Cet opus promet une expérience auditive authentique et envoûtante, qui révèle un univers musical unique.\n\nLa passion d'Aupinard pour la musique brésilienne débute à 16 ans, lorsqu'il découvre le morceau « Saudade Fez Um Samba » de João Gilberto par un heureux hasard. Cette révélation l'inspire à revisiter la bossa nova à travers une lentille française, offrant une perspective rafraîchissante et personnelle sur ce genre classique. Ses chansons, qui évoquent avec simplicité et charme la vie d'un jeune de son âge, ont connu un véritable engouement sur TikTok, soulignant son talent et son attrait auprès d'un large public.\n\nL'énergie d'Aupinard ne se limite pas aux plateformes numériques : ses performances live sont saluées pour leur charisme et leur authenticité, faisant de lui un artiste incontournable sur la scène parisienne. Avec un succès international croissant et un style distinctif, Aupinard apporte une brise nouvelle et ensoleillée à la musique contemporaine.",
+        "video":"https://www.youtube-nocookie.com/embed/GY3SdxeTSEg?si=XhUfYovbo8nzWQkO"
     },
     {
-      "name": "Luidji",
-      "date": "Jeudi 05 septembre",
-      "time": "18:00",
-      "stage": "Starlight Stage",
-      "genre": "Hip-Hop",
-      "image": "../../images/luidji.webp",
-      "description": "Luidji is a French rapper whose introspective lyrics and unique sound have made him a standout in the French hip-hop scene.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Luidji",
+        "date": "Jeudi 05 septembre",
+        "time": "18:00",
+        "stage": "Starlight Stage",
+        "genre": "Hip-Hop",
+        "image": "../../images/luidji.webp",
+        "description": "Luidji est un artiste dont le nom est devenu synonyme d'une nouvelle vague de rap francophone. Connu pour son style unique qui mêle poésie urbaine et introspection profonde, il a rapidement capté l'attention avec son approche novatrice de la musique. Ses textes, souvent introspectifs et chargés d'émotions, offrent une vision authentique et personnelle de la vie et des défis contemporains.\n\nSon premier album, « Tristesse Business », a marqué les esprits par ses mélodies envoûtantes et ses paroles incisives. Avec des morceaux qui oscillent entre mélancolie et espoir, Luidji réussit à créer une atmosphère immersive qui résonne avec de nombreux auditeurs. L'artiste se distingue également par ses performances live, où son charisme et sa présence scénique captivent le public.\n\nLuidji est un artiste en pleine ascension, dont la capacité à fusionner des éléments du rap, du R&B, et de la chanson française lui permet de se démarquer dans le paysage musical actuel. Son travail continue d'évoluer, faisant de lui une figure incontournable de la scène musicale contemporaine.",
+        "video":"https://www.youtube-nocookie.com/embed/NIBKwPA04tM?si=7V4UnW23tHRhVnQ6"
     },
     {
-      "name": "Smash Mouth",
-      "date": "Vendredi 06 septembre",
-      "time": "19:00",
-      "stage": "Echo Valley",
-      "genre": "Alternative Rock",
-      "image": "../../images/smashMouth.webp",
-      "description": "Smash Mouth is an American rock band best known for their catchy pop-infused alternative rock hits.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Smash Mouth",
+        "date": "Vendredi 06 septembre",
+        "time": "19:00",
+        "stage": "Echo Valley",
+        "genre": "Alternative Rock",
+        "image": "../../images/smashMouth.webp",
+        "description": "Smash Mouth est un groupe emblématique de rock alternatif, célèbre pour son son entraînant et ses paroles accrocheuses. Formé en 1994 à San José, Californie, le groupe a rapidement gagné en notoriété avec ses mélodies contagieuses et son style unique qui mélange rock, punk, et pop. Leur premier album, « Fush Yu Mang », sorti en 1997, les a propulsés sous les projecteurs avec des hits comme « All Star » et « Walkin' on the Sun ».\n\nLeur succès a été consolidé par des morceaux emblématiques qui sont devenus des hymnes de la fin des années 90 et du début des années 2000. « All Star », en particulier, a acquis une renommée mondiale grâce à son utilisation dans de nombreux films, émissions de télévision et publicités. Le groupe a également marqué les esprits avec sa version de « I'm a Believer », popularisée par le film d'animation « Shrek ». \n\nConnu pour leurs performances live énergiques et leur charisme, Smash Mouth continue d'être une présence vivante dans le paysage musical. Avec une carrière qui s'étend sur plusieurs décennies et une discographie pleine de hits, ils restent un pilier du rock alternatif et un groupe apprécié pour leur capacité à créer des chansons qui résonnent à travers les générations.",
+        "video":"https://www.youtube-nocookie.com/embed/LQj--Kjn0z8?si=CnwSHWq7MjDk7U0V"
     },
     {
-      "name": "Lenny Kravitz",
-      "date": "Vendredi 06 septembre",
-      "time": "21:00",
-      "stage": "Sunset Boulevard",
-      "genre": "Rock",
-      "image": "../../images/LennyKravitz.webp",
-      "description": "Lenny Kravitz is an American singer-songwriter who blends rock, soul, and funk into his distinctive sound.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Lenny Kravitz",
+        "date": "Vendredi 06 septembre",
+        "time": "21:00",
+        "stage": "Sunset Boulevard",
+        "genre": "Rock",
+        "image": "../../images/LennyKravitz.webp",
+        "description": "Lenny Kravitz est un artiste emblématique qui incarne l'essence du rock moderne avec une touche unique de soul, funk et blues. Depuis ses débuts dans les années 90, il a su se faire une place de choix dans le monde de la musique grâce à son style distinctif, sa voix puissante et ses performances charismatiques. Né à New York, Lenny Kravitz a grandi dans un environnement musical riche, influencé par une grande variété de genres.\n\nSon premier album, « Let Love Rule » (1989), a marqué le début de sa carrière avec une série de succès qui ont défini son style éclectique. Son travail est souvent caractérisé par une fusion dynamique de rock, funk et soul, accompagnée de paroles introspectives et engagées. Des albums comme « Mama Said » (1991) et « Are You Gonna Go My Way » (1993) ont consolidé sa réputation avec des hits intemporels tels que « It Ain't Over 'Til It's Over » et « Fly Away ».\n\nLenny Kravitz est également connu pour son charisme sur scène, ses performances live étant acclamées pour leur énergie et leur intensité. Avec une carrière qui s'étend sur plusieurs décennies, il reste une figure influente dans l'industrie musicale, ayant remporté plusieurs Grammy Awards et continuant à captiver les auditeurs avec sa musique innovante et son style unique.",
+        "video":"https://www.youtube-nocookie.com/embed/EvuL5jyCHOw?si=hZoABz-ZaAHwkfUu"
     },
     {
-      "name": "System Of A Down",
-      "date": "Samedi 07 septembre",
-      "time": "20:00",
-      "stage": "Wanderlust Woods",
-      "genre": "Metal",
-      "image": "../../images/systemOfADown.webp",
-      "description": "System Of A Down is an Armenian-American metal band known for their politically charged lyrics and unique sound.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "System Of A Down",
+        "date": "Samedi 07 septembre",
+        "time": "20:00",
+        "stage": "Wanderlust Woods",
+        "genre": "Metal",
+        "image": "../../images/systemOfADown.webp",
+        "description": "System of a Down est un groupe emblématique de metal alternatif connu pour son son unique et ses paroles percutantes. Formé en 1994 à Glendale, Californie, le groupe se distingue par sa capacité à mêler des éléments de metal, de punk, de hard rock et de musique arménienne traditionnelle. Leur style éclectique, combiné à des thèmes politiques et sociaux puissants, les a rapidement propulsés sur le devant de la scène musicale mondiale.\n\nLeur premier album éponyme, « System of a Down » (1998), a marqué le début de leur carrière avec des morceaux innovants qui ont capté l'attention des fans de metal. Cependant, c'est avec leur album « Toxicity » (2001) que le groupe a atteint une reconnaissance internationale, grâce à des hits comme « Chop Suey! » et « Toxicity », qui sont devenus des classiques du genre. Leur capacité à aborder des sujets complexes et controversés à travers une musique énergique et percutante a fait d'eux des figures importantes dans le paysage du metal.\n\nLes membres du groupe Serj Tankian (chant), Daron Malakian (guitare, chant), Shavo Odadjian (basse) et John Dolmayan (batterie) sont connus pour leur dynamique sur scène et leur engagement social. System of a Down continue de captiver les auditeurs avec son mélange unique de genres et son approche audacieuse des questions sociopolitiques.",
+        "video":"https://www.youtube-nocookie.com/embed/DnGdoEa1tPg?si=HkQbF12tl8V1W1Lq"
     },
     {
-      "name": "Foo Fighters",
-      "date": "Samedi 07 septembre",
-      "time": "22:00",
-      "stage": "Sunset Boulevard",
-      "genre": "Rock",
-      "image": "../../images/fooFighters.webp",
-      "description": "Foo Fighters is an American rock band formed by Dave Grohl, known for their powerful performances and anthemic rock songs.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Foo Fighters",
+        "date": "Samedi 07 septembre",
+        "time": "22:00",
+        "stage": "Sunset Boulevard",
+        "genre": "Rock",
+        "image": "../../images/fooFighters.webp",
+        "description": "Foo Fighters est un groupe de rock américain emblématique, fondé en 1994 par Dave Grohl, ancien batteur de Nirvana. Connus pour leur énergie brute, leurs mélodies accrocheuses et leurs performances live explosives, les Foo Fighters ont rapidement gagné en popularité et se sont établis comme l'un des groupes les plus influents du rock moderne. Leur son puissant mêle des éléments de grunge, de punk et de rock alternatif, offrant une expérience musicale dynamique et authentique.\n\nLeur premier album éponyme, « Foo Fighters » (1995), a été enregistré en grande partie par Dave Grohl en solo, avant que le groupe ne se forme officiellement pour la tournée. Avec des hits comme « This Is a Call » et « Big Me », l'album a marqué le début d'une carrière exceptionnelle. Leur succès a été consolidé avec des albums comme « The Colour and the Shape » (1997), qui a produit des classiques tels que « Everlong » et « My Hero ». \n\nFoo Fighters est également réputé pour ses spectacles en concert, qui captivent le public avec une énergie contagieuse et une interaction dynamique. Le groupe continue de produire de la musique acclamée et d'attirer des foules massives à travers le monde. Avec plusieurs Grammy Awards à leur actif et une discographie riche, Foo Fighters demeure une figure centrale du rock contemporain.",
+        "video":"https://www.youtube-nocookie.com/embed/SBjQ9tuuTJQ?si=U9CUYaqk9Vb0vUYh"
     },
     {
-      "name": "Radiohead",
-      "date": "Dimanche 08 septembre",
-      "time": "19:00",
-      "stage": "Starlight Stage",
-      "genre": "Alternative Rock",
-      "image": "../../images/radiohead.webp",
-      "description": "Radiohead is an English rock band that has been pushing the boundaries of rock music with their experimental approach.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Radiohead",
+        "date": "Dimanche 08 septembre",
+        "time": "19:00",
+        "stage": "Starlight Stage",
+        "genre": "Alternative Rock",
+        "image": "../../images/radiohead.webp",
+        "description": "Radiohead est un groupe britannique d'avant-garde qui a révolutionné le paysage du rock moderne avec son approche innovante et expérimentale de la musique. Formé en 1985 à Abingdon, Oxfordshire, le groupe est composé de Thom Yorke (chant, guitare), Jonny Greenwood (guitare, claviers), Ed O'Brien (guitare), Colin Greenwood (basse) et Philip Selway (batterie). Connus pour leur capacité à évoluer musicalement, ils ont constamment repoussé les limites de la musique rock.\n\nLeurs albums, tels que « OK Computer » (1997) et « Kid A » (2000), sont souvent cités comme des œuvres majeures du genre, mêlant rock alternatif, musique électronique, et expérimentations sonores. « OK Computer », avec des morceaux emblématiques comme « Paranoid Android » et « Karma Police », est considéré comme un chef-d'œuvre du rock moderne. « Kid A », quant à lui, marque une transition vers des sons plus électroniques et abstraits, avec des titres comme « Everything In Its Right Place » et « Idioteque ». \n\nRadiohead est également reconnu pour ses performances live captivantes et ses vidéos musicales visuellement innovantes. Leur capacité à évoluer constamment et à explorer de nouveaux horizons musicaux les a établis comme l'un des groupes les plus influents et respectés de leur génération. Avec une discographie riche et variée, Radiohead continue de captiver et d'inspirer des générations entières de fans et de musiciens.",
+        "video":"https://www.youtube-nocookie.com/embed/XFkzRNyygfk?si=-M84fT9oEtJHyTs-"
     },
     {
-      "name": "Royal Blood",
-      "date": "Dimanche 08 septembre",
-      "time": "21:00",
-      "stage": "Echo Valley",
-      "genre": "Hard Rock",
-      "image": "../../images/royalBlood.webp",
-      "description": "Royal Blood is a British rock duo known for their powerful, bass-driven sound and energetic live performances.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Royal Blood",
+        "date": "Dimanche 08 septembre",
+        "time": "21:00",
+        "stage": "Echo Valley",
+        "genre": "Hard Rock",
+        "image": "../../images/royalBlood.webp",
+        "description": "Royal Blood est un duo britannique de rock alternatif, connu pour son son puissant et brut malgré sa formation minimaliste. Composé de Mike Kerr (chant, basse) et Ben Thatcher (batterie), le groupe a fait une entrée remarquée sur la scène musicale avec son mélange de rock énergique, de riffs percutants, et de grooves contagieux. Formé en 2011 à Brighton, Royal Blood s'est rapidement imposé comme une force montante dans le rock moderne.\n\nLeur premier album éponyme, « Royal Blood » (2014), a été acclamé par la critique et a connu un immense succès commercial, propulsé par des titres tels que « Out of the Black » et « Figure It Out ». Ce premier opus a marqué le début d'une carrière prometteuse, avec une sonorité distincte qui mélange des éléments de rock, de garage, et de blues. Leur album suivant, « How Did We Get So Dark? » (2017), a continué sur cette lancée avec des morceaux puissants comme « Lights Out » et « I Only Lie When I Love You ». \n\nRoyal Blood est également reconnu pour ses performances live intenses et énergétiques, qui captivent les foules et établissent une connexion immédiate avec le public. Avec une discographie en pleine expansion et une présence scénique impressionnante, Royal Blood continue de faire vibrer les amateurs de rock à travers le monde.",
+        "video":"https://www.youtube-nocookie.com/embed/jhgVu2lsi_k?si=INoWRcn5yo4etotj"
     },
     {
-      "name": "Imagine Dragons",
-      "date": "Dimanche 08 septembre",
-      "time": "23:00",
-      "stage": "Sunset Boulevard",
-      "genre": "Pop Rock",
-      "image": "../../images/imaginDragons.webp",
-      "description": "Imagine Dragons is an American pop rock band known for their anthemic hits and dynamic live shows.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Imagine Dragons",
+        "date": "Dimanche 08 septembre",
+        "time": "23:00",
+        "stage": "Sunset Boulevard",
+        "genre": "Pop Rock",
+        "image": "../../images/imaginDragons.webp",
+        "description": "Imagine Dragons est un groupe américain de rock alternatif, connu pour ses hymnes puissants et ses mélodies accrocheuses. Formé en 2008 à Las Vegas, Nevada, le groupe est composé de Dan Reynolds (chant), Wayne Sermon (guitare), Ben McKee (basse) et Josh Mosser (batterie). Leur style musical mélange des éléments de rock, de pop et d'électronique, créant des chansons énergiques et captivantes qui résonnent avec un large public.\n\nLeur premier album, « Night Visions » (2012), a marqué un tournant avec le succès mondial de la chanson « Radioactive », qui est devenue un hymne de la décennie grâce à son son distinctif et à son clip viral. Le groupe a continué à bâtir sur ce succès avec des albums suivants tels que « Smoke + Mirrors » (2015) et « Evolve » (2017), chacun contenant des hits tels que « Demons », « I Bet My Life », et « Believer ». \n\nImagine Dragons est également reconnu pour ses performances live spectaculaires, qui combinent des visuels impressionnants avec une énergie brute. Leur capacité à créer des morceaux à la fois puissants et accessibles a fait d'eux des figures majeures du rock moderne. Avec une discographie riche et une présence scénique dynamique, Imagine Dragons continue de captiver les auditeurs et de dominer les charts internationaux.",
+        "video":"https://www.youtube-nocookie.com/embed/7wtfhZwyrcc?si=isYYfsJx64X714pA"
     },
     {
-      "name": "Skip the Use",
-      "date": "Vendredi 06 septembre",
-      "time": "17:00",
-      "stage": "Harmony Haven",
-      "genre": "Electro Rock",
-      "image": "../../images/skipTheUse.webp",
-      "description": "Skip the Use is a French electro rock band known for their high-energy performances and infectious rhythms.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Skip the Use",
+        "date": "Vendredi 06 septembre",
+        "time": "17:00",
+        "stage": "Harmony Haven",
+        "genre": "Electro Rock",
+        "image": "../../images/skipTheUse.webp",
+        "description": "Skip the Use est un groupe de rock français qui s'est fait connaître pour son mélange énergique de rock, punk, et musique électronique. Formé en 2000 à Lille, le groupe est composé de Mat Bastard (chant), Yannick Gontero (guitare), Sacha Got (basse), et d'anciens membres qui ont contribué à son succès. Avec une attitude résolument rebelle et des performances live intenses, Skip the Use a rapidement capté l'attention du public et des critiques.\n\nLeur premier album, « Skip the Use » (2008), a marqué le début de leur carrière avec des morceaux accrocheurs comme « People in the Street ». Leur popularité a grimpé en flèche avec la sortie de l'album « Can Be Late » (2012), qui inclut des hits tels que « Ghost » et « Nameless World ». Ce succès a été suivi par l'album « Little Armageddon » (2015), qui a consolidé leur place sur la scène rock française avec des titres comme « I Don't Wanna Lose » et « Nameless World ».\n\nSkip the Use est également reconnu pour ses concerts dynamiques et sa capacité à captiver le public avec une énergie brute et une interaction engageante. Avec une discographie riche et un style distinctif, le groupe continue de faire vibrer les amateurs de rock à travers la France et au-delà.",
+        "video":"https://www.youtube-nocookie.com/embed/KJ_uPu5iDVE?si=ZgtJCPR5fUc5DVcc"
     },
     {
-      "name": "Green Day",
-      "date": "Samedi 07 septembre",
-      "time": "19:00",
-      "stage": "Wanderlust Woods",
-      "genre": "Punk Rock",
-      "image": "../../images/greenDay.webp",
-      "description": "Green Day is an American punk rock band that has been a major influence on the punk scene since the early '90s.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Green Day",
+        "date": "Samedi 07 septembre",
+        "time": "19:00",
+        "stage": "Wanderlust Woods",
+        "genre": "Punk Rock",
+        "image": "../../images/greenDay.webp",
+        "description": "Green Day est un groupe de punk rock américain qui a profondément influencé la scène musicale depuis les années 90. Formé en 1987 à Berkeley, Californie, le groupe est composé de Billie Joe Armstrong (chant, guitare), Mike Dirnt (basse) et Tré Cool (batterie). Leur musique énergique et leurs paroles incisives ont fait de Green Day l'un des groupes les plus emblématiques du punk rock moderne.\n\nLeur album révolutionnaire « Dookie » (1994) a marqué un tournant dans leur carrière, avec des succès tels que « Basket Case », « When I Come Around » et « Longview ». Ce disque a non seulement propulsé Green Day sous les projecteurs internationaux, mais a également contribué à la popularisation du punk rock auprès du grand public. Leur suite, « Insomniac » (1995), a continué sur cette lancée avec des titres comme « Geek Stink Breath » et « Stuck with Me ».\n\nLe groupe a également marqué les esprits avec l'album conceptuel « American Idiot » (2004), qui a abordé des thèmes politiques et sociaux avec des morceaux emblématiques tels que « American Idiot », « Boulevard of Broken Dreams » et « Wake Me Up When September Ends ». Cet album a non seulement consolidé leur statut de figures majeures du punk rock, mais a également remporté de nombreux prix, dont plusieurs Grammy Awards.\n\nGreen Day est également connu pour ses performances live explosives et son engagement à aborder des questions sociétales à travers sa musique. Avec une carrière qui s'étend sur plusieurs décennies et une discographie riche, Green Day continue de captiver les fans avec sa musique vibrante et son esprit rebelle.",
+        "video":"https://www.youtube-nocookie.com/embed/NUTGr5t3MoY?si=L7JTG2tzCvK9Adsr"
     },
     {
-      "name": "The Offspring",
-      "date": "Samedi 07 septembre",
-      "time": "17:00",
-      "stage": "Echo Valley",
-      "genre": "Punk Rock",
-      "image": "../../images/theOffspring.webp",
-      "description": "The Offspring is an American punk rock band known for their catchy hooks and rebellious lyrics.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "The Offspring",
+        "date": "Samedi 07 septembre",
+        "time": "17:00",
+        "stage": "Echo Valley",
+        "genre": "Punk Rock",
+        "image": "../../images/theOffspring.webp",
+        "description": "The Offspring est un groupe américain de punk rock formé en 1984 à Garden Grove, Californie. Composé de Dexter Holland (chant, guitare), Noodles (guitare, chœurs), Greg K. (basse) et Pete Parada (batterie), le groupe est connu pour son mélange énergique de punk, de rock alternatif et de pop punk. Leur son distinctif et leurs paroles souvent provocatrices leur ont permis de se démarquer sur la scène musicale internationale.\n\nLeur premier album, « The Offspring » (1989), a jeté les bases de leur carrière avec des morceaux qui ont commencé à attirer l'attention. Cependant, c'est avec leur album « Smash » (1998) qu'ils ont connu un succès mondial, grâce à des hits comme « Come Out and Play », « Self Esteem » et « Gotta Get Away ». Cet album a été un tournant, propulsant le groupe au sommet des charts et leur offrant une reconnaissance internationale.\n\nLe groupe a continué à connaître du succès avec des albums tels que « Americana » (1998), qui a produit des classiques comme « Pretty Fly (for a White Guy) » et « Why Don't You Get a Job? ». Leur capacité à mélanger des mélodies accrocheuses avec une énergie punk brute a fait de The Offspring un acteur clé de la scène punk rock des années 90 et 2000. Leur présence dynamique sur scène et leur discographie variée font d'eux des figures majeures du rock alternatif.",
+        "video":"https://www.youtube-nocookie.com/embed/7iNbnineUCI?si=47lyGrtgg6b784vK"
     },
     {
-      "name": "Muse",
-      "date": "Dimanche 08 septembre",
-      "time": "22:00",
-      "stage": "Sunset Boulevard",
-      "genre": "Alternative Rock",
-      "image": "../../images/muse.webp",
-      "description": "Muse is a British rock band known for their epic soundscapes and theatrical live performances.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Muse",
+        "date": "Dimanche 08 septembre",
+        "time": "22:00",
+        "stage": "Sunset Boulevard",
+        "genre": "Alternative Rock",
+        "image": "../../images/muse.webp",
+        "description": "Muse est un groupe britannique de rock alternatif connu pour ses performances épiques et son son innovant qui fusionne le rock, la musique électronique, et le symphonique. Formé en 1994 à Teignmouth, Devon, le groupe est composé de Matthew Bellamy (chant, guitare, claviers), Chris Wolstenholme (basse, chœurs) et Dominic Howard (batterie). Avec une carrière marquée par des albums acclamés et des spectacles live grandioses, Muse s'est imposé comme l'un des groupes les plus influents du rock moderne.\n\nLeur album breakthrough, « Origin of Symmetry » (2001), a été salué pour son mélange audacieux de rock et de musique électronique, avec des morceaux emblématiques comme « Plug In Baby » et « New Born ». Leur suite, « Absolution » (2003), a consolidé leur succès avec des hits tels que « Time Is Running Out » et « Hysteria ». Le groupe a continué à explorer des thèmes grandioses et des sons expérimentaux avec des albums comme « Black Holes and Revelations » (2006), qui comprend des succès comme « Supermassive Black Hole » et « Knights of Cydonia ». \n\nMuse est également reconnu pour ses performances live spectaculaires, qui combinent des éléments de théâtre et de spectacle avec une musique puissante. Leur capacité à innover et à repousser les limites musicales fait d'eux des figures majeures du rock contemporain. Avec une discographie variée et un style distinctif, Muse continue de captiver les auditeurs et de dominer les charts internationaux.",
+        "video":"https://www.youtube-nocookie.com/embed/CmwRQqJsegw?si=jo71wxO2O92b0YGB"
     },
     {
-      "name": "Yamé",
-      "date": "Jeudi 05 septembre",
-      "time": "15:00",
-      "stage": "Harmony Haven",
-      "genre": "Indie Pop",
-      "image": "../../images/yame.webp",
-      "description": "Yamé is an up-and-coming indie pop artist known for her ethereal vocals and catchy melodies.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Yamé",
+        "date": "Jeudi 05 septembre",
+        "time": "15:00",
+        "stage": "Harmony Haven",
+        "genre": "Indie Pop",
+        "image": "../../images/yame.webp",
+        "description": "Yamê est un jeune artiste franco-camerounais dont la carrière a émergé de la scène musicale parisienne. Après avoir appris le piano en autodidacte, influencé par les pratiques musicales de son père, Yamê se fait connaître grâce à ses performances lors de jam sessions et ses premières publications sur TikTok. Ses reprises de classiques tels que « La Bohème » de Charles Aznavour et « Feeling Good » de Nina Simone attirent l'attention et commencent à bâtir sa popularité.\n\nEn 2021, Yamê publie son premier album, « Agent 237 », un projet fortement teinté de rap. Le nombre 237 dans le titre fait référence à l'indicatif téléphonique du Cameroun et symbolise l'idée d'une double identité entre la France et l'Afrique, comparable à celle des espions. En 2023, il sort un nouvel album intitulé « Elowi », un terme mbo' signifiant « ce qui n'est pas visible ». Le single « Bécane », ainsi que les titres « Call of Valhalla » et « Clique », rencontrent un grand succès, avec « Bécane » atteignant le top 200 des ventes en France.\n\nYamê bénéficie également de la reconnaissance internationale avec le soutien du célèbre producteur américain Timbaland, qui partage une vidéo de son freestyle « Pourquoi ils guettent ? ». En 2023, il assure la première partie de Stromae et est en résidence lors des Transmusicales de Rennes. Avec une carrière marquée par son autodidaxie et son héritage musical, Yamê continue de captiver les audiences avec son style unique et son énergie créative.",
+        "video":"https://www.youtube-nocookie.com/embed/QKPE6R8QJQs?si=V0mHV-db2UE0ptn8"
     },
     {
-      "name": "Franz Ferdinand",
-      "date": "Vendredi 06 septembre",
-      "time": "21:00",
-      "stage": "Wanderlust Woods",
-      "genre": "Indie Rock",
-      "image": "../../images/FranzFerdinand.webp",
-      "description": "Franz Ferdinand is a Scottish indie rock band known for their danceable rock music and witty lyrics.",
-      "social_links": {
-        "website": "",
-        "facebook": "",
-        "twitter": "",
-        "instagram": ""
-      }
+        "name": "Franz Ferdinand",
+        "date": "Vendredi 06 septembre",
+        "time": "21:00",
+        "stage": "Wanderlust Woods",
+        "genre": "Indie Rock",
+        "image": "../../images/FranzFerdinand.webp",
+        "description": "Franz Ferdinand est un groupe écossais de rock indépendant formé en 2002 à Glasgow. Connu pour son son énergique et dansant, le groupe est composé d'Alex Kapranos (chant, guitare), Nick McCarthy (guitare, claviers, chœurs), Bob Hardy (basse) et Paul Thomson (batterie). Leur musique fusionne des influences de rock, post-punk, et dance-punk, créant un style distinctif qui a marqué les années 2000.\n\nLeur premier album éponyme, « Franz Ferdinand » (2004), a été salué pour ses riffs accrocheurs et son énergie brute, avec des hits tels que « Take Me Out » et « The Dark of the Matinée ». Le succès de cet album a été renforcé par le deuxième album, « You Could Have It So Much Better » (2005), qui a continué à explorer des sonorités dansantes et incisives avec des morceaux comme « Do You Want To » et « Walk Away ».\n\nFranz Ferdinand a continué à évoluer avec des albums tels que « Tonight: Franz Ferdinand » (2009), qui a présenté une approche plus dance et électronique, avec des titres comme « Ulysses » et « No You Girls ». Leur capacité à combiner des influences variées tout en conservant une identité musicale forte fait d'eux des figures marquantes du rock indépendant. Avec une discographie riche et des performances live dynamiques, Franz Ferdinand continue de captiver les amateurs de musique à travers le monde.",
+        "video":"https://www.youtube-nocookie.com/embed/Ijk4j-r7qPA?si=2KHQ7FrDGuMeHZN3"
     }
-  ]
-  
+]

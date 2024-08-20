@@ -20,10 +20,14 @@ export default function Info() {
         }));
     };
 
+    const handleNavigateBilleterie = () => {
+        window.location.href = 'https://www.seetickets.com/fr/festival-tickets';
+    };
+
     return (
         <>
             <div className="d-flex flex-column align-items-center marginUnderNav">
-                <h1 className="rouge text-center titleFont fw-bolder  display-2  px-4 mb-5 z-2">
+                <h1 className="titleFont rouge mb-5 pVideorouge text-center titleFont fw-bolder  display-2 pVideo px-4 mb-5 z-2">
                     Informations & FAQ :
                 </h1>
 
@@ -87,11 +91,10 @@ export default function Info() {
                         <p className="collapse" id="collapse3">
                             Les billets peuvent être achetés en ligne sur notre
                             site web ou dans certains points de vente. Visitez
-                            notre page <a href="/billets">Billetterie</a> pour
+                            notre page <a onClick={handleNavigateBilleterie} href="https://www.seetickets.com/fr/festival-tickets" target="_blank">Billetterie</a> pour
                             plus de détails.
                         </p>
                     </div>
-
                     <div className="faq-item d-flex flex-column align-items-center shadoww infosBox" onClick={() => togglerIndice(4)}
                                 data-bs-toggle="collapse"
                                 href="#collapse4"
@@ -288,10 +291,7 @@ export default function Info() {
                         </h3>
                         <p className="collapse" id="collapse6">
                             Oui, nous avons pris des mesures pour rendre le
-                            festival accessible à tous. Des informations
-                            spécifiques sur l'accessibilité sont disponibles sur
-                            notre page{" "}
-                            <a href="/accessibilite">Accessibilité</a>.
+                            festival accessible à tous.
                         </p>
                     </div>
                 </section>
@@ -309,7 +309,7 @@ export default function Info() {
                         />
 
                         <div className="mb-3">
-                            <label for="name" className="form-label">
+                            <label htmlFor="name" className="form-label">
                                 Votre Prénom
                             </label>
                             <input
@@ -321,7 +321,7 @@ export default function Info() {
                             />
                         </div>
                         <div className="mb-3 ">
-                            <label for="mail" className="form-label">
+                            <label htmlFor="mail" className="form-label">
                                 Votre adresse mail
                             </label>
                             <input
@@ -333,7 +333,7 @@ export default function Info() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label for="message" className="form-label">
+                            <label htmlFor="message" className="form-label">
                                 Votre message
                             </label>
                             <textarea
