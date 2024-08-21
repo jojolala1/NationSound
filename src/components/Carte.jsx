@@ -3,6 +3,8 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet'; 
 import 'leaflet/dist/leaflet.css';
 import festivalLocations from "../festivalLocations.json"
+import artistesJson from "../artistes.json"
+
 
 export default function Carte() {
 
@@ -12,7 +14,6 @@ export default function Carte() {
         </div>
     `;
 
-    const festivalLocationsLocation = festivalLocations.locations
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${festivalLocations.lieu.position[0]},${festivalLocations.lieu.position[1]}`;
 
 
@@ -65,7 +66,117 @@ export default function Carte() {
         });
     };
 
-    const visibleLocations = filterFunc();
+    const [visibleLocations, setVisibleLocations] = useState(filterFunc());
+
+
+    useEffect(() => {
+        setVisibleLocations(filterFunc());
+    }, [checked]);
+
+    const EchoValley = []
+    const SunsetBoulevard = []
+    const HarmonyHaven = []
+    const StarlightStage = []
+    const WanderlustWoods = []
+
+    let date1 = new Date();
+
+    setInterval(() => {
+        date1 = new Date();
+    }, 60000);
+
+
+
+
+    let dateNow = date1.toLocaleString('fr-FR',{
+        weekday: 'long',
+        day: 'numeric',
+        month: 'short',
+        });
+
+    let timeNow = date1.toLocaleString('fr-FR',{
+        hour: 'numeric',
+        minute: 'numeric'
+        });
+        timeNow = (parseInt(timeNow))
+
+    for (let artiste of artistesJson){
+        switch(artiste.stage){
+            case "Echo Valley": EchoValley.push(artiste)
+        }
+        switch(artiste.stage){
+            case "Sunset Boulevard": SunsetBoulevard.push(artiste)
+        }
+        switch(artiste.stage){
+            case "Harmony Haven": HarmonyHaven.push(artiste)
+        }
+        switch(artiste.stage){
+            case "Starlight Stage": StarlightStage.push(artiste)
+        }
+        switch(artiste.stage){
+            case "Wanderlust Woods": WanderlustWoods.push(artiste)
+        }
+    }
+
+    const visibleLocationsDirect = []
+    
+    const directScene = (scene, arrScene) => {
+        for (let artiste of arrScene) {
+            const timeArtist = parseInt(artiste.time, 10);
+            if (artiste.date === dateNow) {
+                if (timeArtist <= timeNow && timeNow < timeArtist+2) {
+                    visibleLocationsDirect.push({
+                        scene: `Scène ${scene}`,
+                        artiste: artiste.name
+                    });;
+                }
+            }
+        }
+    }
+
+    directScene("Echo Valley", EchoValley)
+    directScene("Sunset Boulevard", SunsetBoulevard)
+    directScene("Harmony Haven", HarmonyHaven)
+    directScene("Starlight Stage", StarlightStage)
+    directScene("Wanderlust Woods", WanderlustWoods)
+
+    for (let location of visibleLocations) {
+        let artisteFound = false;
+        
+        for (let theScene of visibleLocationsDirect) {
+            if (location.name === theScene.scene) {
+                if (!location.iconClass.includes('rouge')) {
+                    location.iconClass += ' rouge';
+                }
+                location.artiste = `Artiste: ${theScene.artiste}`; 
+                artisteFound = true;
+                break; 
+            }
+        }
+    
+        if (!artisteFound && location.iconClass.includes('rouge')) {
+            location.iconClass = location.iconClass.replace(' rouge', ''); 
+            location.artiste = '';
+        }
+    }
+
+    const successPosition = (position) => {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        const newLocation = {
+            id: visibleLocations.length + 2,
+            name: 'Moi',
+            position: [lat, long],
+            iconClass: "bi-person-fill me",
+            category: "me",
+        };
+        
+        setVisibleLocations([...visibleLocations, newLocation]);
+    };
+
+    const handlePosition = () => {
+        navigator.geolocation.getCurrentPosition(successPosition)
+    }
 
     return (
         <div className="marginUnderNav d-flex flex-column align-items-center">
@@ -128,13 +239,17 @@ export default function Carte() {
                                 popupAnchor: [0, -30]
                             })}
                         >
-                            <Popup>{location.name}</Popup>
+                            <Popup className="leaflet-popup-content fw-bold">{location.name +(location.artiste?', '+location.artiste:'')}</Popup>
                         </Marker>
                     ))}
                 </MapContainer>
             </div>
+            <div className="d-flex flex-column align-items-center" > 
+                <button className="bouton ms-3 p-2 px-3  bgRouge blanc" onClick={()=> {handlePosition()} }>se localiser sur la carte</button>
             <a href={googleMapsUrl} className="my-4">addresse du lieu</a>
+
             </div>
+        </div>
             
         </div>
     );

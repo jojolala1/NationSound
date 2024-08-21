@@ -2,7 +2,7 @@
     "locations": [
         {
             "id": 1,
-            "name": "Scène Echo valey",
+            "name": "Scène Echo Valley",
             "position": [48.5765, -3.3081],
             "iconClass": "bi-music-note-beamed",
             "category": "scene"

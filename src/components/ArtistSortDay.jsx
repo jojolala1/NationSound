@@ -43,15 +43,15 @@ export default function ArtistSortDay() {
             
 
             for (let artiste of artistesJson) {
-                if (artiste.date === "Mercredi 04 septembre") {
+                if (artiste.date === "mercredi 04 septembre") {
                     jours.mercredi.push(artiste);
-                } else if (artiste.date === "Jeudi 05 septembre") {
+                } else if (artiste.date === "jeudi 05 septembre") {
                     jours.jeudi.push(artiste);
-                } else if (artiste.date === "Vendredi 06 septembre") {
+                } else if (artiste.date === "vendredi 06 septembre") {
                     jours.vendredi.push(artiste);
-                } else if (artiste.date === "Samedi 07 septembre") {
+                } else if (artiste.date === "samedi 07 septembre") {
                     jours.samedi.push(artiste);
-                } else if (artiste.date === "Dimanche 08 septembre") {
+                } else if (artiste.date === "dimanche 08 septembre") {
                     jours.dimanche.push(artiste);
                 }
             }

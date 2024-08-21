@@ -34,15 +34,15 @@ export default function Home() {
             const dimanche = [" - "]
 
             for (let artiste of artistesJson){
-                if (artiste.date === "Mercredi 04 septembre") {
+                if (artiste.date === "mercredi 04 septembre") {
                     mercredi.push(artiste.name + " - ")
-                } else if (artiste.date === "Jeudi 05 septembre") {
+                } else if (artiste.date === "jeudi 05 septembre") {
                     jeudi.push(artiste.name + " - ")
-                } else if (artiste.date === "Vendredi 06 septembre") {
+                } else if (artiste.date === "vendredi 06 septembre") {
                     vendredi.push(artiste.name + " - ")
-                } else if (artiste.date === "Samedi 07 septembre") {
+                } else if (artiste.date === "samedi 07 septembre") {
                     samedi.push(artiste.name + " - ")
-                } else if (artiste.date === "Dimanche 08 septembre") {
+                } else if (artiste.date === "dimanche 08 septembre") {
                     dimanche.push(artiste.name + " - ")
                 }
             }
@@ -157,7 +157,7 @@ export default function Home() {
             
             
             <div className='my-5 d-flex container flex-column-reverse flex-md-row  align-items-center justify-content-center'>
-                <img src="../../images/map.png" alt="extrait de la carte" className='formborder m-3 col-10 col-md-5  shadoww radius' onClick={handleNavigateCarte}/>
+                <img src="../../images/map.png" alt="extrait de la carte" className='formborder m-3 mb-5 col-10 col-md-5 clickable shadoww radius' onClick={handleNavigateCarte}/>
                 <div className='d-flex text-center flex-column mx-3 align-items-center justify-content-center col-10 col-md-5 col-lg-6'>
                     <h3 className='titleFont fw-bold pVideo display-2 mb-3 rouge'>Votre carte interactive</h3>
                     <p className='textFont noir mb-5 mt-4 h4 fw-bold'>Vous cherchez quelque chose ? Cliquez sur la carte pour accéder à la carte interactive, vous pourrez vous repérer, filtrer ce que vous cherchez et même voir les concerts en cours. </p>
@@ -168,22 +168,22 @@ export default function Home() {
                 <div className='d-flex flex-column mb-0 px-3 py-2 align-items-center justify-content-center '>
                     <h3 className='mt-5 mb-3 titleFont fw-bold pVideo display-2 beige'>Nos partenaires</h3>
                     <div className="d-flex row gap-5 my-5 align-items-center justify-content-center">
-                        <div className="col-4 col-lg-3 d-flex justify-content-center" onClick={handleNavigateEpsi}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateEpsi}>
                             <img src="../../images/logoEpsi.svg" alt="logo EPSI" className=' logo2'/>
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center" onClick={handleNavigateSpotify}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateSpotify}>
                             <img src="../../images/logoSpotify.png" alt="logo Spotify" className=' logo2'/>
-                        </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center" onClick={handleNavigateDeezer}>
+                        </div> 
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateDeezer}>
                             <img src="../../images/logoDeezer.svg" alt="logo Deezer" className=' logo2'/>
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center" onClick={handleNavigateCorref}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateCorref}>
                             <img src="../../images/logoCorref.webp" alt="logo" className=' logo2'/>
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center" onClick={handleNavigatePerrier}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigatePerrier}>
                             <img src="../../images/logoPerrier.png" alt="logo Perrier" className=' logo2'/>
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center"onClick={handleNavigateCmb}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable"onClick={handleNavigateCmb}>
                             <img src="../../images/logoCmb.png" alt="logo cmb" className=' logo2'/>
                         </div>
                         

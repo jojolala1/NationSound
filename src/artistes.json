@@ -1,7 +1,7 @@
 [
     {
         "name": "Eels",
-        "date": "Mercredi 04 septembre",
+        "date": "mercredi 04 septembre",
         "time": "18:00",
         "stage": "Echo Valley",
         "genre": "Alternative Rock",
@@ -11,7 +11,7 @@
     },
     {
         "name": "Red Hot Chili Peppers",
-        "date": "Mercredi 04 septembre",
+        "date": "mercredi 04 septembre",
         "time": "20:00",
         "stage": "Sunset Boulevard",
         "genre": "Funk Rock",
@@ -21,7 +21,7 @@
     },
     {
         "name": "Aupinard",
-        "date": "Jeudi 05 septembre",
+        "date": "jeudi 05 septembre",
         "time": "16:00",
         "stage": "Harmony Haven",
         "genre": "Bossa Nova",
@@ -31,7 +31,7 @@
     },
     {
         "name": "Luidji",
-        "date": "Jeudi 05 septembre",
+        "date": "jeudi 05 septembre",
         "time": "18:00",
         "stage": "Starlight Stage",
         "genre": "Hip-Hop",
@@ -41,7 +41,7 @@
     },
     {
         "name": "Smash Mouth",
-        "date": "Vendredi 06 septembre",
+        "date": "vendredi 06 septembre",
         "time": "19:00",
         "stage": "Echo Valley",
         "genre": "Alternative Rock",
@@ -51,7 +51,7 @@
     },
     {
         "name": "Lenny Kravitz",
-        "date": "Vendredi 06 septembre",
+        "date": "vendredi 06 septembre",
         "time": "21:00",
         "stage": "Sunset Boulevard",
         "genre": "Rock",
@@ -61,7 +61,7 @@
     },
     {
         "name": "System Of A Down",
-        "date": "Samedi 07 septembre",
+        "date": "samedi 07 septembre",
         "time": "20:00",
         "stage": "Wanderlust Woods",
         "genre": "Metal",
@@ -71,7 +71,7 @@
     },
     {
         "name": "Foo Fighters",
-        "date": "Samedi 07 septembre",
+        "date": "samedi 07 septembre",
         "time": "22:00",
         "stage": "Sunset Boulevard",
         "genre": "Rock",
@@ -81,7 +81,7 @@
     },
     {
         "name": "Radiohead",
-        "date": "Dimanche 08 septembre",
+        "date": "dimanche 08 septembre",
         "time": "19:00",
         "stage": "Starlight Stage",
         "genre": "Alternative Rock",
@@ -91,7 +91,7 @@
     },
     {
         "name": "Royal Blood",
-        "date": "Dimanche 08 septembre",
+        "date": "dimanche 08 septembre",
         "time": "21:00",
         "stage": "Echo Valley",
         "genre": "Hard Rock",
@@ -101,7 +101,7 @@
     },
     {
         "name": "Imagine Dragons",
-        "date": "Dimanche 08 septembre",
+        "date": "dimanche 08 septembre",
         "time": "23:00",
         "stage": "Sunset Boulevard",
         "genre": "Pop Rock",
@@ -111,7 +111,7 @@
     },
     {
         "name": "Skip the Use",
-        "date": "Vendredi 06 septembre",
+        "date": "vendredi 06 septembre",
         "time": "17:00",
         "stage": "Harmony Haven",
         "genre": "Electro Rock",
@@ -121,7 +121,7 @@
     },
     {
         "name": "Green Day",
-        "date": "Samedi 07 septembre",
+        "date": "samedi 07 septembre",
         "time": "19:00",
         "stage": "Wanderlust Woods",
         "genre": "Punk Rock",
@@ -131,7 +131,7 @@
     },
     {
         "name": "The Offspring",
-        "date": "Samedi 07 septembre",
+        "date": "samedi 07 septembre",
         "time": "17:00",
         "stage": "Echo Valley",
         "genre": "Punk Rock",
@@ -141,7 +141,7 @@
     },
     {
         "name": "Muse",
-        "date": "Dimanche 08 septembre",
+        "date": "simanche 08 septembre",
         "time": "22:00",
         "stage": "Sunset Boulevard",
         "genre": "Alternative Rock",
@@ -151,7 +151,7 @@
     },
     {
         "name": "Yamé",
-        "date": "Jeudi 05 septembre",
+        "date": "jeudi 05 septembre",
         "time": "15:00",
         "stage": "Harmony Haven",
         "genre": "Indie Pop",
@@ -161,7 +161,7 @@
     },
     {
         "name": "Franz Ferdinand",
-        "date": "Vendredi 06 septembre",
+        "date": "vendredi 06 septembre",
         "time": "21:00",
         "stage": "Wanderlust Woods",
         "genre": "Indie Rock",
