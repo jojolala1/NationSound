@@ -2,22 +2,23 @@
 @import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
 
 html {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+width: 100vw;
+height: 100vh;
+margin: 0;
+padding: 0;
 }
 
 body{
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: var(--beige);
-  overflow: hidden;
-  overflow-y: scroll;
-  scrollbar-width: none;
+width: 100vw;
+height: 100vh;
+margin: 0;
+padding: 0;
+background-color: var(--beige);
+overflow: hidden;
+overflow-y: scroll;
+scrollbar-width: none;
 }
+
 ::-webkit-scrollbar {
   width: 15px;  
 }
@@ -88,7 +89,7 @@ body{
 }
 
 .me{
-  color: rgb(4, 221, 4) !important;
+  color: rgb(27, 104, 248) !important;
 }
 
 .titleFont{
@@ -97,6 +98,15 @@ body{
 
 .textFont{
   font-family: var(--textFont)!important;
+}
+
+.video{
+  width: 100vw; 
+height: 91vh;
+display: block;
+overflow: hidden;
+object-fit: cover;
+filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6) hue-rotate(-10deg) grayscale(0.2);
 }
 
 .moins1px{
@@ -196,18 +206,6 @@ body{
   }
 }
 
-
-.video{
-  top: 0;
-  left: 0;
-  width: 100vw; 
-  height: 91vh;
-  display: block;
-  overflow: hidden;
-  object-fit: cover;
-  filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6) hue-rotate(-10deg) grayscale(0.2);
-}
-
 .top0{
   top: 0;
 }
@@ -259,6 +257,10 @@ body{
 }
 .pVideo{
   text-shadow: 3px 3px var(--noir);
+}
+.pVideolight{
+  text-shadow: 1px 1px var(--noir);
+
 }
 
 .footer{
@@ -339,7 +341,7 @@ body{
 }
 
 .styleMap{
-  height: 70vh;
+  height: 45vh;
   width: 80vw;
   border-radius: 30px;
   z-index: 0;
@@ -369,6 +371,26 @@ body{
 .leaflet-popup-content {
   max-width: 200px; 
   max-height: 150px; 
+}
+.widthPartenaire{
+  width: 80vw;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.logo2{
+  width: 22vw;
+}
+
+.logo3{
+  height: 15vw;
+  width: 45vw;
+}
+
+.dropSadow {
+  filter: drop-shadow(3px 3px 6px rgb(0 0 0 / 0.4));
 }
 @media screen and (min-width: 768px) {
   .effet{
@@ -418,18 +440,22 @@ body{
     color: var(--noir);
   
   }
+  .logo3{
+    height: 10vw;
+    width: 30vw;
+  }
+  .styleMap{
+    height: 55vh;
+  }
 
 }
 
-.clickable {
-  cursor: pointer;
-}
-
-.logo2{
-  width: 22vw;
-}
 @media screen and (min-width: 992px){
 
+  .reverse{
+    flex-direction: row-reverse!important;
+  }
+  
   .artistes{
     font-size: 1.4rem;
   }
@@ -449,6 +475,15 @@ body{
   .imgSize{
     width: 50%;
     height: 25vw;
+  }
+  .widthPartenaire{
+    width: 80vw;
+  }
+  .logo2{
+    width: 20vw;
+  }
+  .styleMap{
+    height: 65vh;
   }
 }
 
@@ -495,6 +530,15 @@ body{
     .marginUnderNav{
       margin-top: 130px;
     }
+    .widthPartenaire{
+      width: 70vw;
+    }
+    .logo2{
+      width: 18vw;
+    }
+    .styleMap{
+      height: 70vh;
+    }
 }
 
 @media screen and (min-width: 1400px){
@@ -516,5 +560,11 @@ body{
   .infosBox{
     width: 50vw;
    }
+   .widthPartenaire{
+    width: 60vw;
+  }
+  .logo2{
+    width: 14vw;
+  }
 }
 

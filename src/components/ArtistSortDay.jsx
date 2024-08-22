@@ -101,7 +101,7 @@ export default function ArtistSortDay() {
                         <p  className="m-0 my-auto fw-normal p-0 col-3">Scène</p>
                     </div>
                 {program.jeudi.map((artiste, index) => (
-                    <div key={index} className="d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
+                    <div key={index} onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})} className="clickable d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
                     <p className="m-0 my-auto p-0 col-3">{artiste.name}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.time}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.stage}</p>
@@ -119,7 +119,7 @@ export default function ArtistSortDay() {
                         <p  className="m-0 my-auto fw-normal p-0 col-3">Scène</p>
                     </div>
                 {program.vendredi.map((artiste, index) => (
-                    <div key={index} className="d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
+                    <div key={index} onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})} className=" clickable d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
                     <p className="m-0 my-auto p-0 col-3">{artiste.name}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.time}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.stage}</p>
@@ -137,7 +137,7 @@ export default function ArtistSortDay() {
                         <p  className="m-0 my-auto fw-normal p-0 col-3">Scène</p>
                     </div>
                 {program.samedi.map((artiste, index) => (
-                    <div key={index} className="d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-4 border">
+                    <div key={index} onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})} className="clickable d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-4 border">
                     <p className="m-0 my-auto p-0 col-3">{artiste.name}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.time}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.stage}</p>
@@ -154,7 +154,7 @@ export default function ArtistSortDay() {
                         <p  className="m-0 my-auto fw-normal p-0 col-3">Scène</p>
                     </div>
                 {program.dimanche.map((artiste, index) => (
-                    <div key={index} className="d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
+                    <div key={index} onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})} className="clickable d-flex justify-content-around  bgBlanc py-3 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
                     <p className="m-0 my-auto p-0 col-3">{artiste.name}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.time}</p>
                     <p  className="m-0 my-auto p-0 col-3">{artiste.stage}</p>

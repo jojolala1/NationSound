@@ -3,7 +3,9 @@ import { useLocation } from "react-router-dom";
 
 export default function ArtistPage() {
     const location = useLocation();
-    const artiste = location.state?.artiste;
+    const artiste = location.state?.artiste ;
+
+    console.log(artiste)
 
     if (!artiste) {
         return <p>Artiste non trouvé</p>;

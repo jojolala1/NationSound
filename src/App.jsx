@@ -9,6 +9,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ErrorElement from './components/ErrorElement';
 import ArtistPage from "./components/ArtistPage";
+import PartenairePage from "./components/PartenairePage";
+
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/carte-interactive',
         element: <Carte />,
+      },
+      {
+        path: '/partenaires',
+        element: <PartenairePage />,
       },
       {
         path: '*',

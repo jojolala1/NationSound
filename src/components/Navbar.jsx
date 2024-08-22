@@ -20,9 +20,9 @@ export default function Navbar() {
 
             <nav className="navbar navbar-expand-lg bgRouge heightNav">
                 <div className="container-fluid">
-                    <a className="clickable border border-0 effectNone  z-3" onClick={toggle}>
+                    <p className="clickable border border-0 effectNone  z-3" onClick={toggle}>
                         <i className="bi bi-list beige display-2 transitionColor"></i>
-                    </a>
+                    </p>
                     <NavLink className="navbar-brand position-absolute start-50 translate-middle-x text-center z-2"  aria-current="page" to="/">
                         <img className="logo " src={logo} alt="logo" />
                     </NavLink>

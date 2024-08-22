@@ -9,7 +9,7 @@ export default function NavOpen({ toggle }) {
             <div className="d-inline-flex w-100 justify-content-end ">
                 <button className="btn  p-4 d-flex effectNone" onClick={toggle}><i className="bi bi-x-lg h1 transitionColor beige"></i></button>
             </div>
-                <ul className="navbar-nav d-flex align-items-center gap-4">
+                <ul className="navbar-nav d-flex h-100 marginUnderNav align-items-center gap-4">
                     <li className="nav-item">
                         <NavLink className="nav-link beige transitionColor" onClick={toggle} aria-current="page" to="/">Accueil</NavLink>
                     </li>
@@ -17,10 +17,13 @@ export default function NavOpen({ toggle }) {
                         <NavLink className="nav-link beige transitionColor" onClick={toggle} to="informations">Informations/FAQ</NavLink>
                     </li>
                     <li className="nav-item ">
-                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="programation">programation</NavLink>
+                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="programation">Crogramation</NavLink>
                     </li>
                     <li className="nav-item ">
-                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="carte-interactive">carte interactive</NavLink>
+                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="carte-interactive">Carte interactive</NavLink>
+                    </li>
+                    <li className="nav-item ">
+                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="partenaires">Nos partenaires</NavLink>
                     </li>
                 </ul>
         </div>
