@@ -2,10 +2,9 @@ import React from "react";
 import NavOpen from "./NavOpen";
 import { useState } from "react";
 import Fade from "./Fade";
-import logo from '../../images/logo.svg'
-import redWave from '../../images/redWave.svg';
-import yellowWave2 from '../../images/yellowWave2.svg';
-import yellowWave3 from '../../images/yellowWave3.svg';
+import logo from '@images/logo.svg'
+import redWave from '@images/redWave.svg';
+import yellowWave2 from '@images/yellowWave2.svg';
 import { NavLink } from "react-router-dom";
 
 

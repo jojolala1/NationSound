@@ -1,5 +1,5 @@
 import React from "react";
-import redwave2 from '../../images/redwave2.svg';
+import redwave2 from '@images/redwave2.svg';
 
 export default function Footer() {
     return (

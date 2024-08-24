@@ -17,7 +17,7 @@ export default function NavOpen({ toggle }) {
                         <NavLink className="nav-link beige transitionColor" onClick={toggle} to="informations">Informations/FAQ</NavLink>
                     </li>
                     <li className="nav-item ">
-                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="programation">Crogramation</NavLink>
+                        <NavLink className="nav-link beige transitionColor" onClick={toggle} to="programation">Programmation</NavLink>
                     </li>
                     <li className="nav-item ">
                         <NavLink className="nav-link beige transitionColor" onClick={toggle} to="carte-interactive">Carte interactive</NavLink>

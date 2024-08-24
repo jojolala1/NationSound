@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import artistesJson from "../artistes.json";
 import { useNavigate } from "react-router-dom";
+import { UseFetch } from "./JsonContext";
 
 export default function ArtistScene() {
+    
+    const { artistesJson, loading } = UseFetch();
+
 
     const [scenes, setScenes] = useState([])
     useEffect(() => {
@@ -15,7 +18,7 @@ export default function ArtistScene() {
         }
         setScenes(uniqueScenes)
 
-    }, [])
+    }, [loading, artistesJson])
 
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {

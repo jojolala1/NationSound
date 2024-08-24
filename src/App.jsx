@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import ErrorElement from './components/ErrorElement';
 import ArtistPage from "./components/ArtistPage";
 import PartenairePage from "./components/PartenairePage";
+import {FetchProvider } from "./components/JsonContext";
 
 
 const router = createBrowserRouter([
@@ -72,9 +73,9 @@ function App() {
 
 
   return (
-    <>
+    <FetchProvider>
       <RouterProvider router={router} />
-    </>
+    </FetchProvider>
   )
 }
 

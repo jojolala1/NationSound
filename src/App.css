@@ -102,7 +102,7 @@ scrollbar-width: none;
 
 .video{
   width: 100vw; 
-height: 91vh;
+height: 90vh;
 display: block;
 overflow: hidden;
 object-fit: cover;
@@ -187,7 +187,7 @@ filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6) hue-rotate(-10deg
 }
 
 .effet{
-  width: 20vw;
+  width: 24vw;
   animation: rotation 20s infinite linear;
 }
 
@@ -391,6 +391,10 @@ filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6) hue-rotate(-10deg
 
 .dropSadow {
   filter: drop-shadow(3px 3px 6px rgb(0 0 0 / 0.4));
+}
+
+.loader{
+  height: 75vh;
 }
 @media screen and (min-width: 768px) {
   .effet{

@@ -28,7 +28,7 @@ export default function Info() {
         <>
             <div className="d-flex flex-column align-items-center marginUnderNav">
                 <h1 className="titleFont rouge mb-5 pVideorouge text-center titleFont fw-bolder  display-2 pVideo px-4 mb-5 z-2">
-                    Informations & FAQ :
+                    Informations & FAQ:
                 </h1>
 
                 <section className="faq-section d-flex flex-column align-items-center textFont vert gap-5 mb-5">

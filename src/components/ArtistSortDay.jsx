@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import artistesJson from "../artistes.json";
 import { useNavigate } from "react-router-dom";
+import { UseFetch } from "./JsonContext";
 
 export default function ArtistSortDay() {
+
+    const { artistesJson, loading } = UseFetch();
+
 
     const quickSort = (arr, key) => {
         if (arr.length <= 1) {
@@ -63,7 +66,7 @@ export default function ArtistSortDay() {
             setProgram(jours);
         };
         loadProgram();
-    }, []);
+    }, [loading, artistesJson]);
 
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {

@@ -2,18 +2,33 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import festivalLocations from "../festivalLocations.json";
-import artistesJson from "../artistes.json";
 import { useNavigate } from "react-router-dom";
+import { UseFetch } from "./JsonContext";
 
 export default function Carte() {
-    const bootstrapIcon = (iconClass) => `
-        <div class="text-center">
-            <i class="bi ${iconClass}" style="font-size: 24px; color: black;"></i>
-        </div>
-    `;
+    const { artistesJson, festivalLocations } = UseFetch();
 
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${festivalLocations.lieu.position[0]},${festivalLocations.lieu.position[1]}`;
+    const [festivalLocationAwait, setFestivalLocationAwait] = useState({
+        locations: [],
+        lieu: {
+            id: 0,
+            name: "",
+            position: [0, 0],
+        },
+    });
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (festivalLocations) {
+                setFestivalLocationAwait(festivalLocations);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [festivalLocations]);
 
     const [checked, setChecked] = useState({
         tous: false,
@@ -26,19 +41,19 @@ export default function Carte() {
         buvette: true,
     });
 
-    const filterFunc = () => {
-        return festivalLocations.locations.filter((location) => {
-            if (checked.snack && location.category === "snack") return true;
-            if (checked.toilettes && location.category === "toilettes")
-                return true;
-            if (checked.scenes && location.category === "scene") return true;
-            if (checked.soins && location.category === "soins") return true;
-            if (checked.camping && location.category === "camping") return true;
-            if (checked.parking && location.category === "parking") return true;
-            if (checked.buvette && location.category === "buvette") return true;
+    const [indice, setIndice] = useState("+");
+    const togglerIndice = () => {
+        if (indice === "+") {
+            setIndice("-");
+        } else {
+            setIndice("+");
+        }
+        return indice;
+    };
 
-            return false;
-        });
+    const navigate = useNavigate();
+    const handleNavigate = (artiste) => {
+        navigate(`../programation/${artiste.name}`, { state: { artiste } });
     };
 
     const checkedAll = () => {
@@ -66,11 +81,45 @@ export default function Carte() {
         });
     };
 
-    const [visibleLocations, setVisibleLocations] = useState(filterFunc());
+    const directScene = (scene, arrScene) => {
+        for (let artiste of arrScene) {
+            const timeArtist = parseInt(artiste.time, 10);
+            if (artiste.date === dateNow) {
+                if (timeArtist <= timeNow && timeNow < timeArtist + 1) {
+                    visibleLocationsDirect.push({
+                        scene: `Scène ${scene}`,
+                        artisteName: artiste.name,
+                        time: `de ${timeArtist}h à ${timeArtist + 1}h`,
+                        artiste: { artiste: artiste },
+                    });
+                }
+            }
+        }
+    };
 
-    useEffect(() => {
-        setVisibleLocations(filterFunc());
-    }, [checked]);
+    const bootstrapIcon = (iconClass) => `
+    <div class="text-center">
+        <i class="bi ${iconClass}" style="font-size: 24px; color: black;"></i>
+    </div>
+`;
+
+    const successPosition = (position) => {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        const newLocation = {
+            id: visibleLocations.length + 2,
+            name: "Moi",
+            position: [lat, long],
+            iconClass: "bi-person-fill me",
+            category: "me",
+        };
+
+        setVisibleLocations([...visibleLocations, newLocation]);
+    };
+
+    const handlePosition = () => {
+        navigator.geolocation.getCurrentPosition(successPosition);
+    };
 
     const EchoValley = [];
     const SunsetBoulevard = [];
@@ -96,6 +145,8 @@ export default function Carte() {
     });
     timeNow = parseInt(timeNow);
 
+    const visibleLocationsDirect = [];
+
     for (let artiste of artistesJson) {
         switch (artiste.stage) {
             case "Echo Valley":
@@ -119,85 +170,75 @@ export default function Carte() {
         }
     }
 
-    const visibleLocationsDirect = [];
-
-    const directScene = (scene, arrScene) => {
-        for (let artiste of arrScene) {
-            const timeArtist = parseInt(artiste.time, 10);
-            if (artiste.date === dateNow) {
-                if (timeArtist <= timeNow && timeNow < timeArtist + 1) {
-                    visibleLocationsDirect.push({
-                        scene: `Scène ${scene}`,
-                        artisteName: artiste.name,
-                        time: `de ${timeArtist}h à ${timeArtist + 1}h`,
-                        artiste: { artiste: artiste }
-                    });
-                }
-            }
-        }
-    };
-
     directScene("Echo Valley", EchoValley);
     directScene("Sunset Boulevard", SunsetBoulevard);
     directScene("Harmony Haven", HarmonyHaven);
     directScene("Starlight Stage", StarlightStage);
     directScene("Wanderlust Woods", WanderlustWoods);
 
-    for (let location of visibleLocations) {
-        let artisteFound = false;
+    const [visibleLocations, setVisibleLocations] = useState([]);
 
-        for (let theScene of visibleLocationsDirect) {
-            if (location.name === theScene.scene) {
-                if (!location.iconClass.includes("rouge")) {
-                    location.iconClass += " rouge";
+    useEffect(()=>{
+        for (let location of visibleLocations) {
+            let artisteFound = false;
+    
+            for (let theScene of visibleLocationsDirect) {
+                if (location.name === theScene.scene) {
+                    if (!location.iconClass.includes("rouge")) {
+                        location.iconClass += " rouge";
+                    }
+                    location.artisteName = theScene.artisteName;
+                    location.time = theScene.time;
+                    location.artiste = theScene.artiste.artiste;
+                    artisteFound = true;
+                    break;
                 }
-                location.artisteName = theScene.artisteName;
-                location.time = theScene.time;
-                location.artiste = theScene.artiste.artiste
-                artisteFound = true;
-                break;
+            }
+    
+            if (!artisteFound && location.iconClass.includes("rouge")) {
+                location.iconClass = location.iconClass.replace(" rouge", "");
+                location.artisteName = "";
+                location.artiste = null;
             }
         }
+    },[visibleLocations])
+    useEffect(() => {
+        setVisibleLocations(filterFunc());
+    }, [checked, festivalLocationAwait]);
 
-        if (!artisteFound && location.iconClass.includes("rouge")) {
-            location.iconClass = location.iconClass.replace(" rouge", "");
-            location.artisteName = "";
-            location.artiste = null;
-        }
+    if (loading || !festivalLocationAwait.lieu) {
+        return (
+            <div className="loader d-flex align-items-center justify-content-center">
+                <p className="titleFont rouge display-5">Chargement de la carte...</p>
+            </div>
+        );
     }
 
-    const successPosition = (position) => {
-        const lat = position.coords.latitude;
-        const long = position.coords.longitude;
-        const newLocation = {
-            id: visibleLocations.length + 2,
-            name: "Moi",
-            position: [lat, long],
-            iconClass: "bi-person-fill me",
-            category: "me",
-        };
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${festivalLocationAwait.lieu.position[0]},${festivalLocationAwait.lieu.position[1]}`;
 
-        setVisibleLocations([...visibleLocations, newLocation]);
-    };
+    function filterFunc() {
+        if (festivalLocationAwait.locations) {
+            return festivalLocationAwait.locations.filter((location) => {
+                if (checked.snack && location.category === "snack") return true;
+                if (checked.toilettes && location.category === "toilettes")
+                    return true;
+                if (checked.scenes && location.category === "scene")
+                    return true;
+                if (checked.soins && location.category === "soins") return true;
+                if (checked.camping && location.category === "camping")
+                    return true;
+                if (checked.parking && location.category === "parking")
+                    return true;
+                if (checked.buvette && location.category === "buvette")
+                    return true;
 
-    const handlePosition = () => {
-        navigator.geolocation.getCurrentPosition(successPosition);
-    };
-
-    const [indice, setIndice] = useState("+");
-    const togglerIndice = () => {
-        if (indice === "+") {
-            setIndice("-");
-        } else {
-            setIndice("+");
+                return false;
+            });
         }
-        return indice;
-    };
-
-    const navigate = useNavigate();
-    const handleNavigate = (artiste) => {
-        navigate(`../programation/${artiste.name}`, {state: { artiste }});
+        return [];
     }
+
+   
 
     return (
         <div className="marginUnderNav d-flex flex-column align-items-center">
@@ -305,7 +346,7 @@ export default function Carte() {
                 <div className="formborder radius  m-4 m-md-5 shadoww">
                     <MapContainer
                         className="styleMap "
-                        center={festivalLocations.lieu.position}
+                        center={festivalLocationAwait.lieu.position}
                         zoom={17}
                         scrollWheelZoom={false}
                     >
@@ -332,16 +373,29 @@ export default function Carte() {
                                             Description: {location.description}
                                         </p>
                                     )}
-                                    {location.opening && <p>Ouverture: {location.opening}</p>}
-                                    
+                                    {location.opening && (
+                                        <p>Ouverture: {location.opening}</p>
+                                    )}
+
                                     {location.artisteName && (
                                         <>
-                                        <p className="clickable text-decoration-underline text-primary" onClick={()=>{handleNavigate(location.artiste, {state:location.artiste}),console.log(location.artiste)}}>
-                                            Artiste: {location.artisteName},{" "}
-                                        </p>
-                                        <p>
-                                            Durée du concert: {location.time}
-                                        </p>
+                                            <p
+                                                className="clickable text-decoration-underline text-primary"
+                                                onClick={() => {
+                                                    handleNavigate(
+                                                        location.artiste,
+                                                        {
+                                                            state: location.artiste,
+                                                        }
+                                                    );
+                                                }}
+                                            >
+                                                Artiste: {location.artisteName},{" "}
+                                            </p>
+                                            <p>
+                                                Durée du concert:{" "}
+                                                {location.time}
+                                            </p>
                                         </>
                                     )}
                                 </Popup>

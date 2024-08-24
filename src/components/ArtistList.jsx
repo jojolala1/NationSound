@@ -1,18 +1,42 @@
 import React from "react";
-import artistesJson from "../artistes.json";
 import { useNavigate } from "react-router-dom";
+import { UseFetch } from "./JsonContext";
 
-export default function ArtisteList () {
+export default function ArtisteList() {
+    const { artistesJson, loading, error } = UseFetch();
 
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {
         navigate(lien, state);
     };
+
+    if (loading) {
+        return (
+            <div className="loader d-flex align-items-center justify-content-center">
+                <p className="titleFont rouge display-5 mb-5 pb-5">
+                    Chargement des artistes...
+                </p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <p>Erreur lors du chargement des artistes : {error.message}</p>;
+    }
+
+    if (artistesJson.length === 0) {
+        return <p>Aucun artiste disponible.</p>;
+    }
+
     return artistesJson.map((artiste, index) => (
         <div
             key={index}
             className="clickable m-5 shadoww roundedArtist position-relative col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column justify-content-end align-items-center imgArtistContent"
-            onClick={()=>handleNavigate(`/programation/${artiste.name}` , { state: { artiste }})}
+            onClick={() =>
+                handleNavigate(`/programation/${artiste.name}`, {
+                    state: { artiste },
+                })
+            }
         >
             <img
                 src={artiste.image}
@@ -27,4 +51,4 @@ export default function ArtisteList () {
             </p>
         </div>
     ));
-};
+}
