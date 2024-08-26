@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { UseFetch } from "./JsonContext";
 
 export default function Carte() {
@@ -53,7 +53,7 @@ export default function Carte() {
 
     const navigate = useNavigate();
     const handleNavigate = (artiste) => {
-        navigate(`../programation/${artiste.name}`, { state: { artiste } });
+        navigate(`../programmation/${artiste.name}`, { state: { artiste } });
     };
 
     const checkedAll = () => {
@@ -415,8 +415,10 @@ export default function Carte() {
                     <a href={googleMapsUrl} className="my-4">
                         addresse du lieu
                     </a>
+                    <NavLink to="Modification-programmation">modifier programmation</NavLink>
                 </div>
             </div>
+            <Outlet />
         </div>
     );
 }

@@ -33,7 +33,7 @@ export default function ArtisteList() {
             key={index}
             className="clickable m-5 shadoww roundedArtist position-relative col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column justify-content-end align-items-center imgArtistContent"
             onClick={() =>
-                handleNavigate(`/programation/${artiste.name}`, {
+                handleNavigate(`/programmation/${artiste.name}`, {
                     state: { artiste },
                 })
             }

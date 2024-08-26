@@ -11,6 +11,7 @@ import ErrorElement from './components/ErrorElement';
 import ArtistPage from "./components/ArtistPage";
 import PartenairePage from "./components/PartenairePage";
 import {FetchProvider } from "./components/JsonContext";
+import ModifyArtistes from "./components/ModifyArtistes";
 
 
 const router = createBrowserRouter([
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
         element: <Info />,
       },
       {
-        path: '/programation',
+        path: '/programmation',
         element: <Prog />,
       },
       {
-        path: '/programation/:artiste',
+        path: '/programmation/:artiste',
         element: <ArtistPage />,
       },
       {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/partenaires',
         element: <PartenairePage />,
+      },
+      {
+        path: '/carte-interactive/Modification-programmation',
+        element: <ModifyArtistes />,
       },
       {
         path: '*',
@@ -62,7 +67,7 @@ function AppLayout () {
 },[location.pathname])
   return(
     <>
-      <Navbar/>
+      <Navbar />
       <Outlet/>
       <Footer/>
     </>

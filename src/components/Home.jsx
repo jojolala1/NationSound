@@ -84,7 +84,7 @@ export default function Home() {
 
 
     const handleNavigate = () => {
-        navigate('/programation');
+        navigate('/programmation');
     };
     const handleNavigateInfo = () => {
         navigate('/Informations');
@@ -98,7 +98,7 @@ export default function Home() {
 
 
     return (
-        <div className="d-flex flex-column align-items-center bgBeige pb-5" >
+        <div className="d-flex flex-column align-items-center bgBeige pb-5 " >
             <div className=" position-relative">
 
                 <video
@@ -111,6 +111,8 @@ export default function Home() {
                     poster="/assets/images/poster.webp"
                     preload="auto"
                     alt="fond"
+                    controls={false}
+                    playsInline 
                 ></video>
 
 
@@ -157,7 +159,7 @@ export default function Home() {
                     <p className="blanc textFont pVideolight fw-bolder h4">{program.dimanche}
                     </p>
                 </article>
-                <button className='bgRouge pVideolight blanc  my-5 px-3 py-2 px-lg-3 py-lg-2 fw-bolder bouton textSize titleFont' onClick={handleNavigate}>Voir toute la programation</button>
+                <button className='bgRouge pVideolight blanc  my-5 px-3 py-2 px-lg-3 py-lg-2 fw-bolder bouton textSize titleFont' onClick={handleNavigate}>Voir toute la programmation</button>
             </div>
             <img src={yellowWave2} alt='fond en forme de vague' className='banner rotated mt-5' />
             <div className='d-flex flex-column bgJaune w-100  align-items-center justify-content-center'>
@@ -178,6 +180,7 @@ export default function Home() {
                 </div>
             </div>
             <img src={greenwave2} alt='fond en forme de vague' className='banner rotated2 mt-4' />
+
             <div className='d-flex flex-column bgVert w-100  align-items-center justify-content-center'>
                 <div className='d-flex flex-column mb-0 px-3 py-2 align-items-center justify-content-center '>
                     <h3 className='mt-5 mb-3 titleFont fw-bold pVideo display-2 blanc'>Nos partenaires</h3>

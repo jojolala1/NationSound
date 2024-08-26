@@ -21,9 +21,9 @@ export default function Prog() {
     };
 
     return (
-        <div className="d-flex flex-column align-items-center marginUnderNav ">
+        <div className="d-flex flex-column align-items-center marginUnderNav DontScrollx">
             <h1 className="rouge text-center titleFont fw-bolder  display-2 pVideo px-4 mb-5 z-2">
-                Programation :
+                Programmation :
             </h1>
             <div className="d-flex flex-column align-content-center">
                 <p className="titleFont  fw-bolder noir mb-2 h2 text-center ">Trier par :</p>
