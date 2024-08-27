@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -7,7 +7,7 @@ import { UseFetch } from "./JsonContext";
 
 export default function Carte() {
     const { artistesJson, festivalLocations } = UseFetch();
-
+    const mapRef = useRef()
     const [festivalLocationAwait, setFestivalLocationAwait] = useState({
         locations: [],
         lieu: {
@@ -114,11 +114,17 @@ export default function Carte() {
             category: "me",
         };
 
+        const map = mapRef.current;
+        if(map) {
+            map.setView([lat, long], 17)
+        }
+
         setVisibleLocations([...visibleLocations, newLocation]);
     };
 
     const handlePosition = () => {
-        navigator.geolocation.getCurrentPosition(successPosition);
+        const yourPosition = navigator.geolocation.getCurrentPosition(successPosition);
+        return yourPosition
     };
 
     const EchoValley = [];
@@ -349,6 +355,7 @@ export default function Carte() {
                         center={festivalLocationAwait.lieu.position}
                         zoom={17}
                         scrollWheelZoom={false}
+                        ref={mapRef}
                     >
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -415,7 +422,7 @@ export default function Carte() {
                     <a href={googleMapsUrl} className="my-4">
                         addresse du lieu
                     </a>
-                    <NavLink to="Modification-programmation">modifier programmation</NavLink>
+                    <NavLink to="Modification-programmation" className="mb-5">modifier programmation</NavLink>
                 </div>
             </div>
             <Outlet />

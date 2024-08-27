@@ -132,29 +132,29 @@ export default function Home() {
                 <img src={effet} alt="effet" className="effet" />
 
             </div>
-            <div className="text-center px-3">
+            <div className="text-center d-flex flex-column align-items-center">
                 <p className="rouge titleFont fw-bolder pVideo display-2 mt-5"> -Programmation 2024- </p>
-                <article className="bgVert d-flex flex-column mt-5 p-5 banner">
+                <article className="bgVert d-flex flex-column mt-5 p-5 banner widthProgHome">
                     <p className='blanc titleFont fw-bolder h1 pVideolight mb-4'>Mercredi 04 Septembre</p>
                     <p className="blanc textFont fw-bolder pVideolight h4">{program.mercredi}
                     </p>
                 </article>
-                <article className=" d-flex flex-column p-5 banner">
+                <article className=" d-flex flex-column p-5 banner widthProgHome">
                     <p className='rouge titleFont fw-bolder  h1 mb-4'>Jeudi 05 Septembre</p>
                     <p className="rouge textFont fw-bolder  h4">{program.jeudi}
                     </p>
                 </article>
-                <article className="bgVert d-flex flex-column  p-5 banner">
+                <article className="bgVert d-flex flex-column  p-5 banner widthProgHome">
                     <p className='blanc titleFont pVideolight fw-bolder h1 mb-4'>Vendredi 06 Septembre</p>
                     <p className="blanc textFont pVideolight fw-bolder h4">{program.vendredi}
                     </p>
                 </article>
-                <article className=" d-flex flex-column p-5 banner">
+                <article className=" d-flex flex-column p-5 banner widthProgHome">
                     <p className='rouge titleFont  fw-bolder h1 mb-4'>Samedi 07 Septembre</p>
                     <p className="rouge textFont  fw-bolder h4">{program.samedi}
                     </p>
                 </article>
-                <article className="bgVert d-flex flex-column mb-4 p-5 banner">
+                <article className="bgVert d-flex flex-column mb-4 p-5 banner widthProgHome">
                     <p className='blanc titleFont pVideolight fw-bolder h1 mb-4'>Dimanche 08 Septembre</p>
                     <p className="blanc textFont pVideolight fw-bolder h4">{program.dimanche}
                     </p>

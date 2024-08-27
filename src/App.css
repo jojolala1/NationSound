@@ -121,7 +121,9 @@ body {
     filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6)
         hue-rotate(-10deg) grayscale(0.2);
 }
-
+.widthProgHome{
+    max-width: 500px;
+}
 .moins1px {
     margin-top: -1px;
 }
@@ -222,7 +224,7 @@ body {
 
 
 .banner {
-    width: 100%;
+    width: 100vw;
     display: block;
     height: auto;
     margin-top: -1px;
@@ -235,7 +237,7 @@ body {
 }
 
 .bandeau {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     margin-top: -22px;
@@ -468,6 +470,9 @@ body {
     .styleMap {
         height: 55vh;
     }
+    .widthProgHome{
+        max-width: 80vw;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -504,6 +509,10 @@ body {
     .styleMap {
         height: 65vh;
     }
+    .widthProgHome{
+        max-width: 70vw;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -553,6 +562,9 @@ body {
     .styleMap {
         height: 70vh;
     }
+    .widthProgHome{
+        max-width: 60vw;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -578,5 +590,8 @@ body {
     }
     .logo2 {
         width: 14vw;
+    }
+    .widthProgHome{
+        max-width: 50vw;
     }
 }
