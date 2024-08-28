@@ -2,10 +2,10 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ArtistPage() {
+    //recupere un objet transmis par la page précedente contenant l'url et le state(l'objet de l'artiste en question)
     const location = useLocation();
+    // le '?. permet de chainer optionnellement artiste, ça evite de devoir tester si artiste existe
     const artiste = location.state?.artiste ;
-
-    console.log(artiste)
 
     if (!artiste) {
         return <p>Artiste non trouvé</p>;

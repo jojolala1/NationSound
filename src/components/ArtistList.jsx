@@ -5,6 +5,7 @@ import { UseFetch } from "./JsonContext";
 export default function ArtisteList() {
     const { artistesJson, loading, error } = UseFetch();
 
+    //gestion du lien vers la page de l'artiste, prenant en parametre le lien ainsi qu'un stat qui prendra l'objet da l'artiste en question
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {
         navigate(lien, state);
@@ -28,6 +29,7 @@ export default function ArtisteList() {
         return <p>Aucun artiste disponible.</p>;
     }
 
+    //creation de l'icon cliquable pour chaques artistes
     return artistesJson.map((artiste, index) => (
         <div
             key={index}

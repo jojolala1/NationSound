@@ -8,10 +8,13 @@ export default function ArtistScene() {
 
 
     const [scenes, setScenes] = useState([])
+
+    //a chaques fois que loading ou artistesJson change, le contenu du useEffect et rééxecuté
     useEffect(() => {
         const uniqueScenes = []
 
         for (let artiste of artistesJson) {
+            //on recupere toutes les scenes, pour chaques artistes on recherche son attribut scene, si il n'est pas dans lla liste devant contenir toute les scènes alors on le rajoute
             if (!uniqueScenes.includes(artiste.stage)) {
                 uniqueScenes.push(artiste.stage);
             }
@@ -20,10 +23,13 @@ export default function ArtistScene() {
 
     }, [loading, artistesJson])
 
+    //gestion du lien vers la page de l'artiste, prenant en parametre le lien ainsi qu'un stat qui prendra l'objet da l'artiste en question
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {
         navigate(lien, state);
     };
+
+    //n'affiche que les artistes auquel l'attribut stage equivaut au parametre scene
     const searchArtist = (scene) => {
         const artistes = artistesJson.filter(artiste => artiste.stage === scene);
         
@@ -38,7 +44,7 @@ export default function ArtistScene() {
 
 
 
-
+    //pour chaques scènes on va utiliser la fonction qui tri les artistes par scene avec le nom de la scene concerné
     return (
         <div className="d-flex flex-column gap-5 widthCalendar fw-bolder noir p-0">
 

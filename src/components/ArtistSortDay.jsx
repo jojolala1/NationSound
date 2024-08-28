@@ -7,15 +7,19 @@ export default function ArtistSortDay() {
     const { artistesJson, loading } = UseFetch();
 
 
+    // algorithme de tri rapide, key represente l'attribut (ici 'time' pour trier aussi en fonction de l'heure)
     const quickSort = (arr, key) => {
+        //gere la fn de la recurssivité
         if (arr.length <= 1) {
             return arr;
         }
 
+        //definit le pivot sur le premier element du tableau
         const pivot = arr[0];
         const left = [];
         const right = [];
 
+        //la boucle commence sur le second element car le premier cest le pivot
         for (let artiste = 1; artiste < arr.length; artiste++) {
             if (arr[artiste][key] < pivot[key]) {
                 left.push(arr[artiste]);
@@ -23,6 +27,7 @@ export default function ArtistSortDay() {
                 right.push(arr[artiste]);
             }
         }
+        //les ... servent a defaire le tableau (ca evite [[[]]])
         return [...quickSort(left, key), pivot, ...quickSort(right, key)];
     };
 
@@ -34,8 +39,13 @@ export default function ArtistSortDay() {
         dimanche: [],
     });
 
+
+    //a chaques fois que loading ou artistesJson change, le contenu du useEffect et rééxecuté
     useEffect(() => {
+
+        
         const loadProgram = () => {
+            //creation d'un objet qui servira à redéfinir program
             const jours = {
                  mercredi : [],
                  jeudi : [],
@@ -44,7 +54,7 @@ export default function ArtistSortDay() {
                  dimanche : []
             }
             
-
+            //boucle for qui parcourt le tableau d'objets et compare l'attribut date afin de trier
             for (let artiste of artistesJson) {
                 if (artiste.date === "mercredi 04 septembre") {
                     jours.mercredi.push(artiste);
@@ -59,6 +69,7 @@ export default function ArtistSortDay() {
                 }
             }
 
+            //boucle sur chaques jours afin de trier par heure chaques artistes par jours
             for (let day in jours) {
                 jours[day] = quickSort(jours[day], "time");
             }
@@ -67,7 +78,8 @@ export default function ArtistSortDay() {
         };
         loadProgram();
     }, [loading, artistesJson]);
-
+    
+    //gestion du lien vers la page de l'artiste, prenant en parametre le lien ainsi qu'un stat qui prendra l'objet da l'artiste en question
     const navigate = useNavigate();
     const handleNavigate = (lien, state) => {
         navigate(lien, state);

@@ -13,7 +13,7 @@ import PartenairePage from "./components/PartenairePage";
 import {FetchProvider } from "./components/JsonContext";
 import ModifyArtistes from "./components/ModifyArtistes";
 
-
+// creation d'un tableau contenant des objets, chacuns des objet gerent une route, cest géré avec creatBrowserRouter, une fonction de la bibliotheque react-router
 const router = createBrowserRouter([
   {
     path: '/',
@@ -58,13 +58,16 @@ const router = createBrowserRouter([
   },
 ]);
 
+//appLayout est definit comme la page de base, chaquesx pages sera donc doté du composant navbar et du footer, outlet prendra l'enfant en fonction du lien, 
 function AppLayout () {
 
+  //permet de renvoyer l'utilisateur un haut de page à chaques chanements de page
   const location = useLocation();
   useEffect(()=>{
     
     window.scrollTo(0, 0)
 },[location.pathname])
+
   return(
     <>
       <Navbar />
@@ -74,6 +77,7 @@ function AppLayout () {
   )
 }
 
+//l'application entiere est recouvert du fetchProvider afin que les données incluse dedans oit disponnible pour tout les composants 
 function App() {
 
 

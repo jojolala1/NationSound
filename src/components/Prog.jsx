@@ -8,12 +8,15 @@ import ArtistStyle from "./ArtisteStyle";
 export default function Prog() {
     
 
+    //definition par defaut de la page line up 
     const[page, setPage] = useState('lineup')
 
+    //gestion de la page a afficher avec un parametre qui definira la page a afficher
     const handlePage= (thePage) => {
         setPage(thePage)
     }
 
+    //gestion du style du bouton si il est actif ou non
     const getButtonClass = (thepage) => {
         return page === thepage
             ? "littleBouton titleFont mx-2 bgRouge blanc px-3 py-2 px-lg-3 py-lg-2 col-5 mx-auto my-3 col-lg-2"
@@ -37,6 +40,7 @@ export default function Prog() {
             </div>
             <div >
                 <div className="row d-flex justify-content-center my-5">
+
                 {page === 'lineup' && <ArtisteList />}
                 {page === 'jours' && <ArtistSortDay />}
                 {page === 'scene' && <ArtistSCene/>}

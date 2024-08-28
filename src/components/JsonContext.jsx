@@ -1,7 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+/**
+ * creation d'un context, peux prendre en parametre une valeur par defaut, il ne contient pas de context en lui meme, cest plus tard qu'on lui transmet avec le nom
+ * du creatContext et .provider  ici ca donnera FetchContext.provider
+ */
 const FetchContext = createContext();
 
+
+//recoit le router en enfant, ce fichier est juste l'intermediaire entre le router et la page en question
 export const FetchProvider = ({children}) => {
     
     const [artistesJson, setArtistes] = useState([])
@@ -12,6 +18,8 @@ export const FetchProvider = ({children}) => {
     
     const [loadingLocation, setLoadingLocation] = useState(true);
     const [errorLocation, setErrorLocation] = useState(null);
+
+    //utilisation du hook useEffect pour faire la requete seulement au montage
     useEffect(()=>{
         const FetchArtistes = async () => {
             try {
@@ -53,6 +61,8 @@ export const FetchProvider = ({children}) => {
         }
         FetchFestivalLocations();
     },[])
+
+    //les pages, donc les enfant de ce fichier, recoivent tous les composants inclus dans value
     return (
         <FetchContext.Provider value={{ artistesJson, loading, error, festivalLocations, loadingLocation ,errorLocation }}>
             {children}
@@ -60,8 +70,7 @@ export const FetchProvider = ({children}) => {
     );
 }
 
-
-
+//c'est avec cette fonction que les enfants extraire les donées de fetchContext
 export const UseFetch = () => {
     return useContext(FetchContext);
 };

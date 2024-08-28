@@ -13,9 +13,11 @@ import { UseFetch } from './JsonContext';
 
 export default function Home() {
 
+    //recuperation des valeurs voulu depuis jsonContext
     const { artistesJson, loading } = UseFetch();
 
 
+    //definit le programme des artistes avec une valeur par defaut d'un objet avec les jours contenant chacuns un tableau vide
     const [program, setProgram] = useState({
         mercredi: [],
         jeudi: [],
@@ -24,8 +26,11 @@ export default function Home() {
         dimanche: []
     })
 
+
+    //a chaques fois que loading ou artistesJson change, le contenu du useEffect et rééxecuté
     useEffect(() => {
 
+        //creation d'un objet qui servira à redéfinir program
         const loadProgram = () => {
             const mercredi = [" - "]
             const jeudi = [" - "]
@@ -33,6 +38,7 @@ export default function Home() {
             const samedi = [" - "]
             const dimanche = [" - "]
 
+            //boucle for qui parcourt le tableau d'objets et compare l'attribut date afin de trier
             for (let artiste of artistesJson) {
                 if (artiste.date === "mercredi 04 septembre") {
                     mercredi.push(artiste.name + " - ")
@@ -46,6 +52,8 @@ export default function Home() {
                     dimanche.push(artiste.name + " - ")
                 }
             }
+
+            //modification de program
             setProgram({
                 mercredi,
                 jeudi,
@@ -54,10 +62,13 @@ export default function Home() {
                 dimanche
             })
         }
+        //lancement de la fonction
         loadProgram()
 
     }, [loading, artistesJson])
 
+
+    //gestion de toute la navigation
     const navigate = useNavigate();
 
     const handleNavigateBilleterie = () => {

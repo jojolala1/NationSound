@@ -13,6 +13,7 @@ export default function Navbar() {
 
     const [open, setOpen] = useState(false)
 
+    //toggle vacilllant de true à false pour gerer la page de navigation
     const toggle = () => setOpen((o) => !o);
     return (
         <div className="position-relative" id="ancrage">
