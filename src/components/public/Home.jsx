@@ -1,12 +1,12 @@
-import videoSrc from '@images/videoDance.webm';
-import yellowWave from '@images/yellowWave.svg';
-import effet from '@images/effet.png';
+import videoSrc from '@/assets/images/videoDance.webm';
+import yellowWave from '@/assets/images/yellowWave.svg';
+import effet from '@/assets/images/effet.png';
 import { useEffect, useState } from 'react';
-import yellowWave2 from '@images/yellowWave2.svg';
-import greenWave from '@images/greenWave.svg';
-import greenwave2 from '@images/greenwave2.svg';
+import yellowWave2 from '@/assets/images/yellowWave2.svg';
+import greenWave from '@/assets/images/greenWave.svg';
+import greenwave2 from '@/assets/images/greenwave2.svg';
 import { useNavigate } from 'react-router-dom';
-import logo from '@images/logo.svg'
+import logo from '@/assets/images/logo.svg'
 import { UseFetch } from './JsonContext';
 
 
