@@ -1,21 +1,31 @@
-let saveToken = (token) => {
+const saveToken = (token) => {
     localStorage.setItem('token', token)
 }
 
-let saveRefreshToken = (refresh_token) => {
+const saveRefreshToken = (refresh_token) => {
     localStorage.setItem('refreshToken', refresh_token)
 }
 
 
-let logout = () => {
+const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
 
 }
 
-let isLogged = () => {
-    let token = localStorage.getItem('token')
+const isLogged = () => {
+    const token = localStorage.getItem('token')
     return !!token
 }
 
-export const authFunctions = { saveToken, logout, isLogged, saveRefreshToken }
+const getToken = () => {
+    return localStorage.getItem('token')
+}
+
+export const authFunctions = { 
+    saveToken, 
+    logout, 
+    isLogged, 
+    saveRefreshToken, 
+    getToken 
+}

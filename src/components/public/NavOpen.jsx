@@ -29,7 +29,7 @@ export default function NavOpen({ toggle }) {
                 {authFunctions.isLogged() &&
                     (
                         <li className="nav-item ">
-                            <NavLink className="nav-link beige transitionColor" onClick={toggle} to="dashboard">Panneau de controle</NavLink>
+                            <NavLink className="nav-link beige transitionColor" onClick={toggle} to="admin">Panneau de controle</NavLink>
                         </li>
                     )
                 }

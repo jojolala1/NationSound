@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { authFunctions } from '../logic/authFunctions'
+import { tokenService } from '../logic/tokenService'
 
 export const Login = () => {
     let navigate = useNavigate()
@@ -19,6 +20,8 @@ export const Login = () => {
                 console.log(res)
                 authFunctions.saveToken(res.data.token)
                 authFunctions.saveRefreshToken(res.data.refresh_token)
+
+                tokenService.startTokenService();
 
                 navigate('/admin')
             })
@@ -49,10 +52,11 @@ export const Login = () => {
                 <form onSubmit={onSubmit} className='mt-5'>
 
                     <div className='group'>
-                        <label htmlFor='emailmail'>Email</label>
+                        <label htmlFor='email'>Email</label>
                         <input
                             type="email"
-                            name='emailmail'
+                            name='email'
+                            id='email'
                             value={submitForm.email}
                             autoComplete='email'
                             onChange={handleOnChange} />
@@ -63,6 +67,7 @@ export const Login = () => {
                         <input
                             type={passwordSee}
                             name='password'
+                            id='password'
                             value={submitForm.password}
                             autoComplete="new-password"
                             onChange={handleOnChange}

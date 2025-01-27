@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
-import { authFunctions } from '../logic/authFunctions'
-import { useNavigate } from 'react-router-dom'
 import Artiste from './Artiste'
 import Place from './Place'
 import User from './User'
 
 const Dashboard = () => {
 
-  let navigate = useNavigate()
-const logout = () => {
-  authFunctions.logout()
-  navigate('/')
-}
 
  //definition par defaut de la page line up 
     const[page, setPage] = useState('Artiste')
@@ -38,16 +31,16 @@ const logout = () => {
 <div className="d-flex flex-column align-content-center">
                 <div className="container row footer px-3">
                 <button className={getButtonClass('Artiste')} onClick={()=>{handlePage('Artiste')}}>Artiste</button>
-                <button  className={getButtonClass('PLace')} onClick={()=>{handlePage('PLace')}}>PLace</button>
+                <button  className={getButtonClass('Place')} onClick={()=>{handlePage('Place')}}>Place</button>
                 <button  className={getButtonClass('User')} onClick={()=>{handlePage('User')}}>Utilisateurs</button>
                 </div>
                 
             </div>
-            <div >
-                <div className="row d-flex justify-content-center my-5">
+            <div className='w-100' >
+                <div className=" d-flex justify-content-center my-5 ">
 
                 {page === 'Artiste' && <Artiste />}
-                {page === 'PLace' && <Place />}
+                {page === 'Place' && <Place />}
                 {page === 'User' && <User/>}
 
 

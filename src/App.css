@@ -66,6 +66,8 @@ body {
     background: var(--gris) !important;
 }
 
+
+
 .rouge {
     color: var(--rouge) !important;
 }
@@ -416,6 +418,20 @@ body {
 .loader {
     height: 75vh;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Gris semi-transparent */
+    z-index: 1000; /* Assure que l'overlay est au-dessus de tout le contenu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 @media screen and (min-width: 768px) {
     .effet {
         width: 16vw;
