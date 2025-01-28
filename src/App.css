@@ -277,6 +277,9 @@ body {
 .textSize {
     font-size: 1.5rem;
 }
+.textLittleSize {
+    font-size: 1.5rem;
+}
 .pVideo {
     text-shadow: 3px 3px var(--noir);
 }

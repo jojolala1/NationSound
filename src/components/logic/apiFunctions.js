@@ -8,14 +8,14 @@ const fetchEntity = async (entity) => {
     const token = authFunctions.getToken()
 
     try {
-        const responce = await axios.get(
+        const res = await axios.get(
             url,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-        return responce
+        return res
     }catch(err){
         console.log(err)
     }
@@ -26,7 +26,7 @@ const modifyEntity = async (entity, data, id) => {
     const token = authFunctions.getToken()
 
     try {
-        const responce = await axios.patch(
+        const res = await axios.patch(
             url,
             data,
             {
@@ -35,7 +35,34 @@ const modifyEntity = async (entity, data, id) => {
                     'Content-Type': 'application/merge-patch+json'
                 }
             })
-        return responce
+        return res
+    }catch(err){
+        console.log('apifunction erreur',err)
+
+        return{
+            error: true,
+            code: err.status,
+            message: err.response.data.description
+          }
+
+    }
+}
+
+const AddEntity = async (entity, data) => {
+    const url = `${baseUrl}api/${entity}`
+    const token = authFunctions.getToken()
+
+    try {
+        const res = await axios.post(
+            url,
+            data,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`, 
+                    'Content-Type': 'application/json'
+                }
+            })
+        return res
     }catch(err){
         console.log(err)
     }
@@ -46,17 +73,17 @@ const deleteEntity = async (entity, id) => {
     const token = authFunctions.getToken()
 
     try {
-        const responce = await axios.delete(
+        const res = await axios.delete(
             url,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-        return responce
+        return res
     }catch(err){
         console.log(err)
     }
 }
 
-export const apiFunctions = { fetchEntity, modifyEntity, deleteEntity };
+export const apiFunctions = { fetchEntity, modifyEntity, deleteEntity, AddEntity };

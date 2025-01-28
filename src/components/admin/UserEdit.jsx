@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { apiFunctions } from '../logic/apiFunctions'
-import { div } from 'three/tsl'
 
 const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
 
   const [passwordSee, setPasswrdSee] = useState('password')
+  const [eye, setEye] = useState("bi bi-eye-slash-fill")
+  const [error, setError] = useState(null)
 
   const [userEdit, setUserEdit] = useState({
     email: user.email,
@@ -28,14 +29,16 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
     if (userEdit.lastName !== user.lastName) {
       userPatch.lastName = userEdit.lastName
     }
-    try {
+
       const res = await apiFunctions.modifyEntity('users', userPatch, user.id)
       console.log('reponse de l\'api', res)
+      if (res.error ) {
+        setError(res)
+        return 
+      }
       setSelectedUser(null)
       handleSetToggle()
-    } catch (err) {
-      console.log(err)
-    }
+
   }
 
   useEffect(() => {
@@ -47,12 +50,15 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
         lastName: user.lastName
       })
   }, [user])
+
   const togglePassword = () => {
     //on peut rajouter une vraiante d'icon oeil pour remlacer 'voir'
     if (passwordSee === 'password') {
       setPasswrdSee('text')
+      setEye("bi bi-eye-fill")
     } else {
       setPasswrdSee('password')
+      setEye("bi bi-eye-slash-fill")
     }
   }
 
@@ -63,30 +69,36 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
     })
   }
 
+
+
+
+
   return (
-    <div className=' overlay bgGRey'>
-      
-      <div className='d-flex flex-column align-items-center mb-5 bgBlanc p-5 rounded gap-4 position-fixed z-3 bgGrey'>
-        <h1>modifier {user.email}</h1>
-        <form onSubmit={handleSubmit}>
-          <div className='group d-flex flex-column align-items-center'>
-            <label htmlFor="email">E-mail</label>
+    <div onClick={() => setSelectedUser(null)} className=' overlay bgGRey'>
+
+      <div className='d-flex flex-column align-items-center mb-5 bgBlanc p-5 rounded gap-4 position-fixed z-3 bgGrey mx-2' onClick={(e) => e.stopPropagation()} >
+        <p className='text-center textSize'>modifier l'utilisateur <span className='fw-bold'>{user.firstName} {user.lastName}</span></p>
+        <form onSubmit={handleSubmit} className='d-flex flex-column gap-3' >
+          <div className='group d-flex flex-column align-items-center '>
+            <label htmlFor="emailEdit">E-mail</label>
             <input
+              className='form-control'
               type="email"
               name='email'
-              id='email'
+              id='emailEdit'
               autoComplete='email'
               value={userEdit.email}
               onChange={handleOnChange}
             />
           </div>
           <div className='group d-flex flex-column align-items-center'>
-            <label htmlFor="password">Mot de passe</label>
+            <label htmlFor="passwordEdit">Mot de passe</label>
             <div className="d-flex">
               <input
+                className='form-control'
                 type={passwordSee}
                 name='password'
-                id='password'
+                id='passwordEdit'
                 autoComplete='new-password'
                 value={userEdit.password}
                 onChange={handleOnChange}
@@ -95,15 +107,20 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
               <button onClick={(e) => {
                 e.preventDefault()
                 togglePassword()
-              }}>voir</button>
+              }}
+                className='rounded textFont noir bg-white border'
+              >
+                <i className={eye}></i>
+              </button>
             </div>
           </div>
           <div className='group d-flex flex-column align-items-center'>
-            <label htmlFor="firstName">Prenom</label>
+            <label htmlFor="firstNameEdit">Prenom</label>
             <input
+              className='form-control'
               type="text"
               name='firstName'
-              id='firstName'
+              id='firstNameEdit'
               autoComplete='given-name'
               value={userEdit.firstName}
               onChange={handleOnChange}
@@ -111,11 +128,12 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
             />
           </div>
           <div className='group d-flex flex-column align-items-center'>
-            <label htmlFor="lastName">Nom</label>
+            <label htmlFor="lastNameEdit">Nom</label>
             <input
+              className='form-control'
               type="text"
               name='lastName'
-              id='lastName'
+              id='lastNameEdit'
 
               autoComplete='family-name'
               value={userEdit.lastName}
@@ -123,9 +141,25 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
 
             />
           </div>
-          <button type='submit'>Modifier</button>
+          {error && (
+            <div className="alert alert-danger">
+              <p>
+                {error.code === 401
+                  ? 'Veuillez vous reconnecter.'
+                  : `Erreur ${error.status || 'inconnue'}`}
+              </p>
+              <p>
+                {error.code === 401
+                  ? ''
+                  : error.message || 'Une erreur est survenue, mais aucun détail n\'est disponible.'}
+              </p>
+            </div>
+          )}
+          <button
+            className='bouton bgVert blanc mt-4 py-2'
+            type='submit'>Modifier</button>
         </form>
-        <button onClick={() => setSelectedUser(null)}>annuler</button>
+        <button className='bouton bgRouge blanc  py-2' onClick={() => setSelectedUser(null)}>annuler</button>
       </div>
     </div>
 

@@ -22,14 +22,14 @@ const Dashboard = () => {
     };
 
   return (
-    <div className='dashboard my-5 d-flex flex-column align-items-center'>
-      <div className='d-lg-flex w-lg-100 justify-content-end'>
+    <div className='dashboard my-5 d-flex flex-column align-items-center '>
+      <div className='d-lg-flex w-lg-100 justify-content-end marginUnderNav'>
 
       </div>
-      <h1>Dashboard</h1>
+      <h1 className='titleFont titleSize noir mb-5'>Dashboard</h1>
 
 <div className="d-flex flex-column align-content-center">
-                <div className="container row footer px-3">
+                <div className="container row footer px-3 titleFont">
                 <button className={getButtonClass('Artiste')} onClick={()=>{handlePage('Artiste')}}>Artiste</button>
                 <button  className={getButtonClass('Place')} onClick={()=>{handlePage('Place')}}>Place</button>
                 <button  className={getButtonClass('User')} onClick={()=>{handlePage('User')}}>Utilisateurs</button>

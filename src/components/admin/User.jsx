@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { apiFunctions } from '../logic/apiFunctions'
 import UserEdit from './UserEdit'
 import UserDelete from './UserDelete'
+import UserAdd from './UserAdd'
 
 
 
@@ -11,6 +12,8 @@ const User = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [selectedUser, setSelectedUser] = useState(null)
+  const [selectedAddUser, setSelectedAddUser] = useState(null)
+
   const [selectedDeleteUser, setSelectedDeleteUser] = useState(null)
 
   const [toggleSetUser, setToggleSetUser] = useState(0)
@@ -34,32 +37,37 @@ const User = () => {
     fetchData();
   }, [toggleSetUser])
 
-  if (loading) return <p>chargement...</p>
+  if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) return <p>erreur : Veuilliez vous reconnecter</p>
 
 
   return (<>
         {selectedUser ? <UserEdit user={selectedUser} setSelectedUser={setSelectedUser} handleSetToggle={handleSetToggle}/> : null}
         {selectedDeleteUser ? <UserDelete user={selectedDeleteUser} setSelectedDeleteUser={setSelectedDeleteUser} handleSetToggle={handleSetToggle}/> : null}
+        {selectedAddUser ? <UserAdd   handleSetToggle={handleSetToggle} setSelectedUser={setSelectedAddUser}/> : null}
 
-        <div className='w-50'>
-      <h1 className='mb-5'>liste des utilisateurs</h1>
-      <div className='d-flex flex-column gap-3'>
+        <div className='wDashboard d-flex flex-column align-items-center '>
+      <p className='mb-5 titleFont titleSize text-center noir '>utilisateurs</p>
+      <button className='bouton bgVert blanc py-2 px-3 titleFont' onClick={()=>setSelectedAddUser(1)}>Ajouter un utilisateur</button>
+      <p className='mb-5 titleFont textSize text-center noir mt-5'>liste des utilisateurs : </p>
+
+      <div className='d-flex flex-column gap-3 '>
         
         {users.length > 0 ? (
           users.map((user) => {
-            return <div key={user.id} className='bgBlanc p-3 rounded d-flex flex-column align-items-center '> 
-              <p >mail : <span className='fw-bold'>{user.email}</span></p>
-              <div className='d-flex justify-content-around w-100 '>
-                <button className='littleBouton shadow-none bgVert blanc' onClick={()=>setSelectedUser(user)}>modifier</button>
-                <button className='littleBouton shadow-none bgRouge blanc' onClick={()=>setSelectedDeleteUser(user)}>supprimer</button>
+            return <div key={user.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3'> 
+              <p className='textLittleSize'>utilisateur : <span className='fw-bold'>{user.firstName} {user.lastName}</span></p>
+              <p >E-mail : <span className='fw-bold'>{user.email}</span></p>
+
+              <div className='d-flex justify-content-around  '>
+                <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={()=>setSelectedUser(user)}>modifier</button>
+                <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={()=>setSelectedDeleteUser(user)}>supprimer</button>
                 </div>
             </div>
           }))
           : (<p>aucun utilisateur</p>)
         }
       </div>
-      
     </div>
         </>
     

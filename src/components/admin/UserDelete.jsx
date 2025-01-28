@@ -10,14 +10,15 @@ const UserDelete = ({ user, setSelectedDeleteUser, handleSetToggle }) => {
   }
 
   return (
-    <div className=' overlay bgGRey'>
-      
-      <div className='d-flex flex-column align-items-center mb-5 bgBlanc p-5 rounded gap-4 position-fixed z-3 bgGrey'>
-        <h1>Suprimer {user.firstName} {user.lastName}</h1>
-        <p>Etes vous sur de vouloir s'uprimer l'utilisateur  {user.firstName} {user.lastName} ?</p>
-        <p>mail : {user.email}</p>
-                <button onClick={() => deleteUser()}>supprimer</button>
-                <button onClick={() => setSelectedDeleteUser(null)}>annuler</button>
+    <div onClick={() => setSelectedDeleteUser(null)} className=' overlay bgGRey'>
+          
+          <div className='d-flex flex-column align-items-center mb-5 bgBlanc p-5 rounded gap-4 position-fixed z-3 bgGrey mx-2' onClick={(e) => e.stopPropagation()} >
+        
+        
+        <p className='text-center textSize'>Etes vous sur de vouloir s'uprimer l'utilisateur <span className='fw-bold'>{user.firstName} {user.lastName}</span> ?</p>
+        <p className='text-center'>mail : <span className='fw-bold'>{user.email}</span></p>
+                <button className='bouton bgVert blanc  py-2' onClick={() => deleteUser()}>supprimer</button>
+                <button className='bouton bgRouge blanc  py-2' onClick={() => setSelectedDeleteUser(null)}>annuler</button>
 
       </div>
     </div>
