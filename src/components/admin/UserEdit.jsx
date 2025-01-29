@@ -142,16 +142,12 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
             />
           </div>
           {error && (
-            <div className="alert alert-danger">
+            <div className="alert alert-danger text-center">
               <p>
-                {error.code === 401
-                  ? 'Veuillez vous reconnecter.'
-                  : `Erreur ${error.status || 'inconnue'}`}
+                Erreur : {error.code || 'inconnue'}
               </p>
               <p>
-                {error.code === 401
-                  ? ''
-                  : error.message || 'Une erreur est survenue, mais aucun détail n\'est disponible.'}
+                 {error.message || 'Une erreur est survenue, mais aucun détail n\'est disponible.'}
               </p>
             </div>
           )}

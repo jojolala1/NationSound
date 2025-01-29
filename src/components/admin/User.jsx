@@ -23,54 +23,57 @@ const User = () => {
   }
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await apiFunctions.fetchEntity('users')
-        console.log('reponce de l\'api', res)
+      const res = await apiFunctions.fetchEntity('users')
+      console.log('reponse de l\'api', res)
+      if (res.error) {
+        setError(res)
+      } else {
         setUsers(res.data.member);
-      } catch (err) {
-        setError(err)
-      } finally {
-        setLoading(false)
       }
+      setLoading(false)
+
     };
 
     fetchData();
   }, [toggleSetUser])
 
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
-  if (error) return <p>erreur : Veuilliez vous reconnecter</p>
+  if (error) {
+    console.log('ereeeuuur', error)
+    return <div>erreur : {error.message}</div>
+  }
 
 
   return (<>
-        {selectedUser ? <UserEdit user={selectedUser} setSelectedUser={setSelectedUser} handleSetToggle={handleSetToggle}/> : null}
-        {selectedDeleteUser ? <UserDelete user={selectedDeleteUser} setSelectedDeleteUser={setSelectedDeleteUser} handleSetToggle={handleSetToggle}/> : null}
-        {selectedAddUser ? <UserAdd   handleSetToggle={handleSetToggle} setSelectedUser={setSelectedAddUser}/> : null}
+    {selectedUser ? <UserEdit user={selectedUser} setSelectedUser={setSelectedUser} handleSetToggle={handleSetToggle} /> : null}
+    {selectedDeleteUser ? <UserDelete user={selectedDeleteUser} setSelectedDeleteUser={setSelectedDeleteUser} handleSetToggle={handleSetToggle} /> : null}
+    {selectedAddUser ? <UserAdd handleSetToggle={handleSetToggle} setSelectedUser={setSelectedAddUser} /> : null}
 
-        <div className='wDashboard d-flex flex-column align-items-center '>
+    <div className='wDashboard d-flex flex-column align-items-center '>
       <p className='mb-5 titleFont titleSize text-center noir '>utilisateurs</p>
-      <button className='bouton bgVert blanc py-2 px-3 titleFont' onClick={()=>setSelectedAddUser(1)}>Ajouter un utilisateur</button>
+      <button className='bouton bgVert blanc py-2 px-3 titleFont' onClick={() => setSelectedAddUser(1)}>Ajouter un utilisateur</button>
       <p className='mb-5 titleFont textSize text-center noir mt-5'>liste des utilisateurs : </p>
 
       <div className='d-flex flex-column gap-3 '>
-        
+
         {users.length > 0 ? (
           users.map((user) => {
-            return <div key={user.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3'> 
+            return <div key={user.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3'>
               <p className='textLittleSize'>utilisateur : <span className='fw-bold'>{user.firstName} {user.lastName}</span></p>
               <p >E-mail : <span className='fw-bold'>{user.email}</span></p>
 
               <div className='d-flex justify-content-around  '>
-                <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={()=>setSelectedUser(user)}>modifier</button>
-                <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={()=>setSelectedDeleteUser(user)}>supprimer</button>
-                </div>
+                <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={() => setSelectedUser(user)}>modifier</button>
+                <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={() => setSelectedDeleteUser(user)}>supprimer</button>
+              </div>
             </div>
           }))
           : (<p>aucun utilisateur</p>)
         }
       </div>
     </div>
-        </>
-    
+  </>
+
   )
 }
 
