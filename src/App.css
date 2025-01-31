@@ -102,12 +102,6 @@ body {
     font-family: var(--textFont) !important;
 }
 
-.DontScrollx {
-  touch-action: pan-y;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
 .video::-webkit-media-controls {
   display: none !important;
 }

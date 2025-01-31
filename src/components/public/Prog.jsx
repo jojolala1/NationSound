@@ -24,13 +24,13 @@ export default function Prog() {
     };
 
     return (
-        <div className="d-flex flex-column align-items-center marginUnderNav DontScrollx">
-            <h1 className="rouge text-center titleFont fw-bolder  display-2 pVideo px-4 mb-5 z-2">
+        <div className="d-flex flex-column align-items-center marginUnderNav  ">
+            <h1 className="rouge text-center titleFont fw-bolder  display-2 pVideo  mb-5 z-2">
                 Programmation :
             </h1>
             <div className="d-flex flex-column align-content-center">
                 <p className="titleFont  fw-bolder noir mb-2 h2 text-center ">Trier par :</p>
-                <div className="container row footer px-3">
+                <div className="container row footer px-0">
                 <button className={getButtonClass('lineup')} onClick={()=>{handlePage('lineup')}}>line-up</button>
                 <button  className={getButtonClass('jours')} onClick={()=>{handlePage('jours')}}>Jours</button>
                 <button  className={getButtonClass('scene')} onClick={()=>{handlePage('scene')}}>Scène</button>

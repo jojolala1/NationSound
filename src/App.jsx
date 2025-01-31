@@ -17,6 +17,7 @@ import Dashboard from "./components/admin/Dashboard";
 import ProtectedRoute from "./components/logic/ProtectedRoute";
 import { tokenService } from "./components/logic/tokenService";
 import { authFunctions } from "./components/logic/authFunctions";
+import { HelmetProvider } from "react-helmet-async";
 
 // creation d'un tableau contenant des objets, chacuns des objet gerent une route, cest géré avec creatBrowserRouter, une fonction de la bibliotheque react-router
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
         element: <Prog />,
       },
       {
-        path: '/programmation/:artiste',
+        path: '/programmation/:artisteName',
         element: <ArtistPage />,
       },
       {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <Login  />,
+        element: <Login />,
       },
       {
         path: '/admin',
@@ -105,12 +106,14 @@ function App() {
       tokenService.stopTokenService();
     };
   }, []);
-  
+
 
   return (
+    <HelmetProvider>
       <FetchProvider>
         <RouterProvider router={router} />
       </FetchProvider>
+    </HelmetProvider>
 
   )
 }

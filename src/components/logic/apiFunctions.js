@@ -27,6 +27,38 @@ const fetchEntity = async (entity) => {
     }
 };
 
+const fetchEntityWithoutToken = async (entity) => {
+    const url = `${baseUrl}api/${entity}`;
+
+    try {
+        const res = await axios.get(url);
+        return res;
+    } catch (err) {
+        let message = err?.response?.data?.description
+        return {
+            error: true,
+            code: err.status,
+            message: message,
+        };
+    }
+};
+
+const fetchEntityWithoutTokenByName = async (entity, name) => {
+    const url = `${baseUrl}api/${entity}?name=${name}`;
+
+    try {
+        const res = await axios.get(url);
+        return res;
+    } catch (err) {
+        let message = err?.response?.data?.description
+        return {
+            error: true,
+            code: err.status,
+            message: message,
+        };
+    }
+};
+
 const modifyEntity = async (entity, data, id) => {
     const url = `${baseUrl}api/${entity}/${id}`;
     const token = authFunctions.getToken();
@@ -40,7 +72,6 @@ const modifyEntity = async (entity, data, id) => {
         });
         return res;
     } catch (err) {
-        console.log("apifunction erreur", err);
         let message = err?.response?.data?.description
         if(err.status === 401){
             message = 'Veuillez vous reconnecter'
@@ -66,7 +97,6 @@ const AddEntity = async (entity, data) => {
         });
         return res;
     } catch (err) {
-        console.log(err);
         let message = err?.response?.data?.description
         if(err.status === 401){
             message = 'Veuillez vous reconnecter'
@@ -91,7 +121,6 @@ const deleteEntity = async (entity, id) => {
         });
         return res;
     } catch (err) {
-        console.log(err);
         let message = err?.response?.data?.description
         if(err.status === 401){
             message = 'Veuillez vous reconnecter'
@@ -109,4 +138,6 @@ export const apiFunctions = {
     modifyEntity,
     deleteEntity,
     AddEntity,
+    fetchEntityWithoutToken,
+    fetchEntityWithoutTokenByName
 };
