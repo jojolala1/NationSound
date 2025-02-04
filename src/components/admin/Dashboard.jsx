@@ -31,7 +31,7 @@ const Dashboard = () => {
 <div className="d-flex flex-column align-content-center">
                 <div className="container row footer px-3 titleFont">
                 <button className={getButtonClass('Artiste')} onClick={()=>{handlePage('Artiste')}}>Artiste</button>
-                <button  className={getButtonClass('Place')} onClick={()=>{handlePage('Place')}}>Place</button>
+                <button  className={getButtonClass('Place')} onClick={()=>{handlePage('Place')}}>Localisations</button>
                 <button  className={getButtonClass('User')} onClick={()=>{handlePage('User')}}>Utilisateurs</button>
                 </div>
                 

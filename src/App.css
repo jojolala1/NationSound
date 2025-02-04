@@ -340,6 +340,12 @@ body {
     height: 300px;
 }
 
+.scrollable-container {
+    height: 90vh;
+    overflow-y: auto; /* Active le scroll vertical uniquement */
+  }
+  
+
 .widthCalendar {
     width: 80vw;
 }

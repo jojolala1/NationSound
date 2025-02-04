@@ -84,6 +84,31 @@ const modifyEntity = async (entity, data, id) => {
     }
 };
 
+const modifyArtiste = async (entity, data, id) => {
+    const url = `${baseUrl}api/${entity}/${id}`;
+    const token = authFunctions.getToken();
+
+    try {
+        const res = await axios.post(url, data, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
+            },
+        });
+        return res;
+    } catch (err) {
+        let message = err?.response?.data?.description
+        if(err.status === 401){
+            message = 'Veuillez vous reconnecter'
+        }
+        return {
+            error: true,
+            code: err.status,
+            message: message
+        };
+    }
+};
+
 const AddEntity = async (entity, data) => {
     const url = `${baseUrl}api/${entity}`;
     const token = authFunctions.getToken();
@@ -93,6 +118,31 @@ const AddEntity = async (entity, data) => {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
+            },
+        });
+        return res;
+    } catch (err) {
+        let message = err?.response?.data?.description
+        if(err.status === 401){
+            message = 'Veuillez vous reconnecter'
+        }
+        return {
+            error: true,
+            code: err.status,
+            message: message,
+        };
+    }
+};
+
+const AddArtiste = async (entity, data) => {
+    const url = `${baseUrl}api/${entity}`;
+    const token = authFunctions.getToken();
+
+    try {
+        const res = await axios.post(url, data, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
             },
         });
         return res;
@@ -139,5 +189,7 @@ export const apiFunctions = {
     deleteEntity,
     AddEntity,
     fetchEntityWithoutToken,
-    fetchEntityWithoutTokenByName
+    fetchEntityWithoutTokenByName,
+    modifyArtiste,
+    AddArtiste
 };
