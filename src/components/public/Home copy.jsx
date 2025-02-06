@@ -7,72 +7,90 @@ import greenWave from '@/assets/images/greenWave.svg';
 import greenwave2 from '@/assets/images/greenwave2.svg';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/images/logo.svg'
-import { apiFunctions } from '../logic/apiFunctions';
-import { useMemo } from 'react';
+import { UseFetch } from './JsonContext';
 
 
 
 export default function Home() {
 
-    const [artistes, setArtistes] = useState([])
-    const [artistesPerDAte, setArtistesPerDAte] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
-    const [stringArtisteNameTemp, setStringArtisteNameTemp] = useState('')
+    //recuperation des valeurs voulu depuis jsonContext
+    const { artistesJson, loading } = UseFetch();
 
+
+    //definit le programme des artistes avec une valeur par defaut d'un objet avec les jours contenant chacuns un tableau vide
+    const [program, setProgram] = useState({
+        mercredi: [],
+        jeudi: [],
+        vendredi: [],
+        samedi: [],
+        dimanche: []
+    })
+
+
+    //a chaques fois que loading ou artistesJson change, le contenu du useEffect et rééxecuté
     useEffect(() => {
-        const handleFetch = async () => {
-            setLoading(true)
-            const res = await apiFunctions.fetchEntityWithoutToken('artistes')
-            if (res.error) {
-                setError(res)
-            } else {
-                const artistesData = res.data.member;
 
-                const artistesPerDAteData = artistesData.reduce((acc, x) => {
-                    if (!acc[x.date]) {
-                        acc[x.date] = [];
-                    }
-                    acc[x.date].push(x);
-                    return acc;
-                }, {});
-                setArtistes(artistesData);
-                setArtistesPerDAte(artistesPerDAteData);
+        //creation d'un objet qui servira à redéfinir program
+        const loadProgram = () => {
+            const mercredi = [" - "]
+            const jeudi = [" - "]
+            const vendredi = [" - "]
+            const samedi = [" - "]
+            const dimanche = [" - "]
 
+            //boucle for qui parcourt le tableau d'objets et compare l'attribut date afin de trier
+            for (let artiste of artistesJson) {
+                if (artiste.date === "mercredi 04 septembre") {
+                    mercredi.push(artiste.name + " - ")
+                } else if (artiste.date === "jeudi 05 septembre") {
+                    jeudi.push(artiste.name + " - ")
+                } else if (artiste.date === "vendredi 06 septembre") {
+                    vendredi.push(artiste.name + " - ")
+                } else if (artiste.date === "samedi 07 septembre") {
+                    samedi.push(artiste.name + " - ")
+                } else if (artiste.date === "dimanche 08 septembre") {
+                    dimanche.push(artiste.name + " - ")
+                }
             }
-            setLoading(false)
+
+            //modification de program
+            setProgram({
+                mercredi,
+                jeudi,
+                vendredi,
+                samedi,
+                dimanche
+            })
         }
-        handleFetch()
+        //lancement de la fonction
+        loadProgram()
 
-         
-    }, [])
-
-
-    useEffect(() => {
-        const artistesName = artistes.map(x => ` - ${x.name}`);
-        const stringArtisteNameTemp = `${artistesName} - `;
-        setStringArtisteNameTemp(stringArtisteNameTemp.substring(0, 110));
-    }, [artistes]);
-
-    const firstAndLastDate = useMemo(() => {
-        const dates = Object.keys(artistesPerDAte).map(dateStr => new Date(dateStr));
-        return {
-            firstDate: new Date(Math.min(...dates.map(date => date.getTime()))).toLocaleDateString('Fr-fr', {
-                day: 'numeric',
-            }),
-            lastDate: new Date(Math.max(...dates.map(date => date.getTime()))).toLocaleDateString('Fr-fr', {
-                day: 'numeric',
-                month: 'long',
-            }),
-        };
-    }, [artistesPerDAte]);
+    }, [loading, artistesJson])
 
 
-    
+    //gestion de toute la navigation
     const navigate = useNavigate();
 
-    const handleOpenLink = (url) => {
-        window.open(url, '_blank');
+    const handleNavigateBilleterie = () => {
+        window.open('https://www.seetickets.com/fr/festival-tickets', '_blank');
+    };
+    const handleNavigateEpsi = () => {
+        window.open('https://www.epsi.fr/', '_blank');
+    };
+    const handleNavigateSpotify = () => {
+        window.open('https://open.spotify.com/', '_blank');
+    };
+    const handleNavigateDeezer = () => {
+        window.open('https://www.deezer.com/fr/', '_blank');
+    };
+    const handleNavigateCorref = () => {
+        window.open('https://brasserie-coreff.com/', '_blank');
+    };
+    const handleNavigatePerrier = () => {
+        window.open('https://www.perrier.com/fr/', '_blank');
+    };
+    const handleNavigateCmb = () => {
+        window.open('https://www.cmb.fr/reseau-bancaire-cooperatif/web/accueil', '_blank');
     };
 
 
@@ -89,26 +107,8 @@ export default function Home() {
         navigate('/partenaires');
     };
 
-    if (loading) {
-        return (
-            <div className='marginUnderNav2'>
-                <p className='titleFont rouge display-3 text-center my-5'>chargement.. </p>
-            </div>
-        )
-    }
-
-    if (error) {
-        return (
-            <div className='marginUnderNav'>
-                <p>erreur : {error.code}</p>
-                <p>erreur : {error.message}</p>
-
-            </div>
-        )
-    }
 
     return (
-
         <div className="d-flex flex-column align-items-center bgBeige pb-5 " >
             <div className=" position-relative">
 
@@ -123,15 +123,15 @@ export default function Home() {
                     preload="auto"
                     alt="fond"
                     controls={false}
-                    playsInline
+                    playsInline 
                 ></video>
 
 
 
                 <div className="w-100 position-absolute top0 d-flex flex-column mt-4 mt-lg-5 h-100 justify-content-center px-lg-3 pb-5">
-                    <p className=" jaune text-center titleFont fw-bolder  titleSize  px-4 pVideo">Du {firstAndLastDate.firstDate} au {firstAndLastDate.lastDate} :</p>
-                    <p className=" blanc  text-center textFont artistes fw-bolder  pt-3 px-4 ">{stringArtisteNameTemp}...</p>
-                    <button className="pVideolight bgRouge blanc mt-4 py-2 p-lg-2 p-xl-3 fw-bolder bouton textSize titleFont" onClick={()=>handleOpenLink('https://www.seetickets.com/fr/festival-tickets')}>Billetterie</button>
+                    <p className=" jaune text-center titleFont fw-bolder  titleSize  px-4 pVideo">Du 04 au 08 Septembre :</p>
+                    <p className=" blanc  text-center textFont artistes fw-bolder  pt-3 px-4 ">Eels · Red Hot Chili Peppers · Aupinard · Luidji · Smash Mouth · Leny Kravitz · System Of A Down · Foo Fighters . Radiohead · Royal Blood…</p>
+                    <button className="pVideolight bgRouge blanc mt-4 py-2 p-lg-2 p-xl-3 fw-bolder bouton textSize titleFont" onClick={handleNavigateBilleterie}>Billetterie</button>
                 </div>
             </div>
             <div className=' bandeau mb-3 mb-lg-5'>
@@ -144,28 +144,32 @@ export default function Home() {
 
             </div>
             <div className="text-center d-flex flex-column align-items-center">
-                <p className="rouge titleFont fw-bolder pVideo display-2 my-5"> -Programmation 2025- </p>
-                <div className='contentDays'>
-                    {Object.entries(artistesPerDAte).length > 0 && Object.entries(artistesPerDAte).map(([date, artistesDay], key) => {
-                        const formattedDate = new Date(date).toLocaleDateString('Fr-fr', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
-                        });
-                        return (
-
-                            <article key={key} className=" d-flex flex-column p-5 banner widthProgHome">
-                                <p className=' titleFont fw-bolder h1  mb-4'>{formattedDate}</p>
-                                {artistesDay.map((artiste, key) => {
-                                    return (
-                                        <p key={key} className=" textFont fw-bolder  h4">{artiste.name}
-                                        </p>
-                                    )
-                                })}
-                            </article>
-                        )
-                    })}
-                </div>
+                <p className="rouge titleFont fw-bolder pVideo display-2 mt-5"> -Programmation 2024- </p>
+                <article className="bgVert d-flex flex-column mt-5 p-5 banner widthProgHome">
+                    <p className='blanc titleFont fw-bolder h1 pVideolight mb-4'>Mercredi 04 Septembre</p>
+                    <p className="blanc textFont fw-bolder pVideolight h4">{program.mercredi}
+                    </p>
+                </article>
+                <article className=" d-flex flex-column p-5 banner widthProgHome">
+                    <p className='rouge titleFont fw-bolder  h1 mb-4'>Jeudi 05 Septembre</p>
+                    <p className="rouge textFont fw-bolder  h4">{program.jeudi}
+                    </p>
+                </article>
+                <article className="bgVert d-flex flex-column  p-5 banner widthProgHome">
+                    <p className='blanc titleFont pVideolight fw-bolder h1 mb-4'>Vendredi 06 Septembre</p>
+                    <p className="blanc textFont pVideolight fw-bolder h4">{program.vendredi}
+                    </p>
+                </article>
+                <article className=" d-flex flex-column p-5 banner widthProgHome">
+                    <p className='rouge titleFont  fw-bolder h1 mb-4'>Samedi 07 Septembre</p>
+                    <p className="rouge textFont  fw-bolder h4">{program.samedi}
+                    </p>
+                </article>
+                <article className="bgVert d-flex flex-column mb-4 p-5 banner widthProgHome">
+                    <p className='blanc titleFont pVideolight fw-bolder h1 mb-4'>Dimanche 08 Septembre</p>
+                    <p className="blanc textFont pVideolight fw-bolder h4">{program.dimanche}
+                    </p>
+                </article>
                 <button className='bgRouge pVideolight blanc  my-5 px-3 py-2 px-lg-3 py-lg-2 fw-bolder bouton textSize titleFont' onClick={handleNavigate}>Voir toute la programmation</button>
             </div>
             <img src={yellowWave2} alt='fond en forme de vague' className='banner rotated mt-5' />
@@ -192,22 +196,22 @@ export default function Home() {
                 <div className='d-flex flex-column mb-0 px-3 py-2 align-items-center justify-content-center '>
                     <h3 className='mt-5 mb-3 titleFont fw-bold pVideo display-2 blanc'>Nos partenaires</h3>
                     <div className="d-flex row gap-5 my-5 align-items-center justify-content-center">
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://www.epsi.fr/')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateEpsi}>
                             <img src="assets/images/logoEpsi.svg" alt="logo EPSI" className=' logo2' />
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://open.spotify.com/')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateSpotify}>
                             <img src="assets/images/logoSpotify.png" alt="logo Spotify" className=' logo2' />
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://www.deezer.com/fr/')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateDeezer}>
                             <img src="assets/images/logoDeezer.svg" alt="logo Deezer" className=' logo2' />
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://brasserie-coreff.com/')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateCorref}>
                             <img src="assets/images/logoCorref.webp" alt="logo" className=' logo2' />
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://www.perrier.com/fr/')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigatePerrier}>
                             <img src="assets/images/logoPerrier.png" alt="logo Perrier" className=' logo2' />
                         </div>
-                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={()=>handleOpenLink('https://www.cmb.fr/reseau-bancaire-cooperatif/web/accueil')}>
+                        <div className="col-4 col-lg-3 d-flex justify-content-center clickable" onClick={handleNavigateCmb}>
                             <img src="assets/images/logoCmb.png" alt="logo cmb" className=' logo2' />
                         </div>
 

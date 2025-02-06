@@ -1,59 +1,142 @@
 import React from "react";
-import NavOpen from "./NavOpen";
 import { useState } from "react";
-import Fade from "./Fade";
-import logo from '@/assets/images/logo.svg'
-import redWave from '@/assets/images/redWave.svg';
-import yellowWave2 from '@/assets/images/yellowWave2.svg';
-import { NavLink, useNavigate } from "react-router-dom";
+import logo from "@/assets/images/logo.svg";
+import redWave from "@/assets/images/redWave.svg";
+import yellowWave2 from "@/assets/images/yellowWave2.svg";
 import { authFunctions } from "../logic/authFunctions";
 
 
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-
-    const [open, setOpen] = useState(false)
+    const [isNavOpen, setIsNavOpen] = useState(false);
 
     let navigate = useNavigate()
     const logout = () => {
         authFunctions.logout()
         navigate('/')
     }
-    //toggle vacilllant de true à false pour gerer la page de navigation
-    const toggle = () => setOpen((o) => !o);
-    return (
-        <div className="position-relative" id="ancrage">
+    const handleBurgerClick = () => {
+        setIsNavOpen(!isNavOpen);
+    };
 
-            <nav className="navbar navbar-expand-lg bgRouge heightNav">
-                <div className="container-fluid">
-                    <p className="clickable border my-auto border-0 effectNone  z-3" onClick={toggle}>
-                        <i className="bi bi-list beige display-2 transitionColor"></i>
-                    </p>
-                    <NavLink className="navbar-brand position-absolute start-50 translate-middle-x text-center z-2" aria-current="page" to="/">
+    const handleCloseNav = () => {
+        setIsNavOpen(false);
+    };
+
+
+    return (
+        <>
+            <nav
+                className={`nav  d-flex bgRouge align-items-center p-3 z-3 heightNav ${
+                    isNavOpen ? "navOpen scrollable-navBar" : ""
+                }`}
+            >
+                <ul className={isNavOpen ? "my-5 z-3 " : ""}>
+                    <li className={isNavOpen ? "fadeIn " : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            to="/"
+                            className="nav-link beige transitionColor titleSize"
+                        >
+                            Accueil
+                        </NavLink>
+                    </li>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            to="informations"
+                            className="nav-link beige transitionColor titleSize"
+                        >
+                        Informations/FAQ
+                        </NavLink>
+                    </li>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            to="programmation"
+                            className="nav-link beige transitionColor titleSize"
+                        >
+                            Programmation
+                        </NavLink>
+                    </li>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            to="carte-interactive"
+                            className="nav-link beige transitionColor titleSize"
+                        >
+                            Carte-interactive
+                        </NavLink>
+                    </li>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            to="partenaires"
+                            className="nav-link beige transitionColor titleSize"
+                        >
+                            Nos partenaires
+                        </NavLink>
+                    </li>
+                    {authFunctions.isLogged() && (
+                        <>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                        <NavLink
+                            onClick={handleCloseNav}
+                            className="nav-link beige transitionColor titleSize text-center"
+                            to="admin"
+                        >
+                            Panneau de controle
+                        </NavLink>
+                    </li>
+                    <li className={isNavOpen ? "fadeIn" : ""}>
+                    <button
+                        onClick={()=>{
+                            logout()
+                             handleCloseNav()
+                            }}
+                        className="nav-link beige transitionColor titleSize"
+                    >
+                        Déconnection
+                    </button>
+                </li>
+                </>
+                )}
+                </ul>
+
+                {!isNavOpen ? 
+                <div className=" w-100 text-center">
+                    <NavLink
+                        to="/"
+                        className="fontTitle noirI text-center m-0 display-5"
+                    >
                         <img className="logo " src={logo} alt="logo" />
                     </NavLink>
-                    {
-                        authFunctions.isLogged() && (
-                            <button className='m-0 littleBouton shadow-none me-md-3  rouge py-2 fw-bold z-2' onClick={logout}>deconnection</button>
-                        )
-                    }
+                </div> : ""}
 
-                </div>
-            </nav>
-            <div className="bandeau">
-                <img src={yellowWave2} alt="" className="position-absolute banner z-1 " />
-                <img src={redWave} alt="" className="position-absolute banner z-1 " />
-
+                <button
+                    className={`burger  ${isNavOpen ? "active" : ""}`}
+                    onClick={handleBurgerClick}
+                    title="menu"
+                >
+                    <span className="barBurger "></span>
+                </button>
+                {!isNavOpen ? 
+                <div className="bandeau">
+                <img
+                    src={yellowWave2}
+                    alt=""
+                    className="position-absolute banner z-2 "
+                />
+                <img
+                    src={redWave}
+                    alt=""
+                    className="position-absolute banner z-2"
+                />
             </div>
-
-
-
-
-            <Fade visible={open}>
-                <NavOpen toggle={toggle} />
-            </Fade>
-
-        </div>
-
-    )
+             : ""}
+                
+            </nav>
+        </>
+    );
 }

@@ -5,7 +5,7 @@ import PlaceDelete from './PlaceDelete'
 import PlaceAdd from './PlaceAdd'
 
 const Place = () => {
-  
+
   const [places, setPlaces] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -26,8 +26,16 @@ const Place = () => {
       if (res.error) {
         setError(res)
       } else {
-        setPlaces(res.data.member);
+
+        setPlaces(res.data.member.reduce((acc, x) => {
+          if (!acc[x.category]) {
+            acc[x.category] = []
+          }
+          acc[x.category].push(x)
+          return acc
+        }, {}));
       }
+
       setLoading(false)
 
     };
@@ -35,16 +43,24 @@ const Place = () => {
     fetchData();
   }, [toggleSetPlace])
 
+  useEffect(() => {
+    console.log('Places mises à jour:', places);
+  }, [places])
+
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) {
     console.log('ereeeuuur', error)
     return <div>erreur : {error.message}</div>
   }
 
+  if (!places) {
+    return <p>pas de localisations</p>
+  }
+
 
   return (<>
-    {selectedPlace ? <PlaceEdit artiste={selectedPlace} setSelectedPlace={setSelectedPlace} handleSetToggle={handleSetToggle} /> : null}
-    {selectedDeletePlace ? <PlaceDelete Artistes={selectedDeletePlace} setSelectedDeletePlace={setSelectedDeletePlace} handleSetToggle={handleSetToggle} /> : null}
+    {selectedPlace ? <PlaceEdit place={selectedPlace} setSelectedPlace={setSelectedPlace} handleSetToggle={handleSetToggle} /> : null}
+    {selectedDeletePlace ? <PlaceDelete place={selectedDeletePlace} setSelectedDeletePlace={setSelectedDeletePlace} handleSetToggle={handleSetToggle} /> : null}
     {selectedAddPlace ? <PlaceAdd handleSetToggle={handleSetToggle} setSelectedPlace={setSelectedAddPlace} /> : null}
 
     <div className='wDashboard d-flex flex-column align-items-center '>
@@ -53,35 +69,35 @@ const Place = () => {
       <p className='mb-5 titleFont textSize text-center noir mt-5'>liste des localisations : </p>
 
       <div className='d-flex flex-column gap-3 '>
+        {
+          Object.entries(places).map(([category, placesPerCategory], key) => {
+            return (
+              <div key={key} className='rounded border bgBlanc '>
 
-        {places.length > 0 ? (
-          places.map((place) => {
-            return <div key={place.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3'>
-              <p className='textLittleSize'>Localisation : <span className='fw-bold'>{place.name}</span></p>
-              <p >style : <span className='fw-bold'>{place.style}</span></p>
-              <p >scene : <span className='fw-bold'>{place.stage}</span></p>
-              <p >date : <span className='fw-bold'>{new Date(place.date).toLocaleDateString('Fr-fr', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}</span></p>
-              <p >heure : <span className='fw-bold'>{new Date(place.time).toLocaleTimeString('Fr-fr', {
-                hour: 'numeric',
-                minute: 'numeric',
+                  <h2 className='text-center bg-secondary blanc w-100 px-5 rounded mb-0 py-2' >Catégorie : {category}</h2>
+                  
 
-              })} </span></p>
+                {placesPerCategory.length > 0 ? (
+                    placesPerCategory.map((place) => {
+                      return <div key={place.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3 border'>
+                        <p className='textLittleSize'>Nom : <span className='fw-bold'>{place.name}</span></p>
 
-
-              <div className='d-flex justify-content-around  '>
-                <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={() => {
-                  setSelectedPlace(place),
-                  console.log(place)
-                }}>modifier</button>
-                <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={() => setSelectedDeletePlace(place)}>supprimer</button>
+                        <p >ouverture : <span className='fw-bold'>{new Date(place.opening).toISOString().substring(11, 16)}h</span></p>
+                        <p >fermeture : <span className='fw-bold'>{new Date(place.closing).toISOString().substring(11, 16)}h</span></p>
+                        <div className='d-flex justify-content-around  '>
+                          <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={() => {
+                            setSelectedPlace(place),
+                              console.log(place)
+                          }}>modifier</button>
+                          <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={() => setSelectedDeletePlace(place)}>supprimer</button>
+                        </div>
+                      </div>
+                    }))
+                    : (<p>aucune localisation</p>)
+                  }
               </div>
-            </div>
-          }))
-          : (<p>aucun utilisateur</p>)
+            )
+          })
         }
       </div>
     </div>
@@ -90,3 +106,11 @@ const Place = () => {
   )
 }
 export default Place
+
+
+
+
+
+
+
+

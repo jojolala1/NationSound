@@ -18,8 +18,6 @@ body {
     overflow-y: scroll;
 }
 
-
-
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -43,6 +41,14 @@ body {
     --titleFont: "Lobster", "Arial", sans-serif;
     --textFont: "Open Sans", sans-serif;
 }
+li{
+    list-style-type: none;
+  
+}
+
+a.active{
+    color: var(--jaune) !important;
+}
 
 .bgRouge {
     background-color: var(--rouge) !important;
@@ -65,8 +71,6 @@ body {
 .bgGris {
     background: var(--gris) !important;
 }
-
-
 
 .rouge {
     color: var(--rouge) !important;
@@ -103,7 +107,7 @@ body {
 }
 
 .video::-webkit-media-controls {
-  display: none !important;
+    display: none !important;
 }
 
 .video {
@@ -117,7 +121,7 @@ body {
     filter: sepia(0.7) contrast(0.8) brightness(0.9) saturate(0.6)
         hue-rotate(-10deg) grayscale(0.2);
 }
-.widthProgHome{
+.widthProgHome {
     max-width: 500px;
 }
 .moins1px {
@@ -131,9 +135,8 @@ body {
 .navOpen {
     height: 100vh;
     width: 100vw;
-    position: absolute;
     top: 0;
-    z-index: 5;
+    z-index: 500;
     position: fixed;
 }
 
@@ -151,6 +154,8 @@ body {
 .logo {
     width: 70px;
     transition: width 0.3s;
+    position: relative;
+    z-index: 100;
 }
 
 .logo:hover {
@@ -218,7 +223,6 @@ body {
     top: 0;
 }
 
-
 .banner {
     width: 100vw;
     display: block;
@@ -227,19 +231,18 @@ body {
     margin-bottom: -1px;
     padding: 0;
     margin-left: 0px;
-    margin-right:0px;
+    margin-right: 0px;
     box-sizing: border-box;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .bandeau {
     width: 100vw;
     margin: 0;
     padding: 0;
-    margin-top: -22px;
-    position: relative;
-    box-sizing: border-box;
-    
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 .bouton {
     border: none;
@@ -325,6 +328,10 @@ body {
 .marginUnderNav {
     margin-top: 70px;
 }
+.marginUnderNav2{
+    margin-top: 300px;
+    margin-bottom: 200px;
+}
 
 .formborder {
     border: 3px solid var(--vert);
@@ -343,8 +350,12 @@ body {
 .scrollable-container {
     height: 90vh;
     overflow-y: auto; /* Active le scroll vertical uniquement */
-  }
-  
+}
+
+.scrollable-navBar {
+    overflow-x: hidden;
+    overflow-y: auto; /* Active le scroll vertical uniquement */
+}
 
 .widthCalendar {
     width: 80vw;
@@ -369,18 +380,15 @@ body {
 .rotated {
     transform: rotateY(180deg) rotateX(180deg);
     transform-origin: center center;
-
 }
 
 .rotated1 {
     transform: rotateY(0deg) rotateX(180deg);
     transform-origin: center center;
-
 }
 .rotated2 {
     transform: rotateY(180deg) rotateX(0deg);
     transform-origin: center center;
-
 }
 .logoBis {
     width: 120px;
@@ -428,13 +436,194 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);  /* Gris semi-transparent */
+    background-color: rgba(0, 0, 0, 0.5); /* Gris semi-transparent */
     z-index: 1000; /* Assure que l'overlay est au-dessus de tout le contenu */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
+}
+
+.nav {
+    position: relative;
+    width: 100vw;
+    height: 80px;
+    transition: height 0.5s ease-in-out;
+    background: var(--blanc);
+    box-shadow: rgba(0, 0, 0, 0.4) 3px 1px 5px;
+}
+
+.nav ul {
+    display: none;
+}
+.contentDays article:nth-child(odd) {
+    background-color: var(--vert); /* Couleur pour les éléments impairs */
+    color: var(--blanc);
+    text-shadow: 1px 1px var(--noir);
+
+}
+.contentDays article:nth-child(even) {
+    color: var(--rouge); /* Couleur pour les éléments pairs */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+}
+
+.fade-in2 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.2s;
+}
+
+.fade-in3 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.5s;
+}
+.fade-in4 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.5s;
+}
+
+.fade-in5 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.5s;
+}
+
+.fade-in6 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.5s;
+}
+
+.navOpen ul li {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.navOpen ul li.fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.navOpen ul li:nth-child(1) {
+    animation-delay: 0.15s;
+}
+.navOpen ul li:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.navOpen ul li:nth-child(3) {
+    animation-delay: 0.45s;
+}
+.navOpen ul li:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.navOpen ul li:nth-child(5) {
+    animation-delay: 0.75s;
+}
+.navOpen ul li:nth-child(6) {
+    animation-delay: 0.9s;
+}
+.navOpen ul li:nth-child(7) {
+    animation-delay: 0.15s;
+}
+
+.navOpen {
+    height: 100vh !important;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 3;
+}
+
+.navOpen ul {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    padding: 0;
+}
+
+.burger {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    position: fixed;
+    padding: 0;
+    z-index: 100;
+    background-color: transparent !important;
+    right: 20px;
+}
+
+.burger span {
+    width: 80%;
+    height: 5px;
+    display: block;
+    position: absolute;
+    left: 30%;
+    border-radius: 10px;
+
+    transform: translate(-50%, -50%);
+    background: var(--beige);
+    transition: background-color 0.5s ease-in-out;
+}
+.burger span::before,
+.burger span::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    background: var(--beige);
+    transform: translateX(-35%);
+    transition: transform 0.5s ease-in-out, top 0.5s ease-in-out,
+        bottom 0.5s ease-in-out;
+}
+
+.burger span::before {
+    top: -15px;
+}
+.burger span::after {
+    bottom: -15px;
+}
+
+.burger.active span {
+    background-color: transparent;
+}
+
+.burger.active span::before {
+    transform: translate(-50%) rotateZ(-45deg);
+    top: 0;
+}
+
+.burger.active span::after {
+    transform: translate(-50%) rotateZ(45deg);
+    bottom: 0;
+}
+
 @media screen and (min-width: 768px) {
     .effet {
         width: 16vw;
@@ -489,7 +678,7 @@ body {
     .styleMap {
         height: 55vh;
     }
-    .widthProgHome{
+    .widthProgHome {
         max-width: 80vw;
     }
 }
@@ -528,10 +717,9 @@ body {
     .styleMap {
         height: 65vh;
     }
-    .widthProgHome{
+    .widthProgHome {
         max-width: 70vw;
     }
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -581,9 +769,29 @@ body {
     .styleMap {
         height: 70vh;
     }
-    .widthProgHome{
+    .widthProgHome {
         max-width: 60vw;
     }
+    .burger {
+        width: 80px;
+        height: 80px;
+        top: 10px;
+    }
+    
+    .burger span {
+        height: 6px;    
+    }
+    .burger span::before,
+    .burger span::after {
+        height: 6px;
+    }
+    .burger span::before {
+        top: -20px;
+    }
+    .burger span::after {
+        bottom: -20px;
+    }
+    
 }
 
 @media screen and (min-width: 1400px) {
@@ -610,7 +818,7 @@ body {
     .logo2 {
         width: 14vw;
     }
-    .widthProgHome{
+    .widthProgHome {
         max-width: 50vw;
     }
 }

@@ -83,11 +83,8 @@ export default function ArtistPage() {
                     })
                 }
                  &nbsp;à {
-                    new Date(artiste.date).toLocaleTimeString("fr-FR", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    }) 
-                }&nbsp;heures</p>
+                    new Date(artiste.time).toISOString().substring(11, 16)
+                }&nbsp;h</p>
                 <p className="fw-bold">Scène : {artiste.stage}</p>
                 <p>{artiste.description}</p>
             </div>

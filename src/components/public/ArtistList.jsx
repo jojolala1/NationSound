@@ -70,10 +70,7 @@ export default function ArtisteList() {
                         month: "long",
                         day: "numeric",
                     })} <br/>à {
-                        new Date(artiste.date).toLocaleTimeString("fr-FR", {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                        }) 
+                        new Date(artiste.time).toISOString().substring(11, 16)
                     }&nbsp;heures
             </p>
         </div>

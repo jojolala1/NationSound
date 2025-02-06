@@ -54,15 +54,8 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle }) => {
     useEffect(() => {
         setArtisteEdit({
           name: artiste.name,
-            date: new Date(artiste.date).toLocaleDateString('Fr-fr',{
-                day:'numeric',
-                month:'numeric',
-                year:'numeric'
-              }),
-            time: new Date(artiste.time).toLocaleTimeString('FR-fr',{
-                hour: "numeric",
-                minute: "numeric"
-              }),
+            date: new Date(artiste.date).toISOString().split("T")[0],
+            time: new Date(artiste.time).toISOString().substring(11, 16),
             stage: artiste.stage,
             style: artiste.style,
             description: artiste.description,

@@ -46,7 +46,7 @@ const Artiste = () => {
 
   return (<>
     {selectedArtiste ? <ArtisteEdit artiste={selectedArtiste} setSelectedArtiste={setSelectedArtiste} handleSetToggle={handleSetToggle} /> : null}
-    {selectedDeleteArtiste ? <ArtisteDelete Artistes={selectedDeleteArtiste} setSelectedDeleteArtiste={setSelectedDeleteArtiste} handleSetToggle={handleSetToggle} /> : null}
+    {selectedDeleteArtiste ? <ArtisteDelete artiste={selectedDeleteArtiste} setSelectedDeleteArtiste={setSelectedDeleteArtiste} handleSetToggle={handleSetToggle} /> : null}
     {selectedAddArtiste ? <ArtisteAdd handleSetToggle={handleSetToggle} setSelectedArtiste={setSelectedAddArtiste} /> : null}
 
     <div className='wDashboard d-flex flex-column align-items-center '>
@@ -59,7 +59,7 @@ const Artiste = () => {
         {artistes.length > 0 ? (
           artistes.map((artiste) => {
             return <div key={artiste.id} className='bgBlanc p-4 rounded d-flex flex-column align-items-center gap-3'>
-              <p className='textLittleSize'>Artiste : <span className='fw-bold'>{artiste.name}</span></p>
+              <p className='textLittleSize text-center'>Artiste : <span className='fw-bold'>{artiste.name}</span></p>
               <p >style : <span className='fw-bold'>{artiste.style}</span></p>
               <p >scene : <span className='fw-bold'>{artiste.stage}</span></p>
               <p >date : <span className='fw-bold'>{new Date(artiste.date).toLocaleDateString('Fr-fr', {
@@ -67,11 +67,7 @@ const Artiste = () => {
                 month: 'long',
                 day: 'numeric',
               })}</span></p>
-              <p >heure : <span className='fw-bold'>{new Date(artiste.time).toLocaleTimeString('Fr-fr', {
-                hour: 'numeric',
-                minute: 'numeric',
-
-              })} </span></p>
+              <p >heure : <span className='fw-bold'>{new Date(artiste.time).toISOString().substring(11, 16)} </span></p>
 
 
               <div className='d-flex justify-content-around  '>
