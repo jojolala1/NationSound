@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { apiFunctions } from "../logic/apiFunctions";
 
-const PlaceAdd = ({ handleSetToggle, setSelectedPlace }) => {
+const PlaceAdd = ({ handleSetToggle, setSelectedPlace, categories }) => {
     const [error, setError] = useState(null);
 
     const [placeEdit, setPlaceEdit] = useState({
@@ -12,6 +12,8 @@ const PlaceAdd = ({ handleSetToggle, setSelectedPlace }) => {
         category: "",
         opening: "",
         closing: "",
+        description: "",
+
 
     });
 
@@ -19,19 +21,20 @@ const PlaceAdd = ({ handleSetToggle, setSelectedPlace }) => {
         e.preventDefault();
         const dataToSend = {
             ...placeEdit,
-            latitude: parseFloat(placeEdit.latitude), 
+            latitude: parseFloat(placeEdit.latitude),
             longitude: parseFloat(placeEdit.longitude),
+            iconClass: categories[placeEdit.category]
         };
-    
+
         console.log("Données envoyées à l'API :", dataToSend);
-            const res = await apiFunctions.AddEntity("places", dataToSend);
-            console.log("reponse de l'api", res);
-            if(res.error){
-              setError(res)
-            }else{
+        const res = await apiFunctions.AddEntity("places", dataToSend);
+        console.log("reponse de l'api", res);
+        if (res.error) {
+            setError(res)
+        } else {
             setSelectedPlace(null);
             handleSetToggle();
-            }
+        }
 
 
     };
@@ -67,6 +70,17 @@ const PlaceAdd = ({ handleSetToggle, setSelectedPlace }) => {
                             onChange={handleOnChange}
                         />
                     </div>
+                    <div className="group d-flex flex-column align-items-center ">
+                        <label htmlFor="descriptionAdd">description</label>
+                        <input
+                            className="form-control"
+                            // type="email"
+                            name="description"
+                            id="descriptionAdd"
+                            value={placeEdit.description}
+                            onChange={handleOnChange}
+                        />
+                    </div>
                     <div className="group d-flex flex-column align-items-center">
                         <label htmlFor="latitudeAdd">Latitude</label>
                         <input
@@ -90,26 +104,23 @@ const PlaceAdd = ({ handleSetToggle, setSelectedPlace }) => {
                         />
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
-                        <label htmlFor="iconClassAdd">Classe d'icon</label>
-                        <input
-                            className="form-control"
-                            // type="email"
-                            name="iconClass"
-                            id="iconClassAdd"
-                            value={placeEdit.iconClass}
-                            onChange={handleOnChange}
-                        />
-                    </div>
-                    <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="categoryAdd">Catégorie</label>
-                        <input
-                            className="form-control"
-                            // type="email"
+                        <select className="form-control"
                             name="category"
                             id="categoryAdd"
                             value={placeEdit.category}
                             onChange={handleOnChange}
-                        />
+                        >
+                            <option value="" disabled>Choisir une catégorie</option>
+
+                            {Object.entries(categories).map((categorie, index) => {
+                                return <option
+                                    key={index}
+                                    value={categorie[0]}
+                                >{categorie[0]}</option>
+                            })}
+                        </select>
+
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="openingAdd">Ouverture</label>

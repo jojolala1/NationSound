@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { apiFunctions } from "../logic/apiFunctions";
 
-const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
+const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => {
     const [error, setError] = useState(null);
 
     const [placeEdit, setPlaceEdit] = useState({
@@ -12,6 +12,8 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
         category: place.category,
         opening: place.opening,
         closing: place.closing,
+        description: place.description,
+
     });
 
     const handleSubmit = async (e) => {
@@ -28,11 +30,9 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
         if (placeEdit.longitude !== place.longitude) {
             placePatch.longitude = parseFloat(placeEdit.longitude);
         }
-        if (placeEdit.iconClass !== place.iconClass) {
-            placePatch.iconClass = placeEdit.iconClass;
-        }
         if (placeEdit.category !== place.category) {
             placePatch.category = placeEdit.category;
+            placePatch.iconClass = categories[placeEdit.category];
         }
         if (placeEdit.opening !== place.opening) {
             placePatch.opening = placeEdit.opening;
@@ -40,7 +40,9 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
         if (placeEdit.closing !== place.closing) {
             placePatch.closing = placeEdit.closing;
         }
-
+        if (placeEdit.description !== place.description) {
+            placePatch.description = placeEdit.description;
+        }
         // Envoi des données avec `multipart/form-data`
         console.log('testing format : ', placePatch)
 
@@ -100,11 +102,20 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
                         <label htmlFor="nameAdd">Lieu</label>
                         <input
                             className="form-control"
-                            // type="email"
                             name="name"
                             id="nameAdd"
                             autoComplete="name"
                             value={placeEdit.name}
+                            onChange={handleOnChange}
+                        />
+                    </div>
+                    <div className="group d-flex flex-column align-items-center ">
+                        <label htmlFor="descriptionAdd">description</label>
+                        <input
+                            className="form-control"
+                            name="description"
+                            id="descriptionAdd"
+                            value={placeEdit.description}
                             onChange={handleOnChange}
                         />
                     </div>
@@ -131,26 +142,20 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle }) => {
                         />
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
-                        <label htmlFor="iconClassAdd">Classe d'icon</label>
-                        <input
-                            className="form-control"
-                            // type="email"
-                            name="iconClass"
-                            id="iconClassAdd"
-                            value={placeEdit.iconClass}
-                            onChange={handleOnChange}
-                        />
-                    </div>
-                    <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="categoryAdd">Catégorie</label>
-                        <input
-                            className="form-control"
-                            // type="email"
-                            name="category"
-                            id="categoryAdd"
-                            value={placeEdit.category}
-                            onChange={handleOnChange}
-                        />
+                        <select className="form-control"
+                                    name="category"
+                                    id="categoryAdd"
+                                    value={placeEdit.category}
+                                    onChange={handleOnChange}
+                                    >
+                            {Object.entries(categories).map((categorie, index) => {
+                                return <option
+                                    key={index}
+                                    value={categorie[0]}
+                                >{categorie[0]}</option>
+                            })}
+                        </select>
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="openingAdd">Ouverture</label>

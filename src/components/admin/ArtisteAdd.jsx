@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { apiFunctions } from "../logic/apiFunctions";
 
-const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle }) => {
+const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
     const [error, setError] = useState(null);
 
     const [artisteEdit, setArtisteEdit] = useState({
@@ -108,14 +108,20 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle }) => {
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="stageEdit">Scène</label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="stage"
-                            id="stageEdit"
-                            value={artisteEdit.stage}
-                            onChange={handleOnChange}
-                        />
+                        <select 
+                        className="form-control"
+                        name="stage" 
+                        id="stageEdit"
+                        value={artisteEdit.stage}
+                        onChange={handleOnChange}>
+                            <option value='' disabled>Choisir une scène</option>
+
+                            {scenes.map((scene, index)=>{return (
+                                <option key={index} value={scene}>{scene}</option>
+                            )})}
+
+                        </select>
+                        
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="styleEdit">Style</label>
@@ -155,7 +161,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle }) => {
                         <input
                             className="form-control"
                             type="file"
-                            accept="image/png, image/jpeg"
+                            accept="image/png, image/jpeg, image/webp"
                             name="image"
                             id="imageEdit"
                             onChange={handleOnChange}

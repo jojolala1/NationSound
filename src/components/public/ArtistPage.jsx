@@ -86,7 +86,7 @@ export default function ArtistPage() {
                     new Date(artiste.time).toISOString().substring(11, 16)
                 }&nbsp;h</p>
                 <p className="fw-bold">Scène : {artiste.stage}</p>
-                <p>{artiste.description}</p>
+                <p >{artiste.description}</p>
             </div>
         </div>
     );

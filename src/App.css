@@ -31,6 +31,8 @@ body {
 }
 :root {
     --rouge: #e07a5f;
+    --rougeF: #e24b21;
+
     --noir: #3d405b;
     --beige: #f4f1de;
     --vert: #81b29a;
@@ -74,6 +76,11 @@ a.active{
 
 .rouge {
     color: var(--rouge) !important;
+}
+.rougeF {
+    color: var(--rougeF) !important;
+    font-weight: bold !important;
+    font-size: 30px!important;
 }
 .noir {
     color: var(--noir) !important;
@@ -403,7 +410,6 @@ a.active{
 
 .leaflet-popup-content {
     max-width: 200px;
-    max-height: 150px;
 }
 .widthPartenaire {
     width: 80vw;
@@ -567,23 +573,23 @@ a.active{
 }
 
 .burger {
-    width: 50px;
+    width: 60px;
     height: 50px;
     border: none;
     border-radius: 5px;
     position: fixed;
     padding: 0;
     z-index: 100;
-    background-color: transparent !important;
+    background-color: var(--rouge) !important;
     right: 20px;
 }
 
 .burger span {
-    width: 80%;
+    width: 70%;
     height: 5px;
     display: block;
     position: absolute;
-    left: 30%;
+    left: 40%;
     border-radius: 10px;
 
     transform: translate(-50%, -50%);
@@ -598,7 +604,7 @@ a.active{
     border-radius: 10px;
     position: absolute;
     background: var(--beige);
-    transform: translateX(-35%);
+    transform: translateX(-30%);
     transition: transform 0.5s ease-in-out, top 0.5s ease-in-out,
         bottom 0.5s ease-in-out;
 }

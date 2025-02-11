@@ -62,14 +62,14 @@ export default function ArtistScene() {
                         <div className="d-flex justify-content-around  bgGris py-4 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border ">
                             <p className="m-0 my-auto fw-normal p-0 col-3">artiste</p>
                             <p className="m-0 my-auto fw-normal p-0 col-3">Heure de début</p>
-                            <p className="m-0 my-auto fw-normal p-0 col-3">Scène</p>
+                            <p className="m-0 my-auto fw-normal p-0 col-3">Style de musique</p>
                         </div>
                         {
                             artiste.map((artiste, index) => (
                                 <div key={index} onClick={() => handleNavigate(`/programmation/${artiste.name}`, { state: { artiste } })} className="clickable d-flex justify-content-around  bgBlanc py-4 rounded text-center gap-1 gap-md-3 gap-lg-5 row px-3 border">
                                     <p className="m-0 my-auto p-0 col-3">{artiste.name}</p>
                                     <p className="m-0 my-auto p-0 col-3">{new Date(artiste.time).toISOString().substring(11, 16)}</p>
-                                    <p className="m-0 my-auto p-0 col-3">{artiste.stage}</p>
+                                    <p className="m-0 my-auto p-0 col-3">{artiste.style}</p>
                                 </div>
                             ))
                         }

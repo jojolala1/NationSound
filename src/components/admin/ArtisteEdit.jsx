@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { apiFunctions } from "../logic/apiFunctions";
 
-const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle }) => {
+const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) => {
     const [error, setError] = useState(null);
 
     const [artisteEdit, setArtisteEdit] = useState({
@@ -131,14 +131,18 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle }) => {
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="stageEdit">Scène</label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            name="stage"
-                            id="stageEdit"
-                            value={artisteEdit.stage}
-                            onChange={handleOnChange}
-                        />
+                        <select 
+                        className="form-control"
+                        name="stage" 
+                        id="stageEdit"
+                        value={artisteEdit.stage}
+                        onChange={handleOnChange}>
+                            <option value='' disabled>Choisir une scène</option>
+                            {scenes.map((scene, index)=>{return (
+                                <option key={index} value={scene}>{scene}</option>
+                            )})}
+
+                        </select>
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="styleEdit">Style</label>

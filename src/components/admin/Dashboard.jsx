@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Artiste from './Artiste'
 import Place from './Place'
 import User from './User'
+import Site from './Site'
 
 const Dashboard = () => {
 
@@ -33,6 +34,8 @@ const Dashboard = () => {
                 <button className={getButtonClass('Artiste')} onClick={()=>{handlePage('Artiste')}}>Artiste</button>
                 <button  className={getButtonClass('Place')} onClick={()=>{handlePage('Place')}}>Localisations</button>
                 <button  className={getButtonClass('User')} onClick={()=>{handlePage('User')}}>Utilisateurs</button>
+                <button  className={getButtonClass('Site')} onClick={()=>{handlePage('Site')}}>Site</button>
+
                 </div>
                 
             </div>
@@ -42,6 +45,8 @@ const Dashboard = () => {
                 {page === 'Artiste' && <Artiste />}
                 {page === 'Place' && <Place />}
                 {page === 'User' && <User/>}
+                {page === 'Site' && <Site/>}
+
 
 
                 </div>

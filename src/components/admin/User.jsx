@@ -3,6 +3,7 @@ import { apiFunctions } from '../logic/apiFunctions'
 import UserEdit from './UserEdit'
 import UserDelete from './UserDelete'
 import UserAdd from './UserAdd'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -37,10 +38,15 @@ const User = () => {
     fetchData();
   }, [toggleSetUser])
 
+      const navigate = useNavigate();
+
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) {
     console.log('ereeeuuur', error)
-    return <div>erreur : {error.message}</div>
+    return <div>
+      {error.code === 401 && navigate('/login')}
+      <p>erreur : {error.message} </p>
+    </div>
   }
 
 
