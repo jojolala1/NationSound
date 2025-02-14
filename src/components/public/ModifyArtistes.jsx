@@ -46,13 +46,11 @@ export default function ModifyArtistes() {
     const password = (e) =>{
         e.preventDefault()
         if(pass === 'MotDePasse'){
-            console.log('yess')
             setVerif(true)
             setFaute(false)
             setPass('')
             
         }else {
-            console.log('no') 
             setPass('')
             setFaute(true)
             return false}

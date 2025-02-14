@@ -112,7 +112,6 @@ const modifyArtiste = async (entity, data, id) => {
 const AddEntity = async (entity, data) => {
     const url = `${baseUrl}api/${entity}`;
     const token = authFunctions.getToken();
-    console.log("Données envoyées à l'API :",data);
 
     try {
         const res = await axios.post(url, data, {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ArtistSortDay from "./ArtistSortDay";
-import ArtisteList from "./ArtistList";
-import ArtistSCene from "./ArtistScene";
-import ArtistStyle from "./ArtisteStyle";
+import ArtistSortDay from "./artiste/ArtistSortDay";
+import ArtisteList from "./artiste/ArtistList";
+import ArtistSCene from "./artiste/ArtistScene";
+import ArtistStyle from "./artiste/ArtisteStyle";
 
 
 export default function Prog() {
@@ -38,7 +38,7 @@ export default function Prog() {
                 </div>
                 
             </div>
-            <div >
+            <div className="container">
                 <div className="row d-flex justify-content-center my-5">
 
                 {page === 'lineup' && <ArtisteList />}

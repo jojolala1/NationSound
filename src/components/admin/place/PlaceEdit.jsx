@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => {
     const [error, setError] = useState(null);
@@ -43,8 +43,6 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => 
         if (placeEdit.description !== place.description) {
             placePatch.description = placeEdit.description;
         }
-        // Envoi des données avec `multipart/form-data`
-        console.log('testing format : ', placePatch)
 
         const res = await apiFunctions.modifyEntity(
             "places",
@@ -65,15 +63,18 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => 
         const formatTime = (timeString) => {
             if (!timeString) return "";
             const date = new Date(timeString);
-            return date.toISOString().substring(11, 16)};
+            return date.toISOString().substring(11, 16)
+        };
+
         setPlaceEdit({
-            name: place.name,
-            latitude: place.latitude,
-            longitude: place.longitude,
-            iconClass: place.iconClass,
-            category: place.category,
-            opening: formatTime(place.opening),
-            closing: formatTime(place.closing),
+            name: place.name || "",
+            latitude: place.latitude || "",
+            longitude: place.longitude || "",
+            iconClass: place.iconClass || "",
+            category: place.category || "",
+            opening: formatTime(place.opening) || "",
+            closing: formatTime(place.closing) || "",
+            description: place.description || ""
         });
     }, [place]);
 
@@ -109,16 +110,19 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => 
                             onChange={handleOnChange}
                         />
                     </div>
-                    <div className="group d-flex flex-column align-items-center ">
-                        <label htmlFor="descriptionAdd">description</label>
-                        <input
+                    <div className="group d-flex flex-column align-items-center">
+                        <label htmlFor="descriptionAdd">Description</label>
+                        <textarea
                             className="form-control"
                             name="description"
                             id="descriptionAdd"
                             value={placeEdit.description}
                             onChange={handleOnChange}
+                            rows="4" // Définir le nombre de lignes visibles
+                            placeholder="Entrez la description ici..." // Optionnel, pour un texte d'exemple
                         />
                     </div>
+
                     <div className="group d-flex flex-column align-items-center">
                         <label htmlFor="latitudeAdd">Latitude</label>
                         <input
@@ -144,11 +148,11 @@ const PlaceEdit = ({ place, setSelectedPlace, handleSetToggle, categories }) => 
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="categoryAdd">Catégorie</label>
                         <select className="form-control"
-                                    name="category"
-                                    id="categoryAdd"
-                                    value={placeEdit.category}
-                                    onChange={handleOnChange}
-                                    >
+                            name="category"
+                            id="categoryAdd"
+                            value={placeEdit.category}
+                            onChange={handleOnChange}
+                        >
                             {Object.entries(categories).map((categorie, index) => {
                                 return <option
                                     key={index}

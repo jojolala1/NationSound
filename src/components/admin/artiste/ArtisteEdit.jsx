@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import React, { useEffect, useState } from "react";
+import { apiFunctions } from "../../logic/apiFunctions";
 
-const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
+const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) => {
     const [error, setError] = useState(null);
 
     const [artisteEdit, setArtisteEdit] = useState({
-        name: "",
-        date: "",
-        time: "",
-        stage: "",
-        style: "",
-        description: "",
-        videoLink: "",
+        name: artiste.name,
+        date: artiste.date,
+        time: artiste.time,
+        stage: artiste.stage,
+        style: artiste.style,
+        description: artiste.description,
+        videoLink: artiste.videoLink,
         imageFile: null,
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(null);
+
+        // Création du FormData
         const formData = new FormData();
         formData.append("name", artisteEdit.name);
         formData.append("date", artisteEdit.date);
@@ -26,23 +29,36 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
         formData.append("description", artisteEdit.description);
         formData.append("videoLink", artisteEdit.videoLink);
 
-        // Ajout du fichier image s'il est sélectionné
+        // Ajout du fichier image si présent
         if (artisteEdit.imageFile) {
             formData.append("imageFile", artisteEdit.imageFile);
+
         }
 
-        // Vérification des données envoyées
-        for (let pair of formData.entries()) {
-            console.log(pair[0] + ": " + pair[1]);
-        }
-        const res = await apiFunctions.AddArtiste("artistes", artisteEdit);
+        // Envoi des données avec `multipart/form-data`
+        const res = await apiFunctions.modifyArtiste("artiste/modify", formData, artiste.id);
+
         if (res.error) {
             setError(res);
             return;
         }
+
         setSelectedArtiste(null);
         handleSetToggle();
     };
+
+    useEffect(() => {
+        setArtisteEdit({
+            name: artiste.name,
+            date: new Date(artiste.date).toISOString().split("T")[0],
+            time: new Date(artiste.time).toISOString().substring(11, 16),
+            stage: artiste.stage,
+            style: artiste.style,
+            description: artiste.description,
+            videoLink: artiste.videoLink,
+            imageFile: null
+        });
+    }, [artiste]);
 
     const handleOnChange = (e) => {
         if (e.target.type === "file") {
@@ -59,15 +75,17 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
     };
 
     return (
-        <div
-            onClick={() => setSelectedArtiste(null)}
-            className=" overlay bgGRey"
-        >
+        <div onClick={() => setSelectedArtiste(null)} className=" overlay bgGRey">
             <div
                 className="d-flex flex-column align-items-center mb-5 bgBlanc p-5 rounded gap-4 position-fixed z-3 bgGrey mx-2 scrollable-container"
                 onClick={(e) => e.stopPropagation()}
             >
-                <p className="text-center textSize">Ajouter un artiste</p>
+                <p className="text-center textSize">
+                    modifier l'artiste{" "}
+                    <span className="fw-bold">
+                        {artiste.name}
+                    </span>
+                </p>
                 <form
                     onSubmit={handleSubmit}
                     className="d-flex flex-column gap-3"
@@ -93,6 +111,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                             value={artisteEdit.date}
                             onChange={handleOnChange}
                         />
+
                     </div>
                     <div className="group d-flex flex-column align-items-center">
                         <label htmlFor="timeEdit">heure</label>
@@ -108,20 +127,20 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="stageEdit">Scène</label>
-                        <select 
-                        className="form-control"
-                        name="stage" 
-                        id="stageEdit"
-                        value={artisteEdit.stage}
-                        onChange={handleOnChange}>
+                        <select
+                            className="form-control"
+                            name="stage"
+                            id="stageEdit"
+                            value={artisteEdit.stage}
+                            onChange={handleOnChange}>
                             <option value='' disabled>Choisir une scène</option>
-
-                            {scenes.map((scene, index)=>{return (
-                                <option key={index} value={scene}>{scene}</option>
-                            )})}
+                            {scenes.map((scene, index) => {
+                                return (
+                                    <option key={index} value={scene}>{scene}</option>
+                                )
+                            })}
 
                         </select>
-                        
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
                         <label htmlFor="styleEdit">Style</label>
@@ -134,15 +153,16 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                             onChange={handleOnChange}
                         />
                     </div>
-                    <div className="group d-flex flex-column align-items-center ">
+                    <div className="group d-flex flex-column align-items-center">
                         <label htmlFor="descriptionEdit">Description</label>
-                        <input
+                        <textarea
                             className="form-control"
-                            type="text"
                             name="description"
                             id="descriptionEdit"
                             value={artisteEdit.description}
                             onChange={handleOnChange}
+                            rows="4" // Vous pouvez ajuster ce nombre pour la hauteur de la zone
+                            placeholder="Entrez une description ici..." // Ajoutez un texte d'exemple si nécessaire
                         />
                     </div>
                     <div className="group d-flex flex-column align-items-center ">
@@ -161,7 +181,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                         <input
                             className="form-control"
                             type="file"
-                            accept="image/png, image/jpeg, image/webp"
+                            accept="image/png, image/jpeg"
                             name="image"
                             id="imageEdit"
                             onChange={handleOnChange}
@@ -180,7 +200,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                         className="bouton bgVert blanc mt-4 py-2"
                         type="submit"
                     >
-                        Ajouter
+                        Modifier
                     </button>
                 </form>
                 <button
@@ -194,4 +214,4 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
     );
 };
 
-export default ArtisteAdd;
+export default ArtisteEdit;

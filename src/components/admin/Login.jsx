@@ -3,31 +3,35 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { authFunctions } from "../logic/authFunctions";
 import { tokenService } from "../logic/tokenService";
+import { baseUrl } from "../logic/shared";
 
 export const Login = () => {
     let navigate = useNavigate();
 
     const [eye, setEye] = useState("bi bi-eye-slash-fill");
+    const [error, setError] = useState(null)
     const [submitForm, setSumbitForm] = useState({
-        email: "lasthib.tl@gmail.com",
-        password: "Jafirefl1!",
+        email: "",
+        password: "",
     });
 
-    const onSubmit = (e) => {
+    const onSubmit =async (e) => {
         e.preventDefault();
 
-        axios
-            .post("http://localhost:8000/auth", submitForm)
-            .then((res) => {
-                console.log(res);
-                authFunctions.saveToken(res.data.token);
-                authFunctions.saveRefreshToken(res.data.refresh_token);
+       try{
+        const res =await axios.post(`${baseUrl}api/auth`, submitForm)
 
-                tokenService.startTokenService();
+            authFunctions.saveToken(res.data.token);
+            authFunctions.saveRefreshToken(res.data.refresh_token);
 
-                navigate("/admin");
-            })
-            .catch((err) => console.log(err));
+            tokenService.startTokenService();
+
+            navigate("/admin");
+        
+       }catch(err){
+        setError("Erreur de connexion. Veuillez vérifier vos identifiants.");
+        console.log("Erreur : ", err.response ? err.response.data : err.message);
+       }
     };
 
     const handleOnChange = (e) => {
@@ -49,6 +53,8 @@ export const Login = () => {
             setEye("bi bi-eye-slash-fill");
         }
     };
+
+
 
     return (
         <>
@@ -98,6 +104,11 @@ export const Login = () => {
                             Connection
                         </button>
                     </div>
+                    {error && <>
+                        <div>
+                            <p>{error}</p>
+                        </div>
+                    </>}
                 </form>
             </div>
         </>

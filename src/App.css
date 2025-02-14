@@ -520,7 +520,12 @@ a.active{
     animation-fill-mode: forwards; /* Keeps the final state after animation ends */
     animation-delay: 0.5s;
 }
-
+.fade-in7 {
+    animation: fadeIn 0.8s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keeps the final state after animation ends */
+    animation-delay: 0.5s;
+}
 .navOpen ul li {
     opacity: 0;
     transform: translateX(-20px);
@@ -549,7 +554,7 @@ a.active{
     animation-delay: 0.9s;
 }
 .navOpen ul li:nth-child(7) {
-    animation-delay: 0.15s;
+    animation-delay: 1.05s;
 }
 
 .navOpen {

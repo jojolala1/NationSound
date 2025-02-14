@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
     const [passwordSee, setPasswrdSee] = useState("password");
@@ -34,7 +34,6 @@ const UserEdit = ({ user, setSelectedUser, handleSetToggle }) => {
             userPatch,
             user.id
         );
-        console.log("reponse de l'api", res);
         if (res.error) {
             setError(res);
             return;

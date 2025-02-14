@@ -32,12 +32,12 @@ export default function Navbar() {
                     isNavOpen ? "navOpen scrollable-navBar" : ""
                 }`}
             >
-                <ul className={isNavOpen ? "my-5 z-3 " : ""}>
+                <ul className={isNavOpen ? " z-3 gap-3" : ""}>
                     <li className={isNavOpen ? "fadeIn " : ""}>
                         <NavLink
                             onClick={handleCloseNav}
                             to="/"
-                            className="nav-link beige transitionColor titleSize"
+                            className="nav-link beige transitionColor textSize"
                         >
                             Accueil
                         </NavLink>
@@ -46,7 +46,7 @@ export default function Navbar() {
                         <NavLink
                             onClick={handleCloseNav}
                             to="informations"
-                            className="nav-link beige transitionColor titleSize"
+                            className="nav-link beige transitionColor textSize"
                         >
                         Informations/FAQ
                         </NavLink>
@@ -55,7 +55,7 @@ export default function Navbar() {
                         <NavLink
                             onClick={handleCloseNav}
                             to="programmation"
-                            className="nav-link beige transitionColor titleSize"
+                            className="nav-link beige transitionColor textSize"
                         >
                             Programmation
                         </NavLink>
@@ -64,7 +64,7 @@ export default function Navbar() {
                         <NavLink
                             onClick={handleCloseNav}
                             to="carte-interactive"
-                            className="nav-link beige transitionColor titleSize"
+                            className="nav-link beige transitionColor textSize"
                         >
                             Carte-interactive
                         </NavLink>
@@ -73,7 +73,7 @@ export default function Navbar() {
                         <NavLink
                             onClick={handleCloseNav}
                             to="partenaires"
-                            className="nav-link beige transitionColor titleSize"
+                            className="nav-link beige transitionColor textSize"
                         >
                             Nos partenaires
                         </NavLink>
@@ -83,7 +83,7 @@ export default function Navbar() {
                     <li className={isNavOpen ? "fadeIn" : ""}>
                         <NavLink
                             onClick={handleCloseNav}
-                            className="nav-link beige transitionColor titleSize text-center"
+                            className="nav-link beige transitionColor textSize text-center"
                             to="admin"
                         >
                             Panneau de controle
@@ -95,7 +95,7 @@ export default function Navbar() {
                             logout()
                              handleCloseNav()
                             }}
-                        className="nav-link beige transitionColor titleSize"
+                        className="nav-link beige transitionColor textSize"
                     >
                         Déconnection
                     </button>

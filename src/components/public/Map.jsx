@@ -181,7 +181,6 @@ export default function Carte() {
         const long = position.coords.longitude;
     
         if (!lat || !long) {
-            console.error("Coordonnées GPS non valides :", lat, long);
             return; 
         }
     

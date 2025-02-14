@@ -19,13 +19,11 @@ const refreshToken = async () => {
   const refreshToken = localStorage.getItem("refreshToken");
 
   if (!refreshToken) {
-    console.error("Aucun refreshToken disponible !");
     return;
   }
 
   try {
     const response = await axios.post(url, { refresh_token: refreshToken });
-    console.log("Token rafraîchi :", response.data);
 
     // Stocker les nouveaux tokens
     localStorage.setItem("token", response.data.token);

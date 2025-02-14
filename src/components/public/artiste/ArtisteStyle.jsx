@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 export default function ArtisteStyle() {
 

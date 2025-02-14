@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { apiFunctions } from '../logic/apiFunctions'
+import { apiFunctions } from '../../logic/apiFunctions'
 import PlaceEdit from './PlaceEdit'
 import PlaceDelete from './PlaceDelete'
 import PlaceAdd from './PlaceAdd'
@@ -39,7 +39,6 @@ const Place = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await apiFunctions.fetchEntity('places')
-      console.log('reponse de l\'api', res)
       if (res.error) {
         setError(res)
       } else {
@@ -61,7 +60,6 @@ const Place = () => {
   }, [toggleSetPlace])
 
   useEffect(() => {
-    console.log('Places mises à jour:', places);
   }, [places])
 
 
@@ -70,7 +68,6 @@ const Place = () => {
 
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) {
-    console.log('ereeeuuur', error)
     return <div>
       {error.code === 401 && navigate('/login')}
       <p>erreur : {error.message} </p>
@@ -87,7 +84,7 @@ const Place = () => {
     {selectedDeletePlace ? <PlaceDelete place={selectedDeletePlace} setSelectedDeletePlace={setSelectedDeletePlace} handleSetToggle={handleSetToggle} /> : null}
     {selectedAddPlace ? <PlaceAdd handleSetToggle={handleSetToggle} setSelectedPlace={setSelectedAddPlace} categories={categories} /> : null}
 
-    <div className='wDashboard d-flex flex-column align-items-center '>
+    <div className='wDashboard d-flex flex-column align-items-center container'>
       <p className='mb-5 titleFont titleSize text-center noir '>Localisations</p>
       <button className='bouton bgVert blanc py-2 px-3 titleFont' onClick={() => setSelectedAddPlace(1)}>Ajouter une localisation</button>
       <p className='mb-5 titleFont textSize text-center noir mt-5'>liste des localisations : </p>
@@ -96,7 +93,7 @@ const Place = () => {
         {
           Object.entries(places).map(([category, placesPerCategory], key) => {
             return (
-              <div key={key} className='rounded   col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column position-relative'>
+              <div key={key} className='rounded  my-4 col-12 col-md-6  col-lg-4 col-xl-3 d-flex flex-column position-relative'>
 
                 <h2 className='text-center bg-secondary blanc w-100 px-5 rounded mb-0 py-2' >{category}</h2>
 
@@ -110,8 +107,7 @@ const Place = () => {
                       <p >fermeture : <span className='fw-bold'>{new Date(place.closing).toISOString().substring(11, 16)}h</span></p>
                       <div className='d-flex justify-content-around  '>
                         <button className='littleBouton shadow-none bgVert blanc mx-3 py-2 px-3' onClick={() => {
-                          setSelectedPlace(place),
-                            console.log(place)
+                          setSelectedPlace(place)
                         }}>modifier</button>
                         <button className='littleBouton shadow-none bgRouge blanc mx-3 py-2 px-3' onClick={() => setSelectedDeletePlace(place)}>supprimer</button>
                       </div>

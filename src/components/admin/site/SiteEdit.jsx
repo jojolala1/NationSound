@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const SiteEdit = ({ site, setSelectedSite, handleSetToggle }) => {
    
@@ -29,7 +29,6 @@ const SiteEdit = ({ site, setSelectedSite, handleSetToggle }) => {
             sitePatch,
             site.id
         );
-        console.log("reponse de l'api", res);
         if (res.error) {
             setError(res);
             return;

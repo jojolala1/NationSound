@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { apiFunctions } from '../logic/apiFunctions'
+import { apiFunctions } from '../../logic/apiFunctions'
 import SiteEdit from './SiteEdit'
 
 import { useNavigate } from 'react-router-dom'
@@ -21,7 +21,6 @@ const Site = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await apiFunctions.fetchEntity('sites/1')
-      console.log('reponse de l\'api', res)
       if (res.error) {
         setError(res)
       } else {
@@ -38,7 +37,6 @@ const Site = () => {
 
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) {
-    console.log('ereeeuuur', error)
     return <div>
       {error.code === 401 && navigate('/login')}
       <p>erreur : {error.message} </p>

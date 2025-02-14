@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const PlaceDelete = ({ place, setSelectedDeletePlace, handleSetToggle }) => {
     const [error, setError] = useState(null);
@@ -7,15 +7,12 @@ const PlaceDelete = ({ place, setSelectedDeletePlace, handleSetToggle }) => {
     const deletePlace = async () => {
         const res = await apiFunctions.deleteEntity("places", place.id);
         if (res.error) {
-          console.log('erreur validé')
             setError(res);
         } else {
-          console.log('erreur non détecté')
             setSelectedDeletePlace(null);
             handleSetToggle();
         }
     };
-    console.log('place',place)
     return (
         <div
             onClick={() => setSelectedDeletePlace(null)}

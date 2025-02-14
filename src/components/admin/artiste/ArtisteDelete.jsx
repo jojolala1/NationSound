@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import React, { useState } from "react";
+import { apiFunctions } from "../../logic/apiFunctions";
 
-const UserDelete = ({ user, setSelectedDeleteUser, handleSetToggle }) => {
+const ArtisteDelete = ({ artiste, setSelectedDeleteArtiste, handleSetToggle }) => {
     const [error, setError] = useState(null);
 
-    const deleteUser = async () => {
-        const res = await apiFunctions.deleteEntity("users", user.id);
+    const deleteArtiste = async () => {
+        const res = await apiFunctions.deleteEntity("artistes", artiste.id);
         if (res.error) {
-          console.log('erreur validé')
             setError(res);
         } else {
-          console.log('erreur non détecté')
-            setSelectedDeleteUser(null);
+            setSelectedDeleteArtiste(null);
             handleSetToggle();
         }
     };
-
     return (
         <div
-            onClick={() => setSelectedDeleteUser(null)}
+            onClick={() => setSelectedDeleteArtiste(null)}
             className=" overlay bgGRey"
         >
             <div
@@ -26,24 +23,22 @@ const UserDelete = ({ user, setSelectedDeleteUser, handleSetToggle }) => {
                 onClick={(e) => e.stopPropagation()}
             >
                 <p className="text-center textSize">
-                    Etes vous sur de vouloir s'uprimer l'utilisateur{" "}
+                    Etes vous sur de vouloir supprimer la localisation{" "}
                     <span className="fw-bold">
-                        {user.firstName} {user.lastName}
+                        {artiste.name}
                     </span>{" "}
                     ?
                 </p>
-                <p className="text-center">
-                    mail : <span className="fw-bold">{user.email}</span>
-                </p>
+                
                 <button
                     className="bouton bgVert blanc  py-2"
-                    onClick={() => deleteUser()}
+                    onClick={() => deleteArtiste()}
                 >
                     supprimer
                 </button>
                 <button
                     className="bouton bgRouge blanc  py-2"
-                    onClick={() => setSelectedDeleteUser(null)}
+                    onClick={() => setSelectedDeleteArtiste(null)}
                 >
                     annuler
                 </button>
@@ -61,4 +56,4 @@ const UserDelete = ({ user, setSelectedDeleteUser, handleSetToggle }) => {
     );
 };
 
-export default UserDelete;
+export default ArtisteDelete;

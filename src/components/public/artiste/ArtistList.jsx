@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiFunctions } from "../logic/apiFunctions";
-import { baseUrl } from '../logic/shared'
+import { apiFunctions } from "../../logic/apiFunctions";
+import { baseUrl } from '../../logic/shared'
 export default function ArtisteList() {
 
     const [artistes, setArtistes] = useState()

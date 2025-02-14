@@ -141,19 +141,20 @@ export default function Home() {
                         Billetterie
                     </button>
                 </div>
+                <div className="position-absolute bottom-0 start-50 translate-middle-x w-100 text-center py-4">
+        <img
+            src={greenWave}
+            alt="fond en forme de vague"
+            className="banner position-absolute w-100"
+        />
+        <img
+            src={yellowWave}
+            alt="fond en forme de vague"
+            className="banner position-absolute w-100"
+        />
+    </div>
             </div>
-            <div className=" bandeau mb-3 mb-lg-5">
-                <img
-                    src={greenWave}
-                    alt="fond en forme de vague"
-                    className="banner position-absolute"
-                />
-                <img
-                    src={yellowWave}
-                    alt="fond en forme de vague"
-                    className="banner position-absolute"
-                />
-            </div>
+            
             <div className="marginEffet">
                 <img src={effet} alt="effet" className="effet" />
             </div>

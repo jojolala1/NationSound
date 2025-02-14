@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const PlaceAdd = ({ handleSetToggle, setSelectedPlace, categories }) => {
     const [error, setError] = useState(null);
@@ -26,9 +26,7 @@ const PlaceAdd = ({ handleSetToggle, setSelectedPlace, categories }) => {
             iconClass: categories[placeEdit.category]
         };
 
-        console.log("Données envoyées à l'API :", dataToSend);
         const res = await apiFunctions.AddEntity("places", dataToSend);
-        console.log("reponse de l'api", res);
         if (res.error) {
             setError(res)
         } else {

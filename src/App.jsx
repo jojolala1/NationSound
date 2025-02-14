@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createBrowserRouter, Outlet, RouterProvider, useLocation } from 'react-router-dom';
 import './App.css'
 import Home from './components/public/Home';
 import Prog from './components/public/Prog';
-import Carte from './components/public/Carte';
+import Map from './components/public/Map';
 import Navbar from './components/public/Navbar';
 import Footer from './components/public/Footer';
 import ErrorElement from './components/public/ErrorElement';
-import ArtistPage from "./components/public/ArtistPage";
+import ArtistPage from "./components/public/artiste/ArtistPage";
 import PartenairePage from "./components/public/PartenairePage";
-import { FetchProvider } from "./components/public/JsonContext";
-import ModifyArtistes from "./components/public/ModifyArtistes";
 import Info from "./components/public/Infos";
 import { Login } from "./components/admin/Login";
 import Dashboard from "./components/admin/Dashboard";
@@ -47,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/carte-interactive',
-        element: <Carte />,
+        element: <Map />,
       },
       {
         path: '/partenaires',
@@ -110,9 +108,7 @@ function App() {
 
   return (
     <HelmetProvider>
-      <FetchProvider>
         <RouterProvider router={router} />
-      </FetchProvider>
     </HelmetProvider>
 
   )

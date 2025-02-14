@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { apiFunctions } from '../logic/apiFunctions'
 import UserEdit from './UserEdit'
 import UserDelete from './UserDelete'
 import UserAdd from './UserAdd'
 import { useNavigate } from 'react-router-dom'
+import { apiFunctions } from '../../logic/apiFunctions'
 
 
 
@@ -25,7 +25,6 @@ const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await apiFunctions.fetchEntity('users')
-      console.log('reponse de l\'api', res)
       if (res.error) {
         setError(res)
       } else {
@@ -42,7 +41,6 @@ const User = () => {
 
   if (loading) return <p className='titleFont titleSize noir'>chargement...</p>
   if (error) {
-    console.log('ereeeuuur', error)
     return <div>
       {error.code === 401 && navigate('/login')}
       <p>erreur : {error.message} </p>

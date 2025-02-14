@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { apiFunctions } from "../logic/apiFunctions"
+import { apiFunctions } from "../../logic/apiFunctions"
 
 export default function ArtistPage() {
 

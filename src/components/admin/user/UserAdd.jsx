@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 
 const UserAdd = ({ handleSetToggle, setSelectedUser }) => {
     const [passwordSee, setPasswrdSee] = useState("password");
@@ -17,7 +17,6 @@ const UserAdd = ({ handleSetToggle, setSelectedUser }) => {
         e.preventDefault();
 
             const res = await apiFunctions.AddEntity("users", userEdit);
-            console.log("reponse de l'api", res);
             if(res.error){
               setError(res)
             }else{

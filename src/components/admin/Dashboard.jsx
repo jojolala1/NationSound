@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Artiste from './Artiste'
-import Place from './Place'
-import User from './User'
-import Site from './Site'
+import Artiste from './artiste/Artiste'
+import Place from './place/Place'
+import User from './user/User'
+import Site from './site/Site'
 
 const Dashboard = () => {
 

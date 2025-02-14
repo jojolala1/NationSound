@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { apiFunctions } from "../logic/apiFunctions";
+import { apiFunctions } from "../../logic/apiFunctions";
 import ArtisteEdit from "./ArtisteEdit";
 import ArtisteDelete from "./ArtisteDelete";
 import ArtisteAdd from "./ArtisteAdd";
@@ -24,7 +24,6 @@ const Artiste = () => {
     useEffect(() => {
         const fetchData = async () => {
             const res = await apiFunctions.fetchEntity("artistes");
-            console.log("reponse de l'api", res);
             if (res.error) {
                 setError(res);
             } else {
@@ -56,8 +55,6 @@ const Artiste = () => {
     if (loading)
         return <p className="titleFont titleSize noir">chargement...</p>;
     if (error) {
-        console.log("ereeeuuur", error);
-
         return (
             <div>
                 {error.code === 401 && navigate("/login")}
@@ -91,7 +88,7 @@ const Artiste = () => {
                 />
             ) : null}
 
-            <div className="wDashboard d-flex flex-column align-items-center ">
+            <div className="wDashboard d-flex flex-column align-items-center container ">
                 <p className="mb-5 titleFont titleSize text-center noir ">
                     Artistes
                 </p>
