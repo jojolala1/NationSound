@@ -102,7 +102,7 @@ export default function Carte() {
                     let timePlus1formated = timePlus1.toISOString().substring(11, 16)
                     let artisteTimeformated = new Date(artiste.time).toISOString().substring(11, 16)
 
-                    if(artisteTimeformated >= timeformated && artisteTimeformated < timePlus1formated){
+                    if(artisteTimeformated >= timeformated && artisteTimeformated <= timePlus1formated){
                         places.forEach(place => {
                             if(artiste.stage === place.name){
                                 place.artiste = artiste

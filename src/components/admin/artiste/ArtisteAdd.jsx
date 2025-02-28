@@ -8,11 +8,11 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
         name: "",
         date: "",
         time: "",
-        stage: "",
         style: "",
         description: "",
         videoLink: "",
         imageFile: null,
+        place_id: "",
     });
 
     const handleSubmit = async (e) => {
@@ -21,7 +21,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
         formData.append("name", artisteEdit.name);
         formData.append("date", artisteEdit.date);
         formData.append("time", artisteEdit.time);
-        formData.append("stage", artisteEdit.stage);
+        formData.append("place_id", `/api/places/${artisteEdit.place_id}`);
         formData.append("style", artisteEdit.style);
         formData.append("description", artisteEdit.description);
         formData.append("videoLink", artisteEdit.videoLink);
@@ -31,7 +31,7 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
             formData.append("imageFile", artisteEdit.imageFile);
         }
 
-        const res = await apiFunctions.AddArtiste("artistes", artisteEdit);
+        const res = await apiFunctions.AddArtiste("artistes", formData);
         if (res.error) {
             setError(res);
             return;
@@ -106,14 +106,14 @@ const ArtisteAdd = ({ setSelectedArtiste, handleSetToggle , scenes}) => {
                         <label htmlFor="stageEdit">Scène</label>
                         <select 
                         className="form-control"
-                        name="stage" 
+                        name="place_id" 
                         id="stageEdit"
-                        value={artisteEdit.stage}
+                        value={artisteEdit.place_id}
                         onChange={handleOnChange}>
                             <option value='' disabled>Choisir une scène</option>
 
-                            {scenes.map((scene, index)=>{return (
-                                <option key={index} value={scene}>{scene}</option>
+                            {scenes.map((scene)=>{return (
+                                <option key={scene.id} value={scene.id}>{scene.name}</option>
                             )})}
 
                         </select>

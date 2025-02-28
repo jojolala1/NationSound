@@ -8,23 +8,21 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) =
         name: artiste.name,
         date: artiste.date,
         time: artiste.time,
-        stage: artiste.stage,
         style: artiste.style,
         description: artiste.description,
         videoLink: artiste.videoLink,
         imageFile: null,
+        place_id: artiste.place_id
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(null);
-
         // Création du FormData
         const formData = new FormData();
         formData.append("name", artisteEdit.name);
         formData.append("date", artisteEdit.date);
         formData.append("time", artisteEdit.time);
-        formData.append("stage", artisteEdit.stage);
+        formData.append("place_id", artisteEdit.place_id);
         formData.append("style", artisteEdit.style);
         formData.append("description", artisteEdit.description);
         formData.append("videoLink", artisteEdit.videoLink);
@@ -34,7 +32,6 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) =
             formData.append("imageFile", artisteEdit.imageFile);
 
         }
-
         // Envoi des données avec `multipart/form-data`
         const res = await apiFunctions.modifyArtiste("artiste/modify", formData, artiste.id);
 
@@ -52,11 +49,11 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) =
             name: artiste.name,
             date: new Date(artiste.date).toISOString().split("T")[0],
             time: new Date(artiste.time).toISOString().substring(11, 16),
-            stage: artiste.stage,
             style: artiste.style,
             description: artiste.description,
             videoLink: artiste.videoLink,
-            imageFile: null
+            imageFile: null,
+            place_id: artiste.place_id.charAt(artiste.place_id.length - 1)
         });
     }, [artiste]);
 
@@ -129,14 +126,15 @@ const ArtisteEdit = ({ artiste, setSelectedArtiste, handleSetToggle, scenes }) =
                         <label htmlFor="stageEdit">Scène</label>
                         <select
                             className="form-control"
-                            name="stage"
+                            name="place_id"
                             id="stageEdit"
-                            value={artisteEdit.stage}
+                            value={artisteEdit.place_id}
                             onChange={handleOnChange}>
                             <option value='' disabled>Choisir une scène</option>
-                            {scenes.map((scene, index) => {
+                            {scenes.map((scene) => {
+
                                 return (
-                                    <option key={index} value={scene}>{scene}</option>
+                                    <option key={scene.id} value={scene.id}>{scene.name}</option>
                                 )
                             })}
 

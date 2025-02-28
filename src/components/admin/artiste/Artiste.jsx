@@ -39,7 +39,10 @@ const Artiste = () => {
         const handleSetScenes = async () => {
             try {
                 const response = await apiFunctions.fetchEntity("places");
-                const scenesTemp = response.data.member.filter(place => place.category === 'scènes').map((place) => place.name);
+                const scenesTemp = response.data.member.filter(place => place.category === 'scènes').map((place) => ({
+                    name: place.name,
+                    id: place.id,
+                }));
                 setScenes(scenesTemp);
             } catch (error) {
                 console.error("Erreur lors de la récupération des scènes :", error);
@@ -153,8 +156,7 @@ const Artiste = () => {
                                         <button
                                             className="littleBouton shadow-none bgVert blanc mx-3 py-2 px-3"
                                             onClick={() => {
-                                                setSelectedArtiste(artiste),
-                                                    console.log(artiste);
+                                                setSelectedArtiste(artiste)
                                             }}
                                         >
                                             modifier
