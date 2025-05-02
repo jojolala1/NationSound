@@ -635,6 +635,11 @@ a.active{
     bottom: 0;
 }
 
+.width{
+    min-width: 20rem;
+    max-width: 25rem;
+}
+
 @media screen and (min-width: 768px) {
     .effet {
         width: 16vw;

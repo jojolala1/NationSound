@@ -8,6 +8,15 @@ import greenwave2 from "@/assets/images/greenwave2.svg";
 import { useNavigate } from "react-router-dom";
 import { apiFunctions } from "../logic/apiFunctions";
 import { useMemo } from "react";
+import map from "@/assets/images/map.png";
+import epsi from "@/assets/images/logoEpsi.svg";
+import perrier from "@/assets/images/logoPerrier.png";
+import spotify from "@/assets/images/logoSpotify.png";
+import deezer from "@/assets/images/logoDeezer.svg";
+import corref from "@/assets/images/logoCorref.webp";
+import cmb from "@/assets/images/logoCmb.png";
+import poster from "@/assets/images/poster.webp";
+
 
 export default function Home() {
     const [artistes, setArtistes] = useState([]);
@@ -113,7 +122,7 @@ export default function Home() {
                     loop
                     muted
                     className="video"
-                    poster="/assets/images/poster.webp"
+                    poster={poster}
                     preload="auto"
                     alt="fond"
                     controls={false}
@@ -234,7 +243,7 @@ export default function Home() {
 
             <div className="my-5 d-flex container flex-column-reverse flex-md-row  align-items-center justify-content-center">
                 <img
-                    src="/assets/images/map.png"
+                    src={map}
                     alt="extrait de la carte"
                     className="formborder m-3 mb-5 col-10 col-md-5 clickable shadoww radius"
                     onClick={handleNavigateCarte}
@@ -270,7 +279,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoEpsi.svg"
+                                src={epsi}
                                 alt="logo EPSI"
                                 className=" logo2"
                             />
@@ -282,7 +291,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoSpotify.png"
+                                src={spotify}
                                 alt="logo Spotify"
                                 className=" logo2"
                             />
@@ -294,7 +303,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoDeezer.svg"
+                                src={deezer}
                                 alt="logo Deezer"
                                 className=" logo2"
                             />
@@ -306,7 +315,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoCorref.webp"
+                                src={corref}
                                 alt="logo"
                                 className=" logo2"
                             />
@@ -318,7 +327,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoPerrier.png"
+                                src={perrier}
                                 alt="logo Perrier"
                                 className=" logo2"
                             />
@@ -332,7 +341,7 @@ export default function Home() {
                             }
                         >
                             <img
-                                src="assets/images/logoCmb.png"
+                                src={cmb}
                                 alt="logo cmb"
                                 className=" logo2"
                             />
