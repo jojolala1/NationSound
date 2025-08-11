@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFunctions } from "../../logic/apiFunctions";
 
@@ -50,7 +50,7 @@ export default function ArtisteStyle() {
     }
 
     if (!artistes) {
-        return <p>pas d'artistes</p>
+        return <p>pas d&apos;artistes</p>
     }
 
 

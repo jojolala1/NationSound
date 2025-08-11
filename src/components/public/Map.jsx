@@ -1,131 +1,138 @@
-import React, { useEffect, useRef, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import L, { setOptions } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { apiFunctions } from "../logic/apiFunctions";
+import MapFilter from "./mapComponents/mapFilter";
+import MapView from "./mapComponents/mapView";
+
+const filters = [
+    "snacks",
+    "toilettes",
+    "scènes",
+    "soins",
+    "campings",
+    "parkings",
+    "buvettes",
+];
 
 export default function Carte() {
     //créé une référence qui se nome mapRef, c'est utilisé comme un useState mais evite de rerendre la page une fois changé, elle persiste aussi entre les rendus
     const mapRef = useRef();
 
-    const [loading, setLoading] = useState(false);
     const [site, setSite] = useState(null);
-    const [artistes, setArtistes] = useState(null)
-    const [places, setPlaces] = useState(null);
+    const [artistes, setArtistes] = useState([])
+    const [places, setPlaces] = useState([]);
     const [myPosition, setMyPosition] = useState(null);
 
-    const [visiblePlaces, setVisiblePlaces] = useState(null);
-    
-    const filters = [
-        "snacks",
-        "toilettes",
-        "scènes",
-        "soins",
-        "campings",
-        "parkings",
-        "buvettes",
-    ];
+    const [visiblePlaces, setVisiblePlaces] = useState([]);
 
-    const [error, setError] = useState({});
+
+    const [error, setError] = useState(null);
     const [checked, setChecked] = useState({});
 
     useEffect(() => {
         const fetchSite = async () => {
-            const res = await apiFunctions.fetchEntityWithoutToken("sites/1");
-            if (res.error) {
-                setError(res);
-            } else {
-                setSite(res.data);
+            try {
+                const res = await apiFunctions.fetchEntityWithoutToken("sites/1");
+                if (res.error) {
+                    setError(res);
+                } else {
+                    setSite(res.data);
+                }
+            } catch (error) {
+                setError({ message: "Erreur lors du chargement du site." });
+                console.error("fetchSite error:", error);
             }
         };
+
         const fetchPlaces = async () => {
-            const res = await apiFunctions.fetchEntityWithoutToken("places");
-            if (res.error) {
-                setError(res);
-            } else {
-                setPlaces(res.data.member);
+            try {
+                const res = await apiFunctions.fetchEntityWithoutToken("places");
+                if (res.error) {
+                    setError(res);
+                } else {
+                    setPlaces(res.data.member);
+                }
+            } catch (error) {
+                setError({ message: "Erreur lors du chargement des places." });
+                console.error("fetchPlaces error:", error);
             }
         };
+
         const fetchArtistes = async () => {
-            const res = await apiFunctions.fetchEntityWithoutToken('artistes')
-            if (res.error) {
-                setError(res);
-            } else {
-                setArtistes(res.data.member);
+            try {
+                const res = await apiFunctions.fetchEntityWithoutToken('artistes');
+                if (res.error) {
+                    setError(res);
+                } else {
+                    setArtistes(res.data.member);
+                }
+            } catch (error) {
+                setError({ message: "Erreur lors du chargement des artistes." });
+                console.error("fetchArtistes error:", error);
             }
-        }
+        };
+
         setChecked(filters.reduce((acc, x) => {
-            acc[x]= true;
-            return acc
-        },{}))
+            acc[x] = true;
+            return acc;
+        }, { tous: true }));
+
         fetchSite();
         fetchPlaces();
-        fetchArtistes()
+        fetchArtistes();
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!places) return;
 
         setVisiblePlaces(places.filter(place => checked[place.category]))
-    },[checked, places])
+    }, [checked, places])
 
 
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            const placesCopy = places.map(place=> {
-                if (place.artiste){
-                    delete place.artiste
-                }
-                return place
-            })
-            setPlaces(placesCopy)
-            artistes?.forEach(artiste => {
-                const artisteDate = new Date(artiste.date).toLocaleDateString('fr-FR',{
-                    day:'numeric',
-                    month:'long',
-                    year:'numeric'
-                })
-                const date = new Date().toLocaleDateString('fr-FR',{
-                    day:'numeric',
-                    month:'long',
-                    year:'numeric'
-                })
+    useEffect(() => {
+    const interval = setInterval(() => {
+        // On part d'une copie de places sans artiste
+        let updatedPlaces = places.map(place => {
+            if (place.artiste) {
+                const copy = { ...place };
+                delete copy.artiste;
+                return copy;
+            }
+            return place;
+        });
 
-                if(artisteDate === date){
-                    let time = new Date()
-                    let timePlus1 = new Date(time)
+        const now = new Date();
 
-                    timePlus1.setHours(time.getHours() + 1)
+        artistes.forEach(artiste => {
+    if (!artiste.date || !artiste.time) return;
 
-                    let timeformated = time.toISOString().substring(11, 16)
-                    let timePlus1formated = timePlus1.toISOString().substring(11, 16)
-                    let artisteTimeformated = new Date(artiste.time).toISOString().substring(11, 16)
+    const dateOnly = artiste.date.split('T')[0]; // "2025-09-07"
+    const timeOnly = artiste.time.split('T')[1]?.substring(0, 5); // "17:00"
 
-                    if(artisteTimeformated >= timeformated && artisteTimeformated <= timePlus1formated){
-                        places.forEach(place => {
-                            if(artiste.stage === place.name){
-                                place.artiste = artiste
-                            }
-                        });
-                    }
-                }
-            });
-        },5000)
-        return () => clearInterval(interval);
+    if (!timeOnly) return; // sécurité
 
-    },[artistes])
+    // Construire une string ISO complète : "2025-09-07T17:00"
+    const artisteStartString = `${dateOnly}T${timeOnly}`;
 
-    //element visuel pour indiquer l'etat d'un depliant
-    const [indice, setIndice] = useState("-");
-    const togglerIndice = () => {
-        if (indice === "-") {
-            setIndice("+");
-        } else {
-            setIndice("-");
-        }
-        return indice;
-    };
+    const artisteStart = new Date(artisteStartString);
+    const artisteEnd = new Date(artisteStart);
+    artisteEnd.setHours(artisteEnd.getHours() + 1);
+
+
+    if (now >= artisteStart && now <= artisteEnd) {
+        updatedPlaces = updatedPlaces.map(place =>
+            place.name === artiste.stage ? { ...place, artiste } : place
+        );
+    }
+});
+
+        setPlaces(updatedPlaces);
+    }, 5000);
+
+    return () => clearInterval(interval);
+}, [artistes, places]);
+
 
     //gestion du lien pour lartiste en question
     const navigate = useNavigate();
@@ -133,73 +140,30 @@ export default function Carte() {
         navigate(`../programmation/${artiste.name}`, { state: { artiste } });
     };
 
-    //gere l'etat des filtres vis a vis de l'option 'tous'
-    const checkedAll = () => {
-        const isAllSelected = !checked.tous;
-
-        setChecked({
-            tous: isAllSelected,
-            ...filters.reduce(
-                (acc, x) => ({
-                    ...acc,
-                    [x]: isAllSelected,
-                }),
-                {}
-            ),
-        });
-    };
-
-    //prend en paramettre le filtre en question et modifie son etat
-    const handleCheckChange = (category) => {
-        setChecked((prevChecked) => {
-            const newChecked = {
-                ...prevChecked,
-                [category]: !prevChecked[category],
-            };
-            return newChecked;
-        });
-    };
-
-    //permet de definir un icon en fonction de chaques localisations (toilettes, scene etc..)
-    const bootstrapIcon = (location) => {
-        let color = 'noir'
-        if(location.artiste){
-            color = 'rouge'
-        }
-        if (location.category === "me") {
-            color = 'blue'; 
-        }
-    return`
-    <div class="text-center">
-        <i class=" ${location.iconClass} ${color}" style="font-size: 24px;"></i>
-    </div>
-`
-    };
-
     const successPosition = (position) => {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
-    
+
         if (!lat || !long) {
-            return; 
+            return;
         }
-    
+
         const newLocation = {
             id: Date.now(),
             name: "Moi",
-            latitude: lat,      
-            longitude: long,    
+            latitude: lat,
+            longitude: long,
             iconClass: "bi-person-fill text-primary ",
             category: "me",
         };
-    
+
         setMyPosition(newLocation);
-    
+
         if (mapRef.current) {
             mapRef.current.setView([lat, long], 17);
         }
     };
-    
+
 
     //recuperev la position de l'utilisateur
     const handlePosition = () => {
@@ -234,123 +198,18 @@ export default function Carte() {
             </h1>
 
             <div className="radius bgBlanc d-flex flex-column align-items-center mb-5 ">
-                <div className="d-flex flex-column text-center">
-                    <p
-                        className="vert titleFont h1 my-4 "
-                        data-bs-toggle="collapse"
-                        href="#collapse"
-                        role="button"
-                        aria-expanded="true"
-                        aria-controls="collapse"
-                        onClick={togglerIndice}
-                    >
-                        Filtres {indice}
-                    </p>
-                    <div className="collapse show" id="collapse">
-                        <form className="d-flex flex-column flex-md-row gap-2 gap-md-3 gap-lg-4 ">
-                            <div>
-                                <input
-                                    type="checkbox"
-                                    id="Tous"
-                                    onChange={() => checkedAll()}
-                                />
-                                <label htmlFor="Tous">Tous</label>
-                            </div>
-                            {filters.map((filter) => {
-                                return (
-                                    <div key={filter}>
-                                        <input
-                                            type="checkbox"
-                                            id={filter}
-                                            checked={checked[filter] || false}
-                                            onChange={() =>
-                                                handleCheckChange(filter)
-                                            }
-                                        />
-                                        <label htmlFor={filter}>{filter}</label>
-                                    </div>
-                                );
-                            })}
-                        </form>
+                {error && (
+                    <div className="alert alert-danger w-100 text-center">
+                        {Object.values(error).map((msg, i) => (
+                            <p key={i} className="mb-1">{msg}</p>
+                        ))}
                     </div>
-                </div>
+                )}
+                <MapFilter checked={checked} setChecked={setChecked} filters={filters} />
                 {site?.latitude ? (
                     <>
                         <div className="formborder radius  m-4 m-md-5 shadoww">
-                            <MapContainer
-                                className="styleMap "
-                                center={[site.latitude, site.longitude]}
-                                zoom={17}
-                                scrollWheelZoom={false}
-                                ref={mapRef}
-                            >
-                                <TileLayer
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
-                                {visiblePlaces?.length  > 0 && visiblePlaces.map((location) => (
-                                    
-                            <Marker
-                                key={location.id}
-                                position={[location.latitude, location.longitude]}
-                                icon={L.divIcon({
-                                    className: "custom-icon",
-                                    html: bootstrapIcon(location),
-                                    iconSize: [30, 30],
-                                    iconAnchor: [15, 30],
-                                    popupAnchor: [0, -30],
-                                })}
-                            >
-                                <Popup className="leaflet-popup-content">
-                                    <p className="fw-bold">{location.name}</p>
-                                    {location.description && (
-                                        <p className="fw-light">
-                                            Description: {location.description}
-                                        </p>
-                                    )}
-                                    {location.opening && (
-                                        <>
-                                        <p>Ouverture: {new Date(location.opening).toISOString().substring(11, 16)}h</p>
-                                        <p>Fermeture: {new Date(location.closing).toISOString().substring(11, 16)}h</p>
-
-                                        </>
-                                    )}
-                                    {location.artiste && (
-                                        <>
-                                            <p
-                                                className="clickable text-decoration-underline text-primary"
-                                                onClick={() => {
-                                                    handleNavigate(
-                                                        location.artiste,
-                                                        {
-                                                            state: location.artiste,
-                                                        }
-                                                    );
-                                                }}
-                                            >
-                                                Artiste actuel : {location.artiste.name},{" "}
-                                            </p>
-                                        </>
-                                    )}
-                                </Popup>
-                            </Marker>
-                        ))}
-                        {myPosition && <Marker
-                                key={myPosition.id}
-                                position={[myPosition.latitude, myPosition.longitude]}
-                                icon={L.divIcon({
-                                    className: "custom-icon",
-                                    html: bootstrapIcon(myPosition),
-                                    iconSize: [30, 30],
-                                    iconAnchor: [15, 30],
-                                    popupAnchor: [0, -30],
-                                })}
-                            >
-                                <Popup className="leaflet-popup-content">
-                                    <p className="fw-bold">{myPosition.name}</p>
-                                </Popup>
-                            </Marker>}
-                            </MapContainer>
+                            <MapView myPosition={myPosition} visiblePlaces={visiblePlaces} handleNavigate={handleNavigate} site={site} />
                         </div>
                         <div className="d-flex flex-column align-items-center">
                             <button
