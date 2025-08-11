@@ -16,7 +16,6 @@ const filters = [
 ];
 
 export default function Carte() {
-    //créé une référence qui se nome mapRef, c'est utilisé comme un useState mais evite de rerendre la page une fois changé, elle persiste aussi entre les rendus
     const mapRef = useRef();
 
     const [site, setSite] = useState(null);
@@ -92,7 +91,7 @@ export default function Carte() {
 
     useEffect(() => {
     const interval = setInterval(() => {
-        // On part d'une copie de places sans artiste
+        
         let updatedPlaces = places.map(place => {
             if (place.artiste) {
                 const copy = { ...place };
@@ -107,12 +106,11 @@ export default function Carte() {
         artistes.forEach(artiste => {
     if (!artiste.date || !artiste.time) return;
 
-    const dateOnly = artiste.date.split('T')[0]; // "2025-09-07"
-    const timeOnly = artiste.time.split('T')[1]?.substring(0, 5); // "17:00"
+    const dateOnly = artiste.date.split('T')[0]; 
+    const timeOnly = artiste.time.split('T')[1]?.substring(0, 5); 
 
-    if (!timeOnly) return; // sécurité
+    if (!timeOnly) return; 
 
-    // Construire une string ISO complète : "2025-09-07T17:00"
     const artisteStartString = `${dateOnly}T${timeOnly}`;
 
     const artisteStart = new Date(artisteStartString);
