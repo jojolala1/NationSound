@@ -90,49 +90,47 @@ export default function Carte() {
 
 
     useEffect(() => {
-    const interval = setInterval(() => {
-        
-        let updatedPlaces = places.map(place => {
-            if (place.artiste) {
-                const copy = { ...place };
-                delete copy.artiste;
-                return copy;
-            }
-            return place;
-        });
+        const interval = setInterval(() => {
 
-        const now = new Date();
+            let updatedPlaces = places.map(place => {
+                if (place.artiste) {
+                    const copy = { ...place };
+                    delete copy.artiste;
+                    return copy;
+                }
+                return place;
+            });
 
-        artistes.forEach(artiste => {
-    if (!artiste.date || !artiste.time) return;
+            const now = new Date();
 
-    const dateOnly = artiste.date.split('T')[0]; 
-    const timeOnly = artiste.time.split('T')[1]?.substring(0, 5); 
+            artistes.forEach(artiste => {
+                if (!artiste.date || !artiste.time) return;
 
-    if (!timeOnly) return; 
+                const dateOnly = artiste.date.split('T')[0];
+                const timeOnly = artiste.time.split('T')[1]?.substring(0, 5);
 
-    const artisteStartString = `${dateOnly}T${timeOnly}`;
+                if (!timeOnly) return;
 
-    const artisteStart = new Date(artisteStartString);
-    const artisteEnd = new Date(artisteStart);
-    artisteEnd.setHours(artisteEnd.getHours() + 1);
+                const artisteStartString = `${dateOnly}T${timeOnly}`;
 
-
-    if (now >= artisteStart && now <= artisteEnd) {
-        updatedPlaces = updatedPlaces.map(place =>
-            place.name === artiste.stage ? { ...place, artiste } : place
-        );
-    }
-});
-
-        setPlaces(updatedPlaces);
-    }, 5000);
-
-    return () => clearInterval(interval);
-}, [artistes, places]);
+                const artisteStart = new Date(artisteStartString);
+                const artisteEnd = new Date(artisteStart);
+                artisteEnd.setHours(artisteEnd.getHours() + 1);
 
 
-    //gestion du lien pour lartiste en question
+                if (now >= artisteStart && now <= artisteEnd) {
+                    updatedPlaces = updatedPlaces.map(place =>
+                        place.name === artiste.stage ? { ...place, artiste } : place
+                    );
+                }
+            });
+
+            setPlaces(updatedPlaces);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [artistes, places]);
+
     const navigate = useNavigate();
     const handleNavigate = (artiste) => {
         navigate(`../programmation/${artiste.name}`, { state: { artiste } });
@@ -162,8 +160,6 @@ export default function Carte() {
         }
     };
 
-
-    //recuperev la position de l'utilisateur
     const handlePosition = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(successPosition, handleError);
